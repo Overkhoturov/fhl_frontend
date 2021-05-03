@@ -1,10 +1,17 @@
+/* eslint-disable */
 import React from 'react';
+import { ConnectedRouter } from 'connected-react-router';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import App from './App';
+import store, { history } from './store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root'),
 );

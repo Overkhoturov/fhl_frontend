@@ -8,7 +8,7 @@ export default memo(() => (
   <>
     <Header />
     <div>
-      Not found
+      Events
     </div>
   </>
 ));
