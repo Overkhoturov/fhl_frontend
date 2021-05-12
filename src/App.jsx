@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
@@ -16,7 +16,7 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <Router>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/clubs" component={Clubs} />
@@ -29,7 +29,7 @@ function App() {
         <Route path="/tournaments" component={Tournaments} />
         <Route component={NotFound} />
       </Switch>
-    </>
+    </Router>
   );
 }
 

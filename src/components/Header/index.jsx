@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
+import Navigation from '../Navigation';
 import './index.css';
 
 const Header = (props) => {
@@ -8,17 +9,7 @@ const Header = (props) => {
 
   return (
     <>
-      {isShowNavigation
-        ? (
-          <div className="navigation">
-            <button type="button">Турниры</button>
-            <button type="button">События</button>
-            <button type="button">Поддержать</button>
-            <button type="button">Игроки</button>
-            <button type="button">Клубы</button>
-          </div>
-        )
-        : ''}
+      {isShowNavigation ? <Navigation /> : ''}
     </>
   );
 };
