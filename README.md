@@ -7,7 +7,7 @@
 
 2) `cd fhl_frontend`
 
-3) `npm -i`
+3) `npm i`
 
 ## Start app
 
