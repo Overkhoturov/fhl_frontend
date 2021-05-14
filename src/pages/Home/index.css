@@ -1,0 +1,13 @@
+.banner {
+  background-image: url(../../assets/img/slider/banner.jpg);
+  width: 100%;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+.banner__content {
+  position: relative;
+  padding: 70px 0 100px;
+  text-align: center;
+  background: rgba(19, 20, 28, 0.5);
+}

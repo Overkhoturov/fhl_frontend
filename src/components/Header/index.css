@@ -1,0 +1,14 @@
+.container {
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 34px 0;
+}
+
+.header_home {
+  background: none;
+  position: relative;
+  z-index: 10;
+}

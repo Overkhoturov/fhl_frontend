@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+import CONSTANTS from '../../constants';
 
 const Navigation = () => {
   const history = useHistory();
@@ -8,14 +10,24 @@ const Navigation = () => {
     history.push(route);
   };
   return (
-    <div className="navigation">
-      <Link to="/tournaments" />
-      <button type="button" onClick={() => onChangePage('/tournaments')}>Турниры</button>
-      <button type="button" onClick={() => onChangePage('/events')}>События</button>
-      <button type="button" onClick={() => onChangePage('/donuts')}>Поддержать</button>
-      <button type="button" onClick={() => onChangePage('/players')}>Игроки</button>
-      <button type="button" onClick={() => onChangePage('/clubs')}>Клубы</button>
-    </div>
+    <>
+      <li className="nav-item">
+        <button className="nav-link" type="button" onClick={() => onChangePage(CONSTANTS.TOURNAMENTS)}>Турниры</button>
+      </li>
+      <li className="nav-item">
+        <button className="nav-link" type="button" onClick={() => onChangePage(CONSTANTS.EVENTS)}>События</button>
+      </li>
+      <li className="nav-item">
+        <button className="nav-link" type="button" onClick={() => onChangePage(CONSTANTS.DONATES)}>Поддержать</button>
+      </li>
+      <li className="nav-item">
+        <button className="nav-link" type="button" onClick={() => onChangePage(CONSTANTS.CLUBS)}>Клубы</button>
+      </li>
+      <li className="nav-item">
+        <button className="nav-link" type="button" onClick={() => onChangePage(CONSTANTS.PLAYERS)}>Игроки</button>
+      </li>
+    </>
+
   );
 };
 
