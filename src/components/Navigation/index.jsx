@@ -1,22 +1,27 @@
 import React, { memo } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Navigation = () => {
-  const history = useHistory();
+import CONSTANTS from '../../constants';
 
-  const onChangePage = (route) => {
-    history.push(route);
-  };
-  return (
-    <div className="navigation">
-      <Link to="/tournaments" />
-      <button type="button" onClick={() => onChangePage('/tournaments')}>Турниры</button>
-      <button type="button" onClick={() => onChangePage('/events')}>События</button>
-      <button type="button" onClick={() => onChangePage('/donuts')}>Поддержать</button>
-      <button type="button" onClick={() => onChangePage('/players')}>Игроки</button>
-      <button type="button" onClick={() => onChangePage('/clubs')}>Клубы</button>
-    </div>
-  );
-};
+const Navigation = () => (
+  <>
+    <li className="nav-item">
+      <Link className="nav-link" to={CONSTANTS.TOURNAMENTS}> Турниры </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link" to={CONSTANTS.EVENTS}> События </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link" to={CONSTANTS.DONATES}> Поддержать </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link" to={CONSTANTS.CLUBS}> Клубы </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link" to={CONSTANTS.PLAYERS}> Игроки </Link>
+    </li>
+  </>
+
+);
 
 export default memo(Navigation);
