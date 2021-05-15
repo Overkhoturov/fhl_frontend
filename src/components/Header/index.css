@@ -12,3 +12,20 @@
   position: relative;
   z-index: 10;
 }
+
+.navbar {
+  background: transparent;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 80px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}

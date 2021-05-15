@@ -12,13 +12,19 @@ export default memo(() => {
       name: 'cyber-versus',
       desciption: 'Кибер Арена Versus, Таганрог',
       date: '2021-04-10',
-      avatarUrl: 'img/games/cyber_versus.jpg',
+      avatarUrl: '../../assets/img/games/cyber_versus.jpg',
     },
     {
       name: 'cyber-arena-rnd-2',
       desciption: 'Кибер-Арена, Ростов-на-Дону',
       date: '2020-12-30',
-      avatarUrl: 'img/games/CyberArenaRnd2.jpg',
+      avatarUrl: '../../assets/img/games/CyberArenaRnd2.jpg',
+    },
+    {
+      name: 'legion',
+      desciption: 'Legion Cyber Arena, Таганрог',
+      date: '2020-09-20',
+      avatarUrl: '../../assets/img/games/legion.jpg',
     },
   ];
 

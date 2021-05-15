@@ -6,4 +6,6 @@ export default {
   DONATES: '/donates',
   CLUBS: '/clubs',
   PLAYERS: '/players',
+  PROFILE: '/profile',
+  REGISTRATION: '/registration',
 };
