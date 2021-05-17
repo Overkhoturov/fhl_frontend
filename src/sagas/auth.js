@@ -1,10 +1,25 @@
 import { put } from 'redux-saga/effects';
 
-import { login } from '../actions/auth';
-import * as actionTypes from '../action-types/auth';
-
-export const types = actionTypes;
+import { loginSuccess } from '../actions/auth';
+// import * as actionTypes from '../action-types/auth';
 
 export function* loginSaga() {
-  return yield put(login());
+  // try {
+  //   const user = yield call(Api.fetchUser, action.payload.userId);
+  //   yield put({ type: 'USER_FETCH_SUCCEEDED', user });
+  // } catch (e) {
+  //   yield put({ type: 'USER_FETCH_FAILED', message: e.message });
+  // }
+
+  return yield put(loginSuccess('fsdfsd'));
+}
+export function* logOutSaga() {
+  // try {
+  //   const user = yield call(Api.fetchUser, action.payload.userId);
+  //   yield put({ type: 'USER_FETCH_SUCCEEDED', user });
+  // } catch (e) {
+  //   yield put({ type: 'USER_FETCH_FAILED', message: e.message });
+  // }
+
+  return yield put(loginSuccess('fsdfsd'));
 }

@@ -1,12 +1,16 @@
 import React, { memo } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import LogIn from '../LogIn';
 import Navigation from '../Navigation';
+import { showModal } from '../../actions/home';
 import './index.css';
 
 const Header = (props) => {
   const { isShowNavigation, classHeader } = props;
+  const dispatch = useDispatch();
 
   return (
     <header className={`header ${classHeader}`}>
@@ -42,13 +46,13 @@ const Header = (props) => {
             className="navbar-nav nav-pills"
           >
             <li className="nav-item">
-              <button type="button" className="nav-link">Войти</button>
+              <button type="button" className="nav-link" onClick={() => dispatch(showModal())}>Войти</button>
             </li>
           </ul>
         </div>
       </nav>
+      <LogIn />
     </header>
-
   );
 };
 

@@ -1,0 +1,2 @@
+export const HOME_SHOW_MODAL = 'HOME_SHOW_MODAL';
+export const HOME_HIDE_MODAL = 'HOME_HIDE_MODAL';

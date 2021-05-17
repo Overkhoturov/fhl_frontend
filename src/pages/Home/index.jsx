@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-
 import Header from '../../components/Header';
+
 import CONSTANTS from '../../constants';
 
 import './index.css';
@@ -9,18 +9,21 @@ import './index.css';
 export default memo(() => {
   const homeTournaments = [
     {
+      id: 1,
       name: 'cyber-versus',
       desciption: 'Кибер Арена Versus, Таганрог',
       date: '2021-04-10',
       avatarUrl: '../../assets/img/games/cyber_versus.jpg',
     },
     {
+      id: 2,
       name: 'cyber-arena-rnd-2',
       desciption: 'Кибер-Арена, Ростов-на-Дону',
       date: '2020-12-30',
       avatarUrl: '../../assets/img/games/CyberArenaRnd2.jpg',
     },
     {
+      id: 3,
       name: 'legion',
       desciption: 'Legion Cyber Arena, Таганрог',
       date: '2020-09-20',
@@ -46,7 +49,7 @@ export default memo(() => {
         <h2 className="title">Проведенные мероприятия</h2>
         <div className="games">
           {homeTournaments.map((tournament) => (
-            <div className="games__item">
+            <div key={tournament.id} className="games__item">
               <Link
                 to={`${CONSTANTS.TOURNAMENTS}/${tournament.name}`}
                 className="games__image"

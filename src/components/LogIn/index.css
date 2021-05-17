@@ -1,0 +1,15 @@
+.header_home {
+  position: static;
+}
+
+.close {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.popup__input {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}

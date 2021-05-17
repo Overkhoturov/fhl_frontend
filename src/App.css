@@ -6,3 +6,18 @@ body {
   color: #FFFFFF;
   background: #272A33;
 }
+
+.input {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  color: #FFFFFF;
+  background: #6C6E84;
+  border: none;
+  border-radius: unset;
+}
+.input::placeholder {
+  color: #FFFFFF;
+}
