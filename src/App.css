@@ -17,7 +17,24 @@ body {
   background: #6C6E84;
   border: none;
   border-radius: unset;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
 }
 .input::placeholder {
   color: #FFFFFF;
+}
+
+.input__wrong {
+  box-shadow: 0 0 0 0.25rem rgb(250 0 0 / 30%);
+}
+
+.button {
+  font-size: 18px;
+  line-height: 1;
+  padding: 20px 30px;
+  color: #242632;
+  background: #fff;
+  border-radius: 0;
+  border-color: #fff;
 }

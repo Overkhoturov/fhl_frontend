@@ -68,9 +68,14 @@ const LogInModal = () => {
       <div className="row">
         <div className="col">
           <span>Нет аккаунта?</span>
-          <Link to={CONSTANTS.REGISTRATION}>Зарегистрироваться </Link>
+          <Link
+            to={CONSTANTS.REGISTRATION}
+            onClick={() => handleCloseModal()}
+          >
+            Зарегистрироваться
+          </Link>
         </div>
-        <button type="submit" className="col-auto" onClick={() => dispatch(loginRequest({ login, password }))}>
+        <button type="submit" className="col-auto btn button" onClick={() => dispatch(loginRequest({ login, password }))}>
           Войти
         </button>
       </div>

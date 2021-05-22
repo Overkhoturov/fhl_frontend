@@ -1,0 +1,14 @@
+.registration-form {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  flex-direction: column;
+  background-color: #3D3F51;
+  max-width: 50%;
+  margin: auto;
+}
+
+.registration-form__input {
+  margin-bottom: 30px;
+  width: 100%;
+}

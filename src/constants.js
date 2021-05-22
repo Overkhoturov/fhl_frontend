@@ -8,4 +8,6 @@ export default {
   PLAYERS: '/players',
   PROFILE: '/profile',
   REGISTRATION: '/registration',
+
+  SERVER: 'http://localhost:8080',
 };
