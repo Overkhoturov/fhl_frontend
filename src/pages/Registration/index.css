@@ -12,3 +12,17 @@
   margin-bottom: 30px;
   width: 100%;
 }
+
+.registration-form__role-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.registration-form__role-inputs input {
+  margin-right: 10px;
+}
+
+.registration-form__role-header {
+  margin-bottom: 20px;
+  color: #B7BADF;
+}

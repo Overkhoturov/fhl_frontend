@@ -10,4 +10,11 @@ export default {
   REGISTRATION: '/registration',
 
   SERVER: 'http://localhost:8080',
+  ROLES: {
+    TOP: 'Топ',
+    JUNGLE: 'Лес',
+    MID: 'Мид',
+    BOT: 'Бот',
+    SUPPORT: 'Саппорт',
+  },
 };

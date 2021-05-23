@@ -26,19 +26,15 @@ export function* loginSaga(action) {
   }
 }
 
-async function registrationRequest(name, email, password) {
-  const result = await axios.post(`${CONSTANTS.SERVER}/auth/registrate`, {
-    login: name,
-    email,
-    password,
-  });
+async function registrationRequest(payload) {
+  const result = await axios.post(`${CONSTANTS.SERVER}/auth/registrate`, payload);
   return result;
 }
 
 export function* registrationSaga(action) {
-  const { name, email, password } = action.payload;
   try {
-    const result = yield call(registrationRequest, name, email, password);
+    console.log('action.payload', action.payload);
+    const result = yield call(registrationRequest, action.payload);
     const payload = result.data;
     yield put(registrationSuccess(payload));
     console.log('success');
