@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getTournaments } from '../../actions/home';
+import { getTournaments } from '../../actions/tournaments';
 import Header from '../../components/Header';
 
 import CONSTANTS from '../../constants';

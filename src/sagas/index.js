@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga/effects';
 
 import { AUTH_LOGIN_REQUEST, AUTH_REGISTRATION_REQUEST } from '../action-types/auth';
-import TOURNAMENTS_GET_TOURNAMENTS from '../action-types/tournaments';
+import { TOURNAMENTS_GET_TOURNAMENTS } from '../action-types/tournaments';
 import { loginSaga, registrationSaga } from './auth';
 import getTournaments from './home';
 
