@@ -1,16 +1,27 @@
 import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import LogIn from '../LogIn';
 import Navigation from '../Navigation';
 import { showModal } from '../../actions/home';
+import { logOut } from '../../actions/auth';
 import './index.css';
 
 const Header = (props) => {
   const { isShowNavigation, classHeader, showLoginButton } = props;
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const { isLogedIn } = auth;
+
+  console.log('auth', auth);
+
+  const onLogOut = () => {
+    localStorage.removeItem('token');
+
+    dispatch(logOut());
+  };
 
   return (
     <header className={`header ${classHeader}`}>
@@ -46,9 +57,18 @@ const Header = (props) => {
           <ul
             className="navbar-nav nav-pills"
           >
-            <li className="nav-item">
-              <button type="button" className="nav-link" onClick={() => dispatch(showModal())}>Войти</button>
-            </li>
+            {!isLogedIn
+              ? (
+                <li className="nav-item">
+                  <button type="button" className="nav-link" onClick={() => dispatch(showModal())}>Войти</button>
+                </li>
+              )
+              : (
+                <li className="nav-item">
+                  <button type="button" className="nav-link" onClick={onLogOut}>Выйти</button>
+                </li>
+              )}
+
           </ul>
           ) }
         </div>

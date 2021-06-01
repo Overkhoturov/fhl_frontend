@@ -11,6 +11,7 @@ export default memo(() => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [city, setCity] = useState('');
@@ -36,10 +37,10 @@ export default memo(() => {
   const submitForm = (event) => {
     event.preventDefault();
     setSubmitClicked(true);
-    if (!login || !password || !repeatPassword) return;
+    if (!login || !email || !password || !repeatPassword) return;
     if (!isCorrectPassword) return;
     dispatch(registrationRequest({
-      login, password, name, phone, city, nick, mainRole, additionRoles,
+      login, password, name, phone, city, nick, mainRole, additionRoles, email,
     }));
   };
 
@@ -78,6 +79,13 @@ export default memo(() => {
           value={repeatPassword}
           type="password"
           onChange={(event) => setRepeatPassword(event.target.value.trim())}
+        />
+        <input
+          className={`input registration-form__input form-control ${isWrong(email) ? '' : 'input__wrong'}`}
+          placeholder="Введите почту*"
+          value={email}
+          type="email"
+          onChange={(event) => setEmail(event.target.value.trim())}
         />
         <input
           className="input registration-form__input form-control"

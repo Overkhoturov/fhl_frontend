@@ -3,7 +3,7 @@ import * as actionTypes from '../action-types/auth';
 const tokenLS = localStorage.getItem('token');
 
 const initialState = {
-  isLogedIn: false,
+  isLogedIn: Boolean(tokenLS),
   isShowAlert: false,
   token: tokenLS || '',
   message: '',
@@ -29,6 +29,10 @@ export default (state = initialState, action) => {
       return { ...state, status: true, isShowAlert: true };
     case actionTypes.AUTH_REGISTRATION_ERROR:
       return { ...state, status: false, isShowAlert: true };
+    case actionTypes.AUTH_LOGOUT:
+      return {
+        ...state, token: '', isShowAlert: false, isLogedIn: false,
+      };
     default:
       return state;
   }
