@@ -1,5 +1,8 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { getTournaments } from '../../actions/home';
 import Header from '../../components/Header';
 
 import CONSTANTS from '../../constants';
@@ -7,6 +10,13 @@ import CONSTANTS from '../../constants';
 import './index.css';
 
 export default memo(() => {
+  const dispatch = useDispatch();
+  const home = useSelector((state) => state.home);
+
+  console.log('home', home);
+  useEffect(() => {
+    dispatch(getTournaments());
+  }, []);
   const homeTournaments = [
     {
       id: 1,

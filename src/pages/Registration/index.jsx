@@ -57,7 +57,7 @@ export default memo(() => {
 
   return (
     <>
-      <Header />
+      <Header showLoginButton={false} />
       <form className="registration-form" onSubmit={submitForm}>
         <input
           className={`input registration-form__input form-control ${isWrong(login) ? '' : 'input__wrong'}`}

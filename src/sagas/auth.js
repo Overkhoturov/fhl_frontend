@@ -4,6 +4,7 @@ import axios from 'axios';
 import {
   loginSuccess, loginError, registrationSuccess, registrationError,
 } from '../actions/auth';
+import { hideModal } from '../actions/home';
 import CONSTANTS from '../constants';
 
 async function loginRequest(login, password) {
@@ -19,7 +20,13 @@ export function* loginSaga(action) {
   try {
     const result = yield call(loginRequest, login, password);
     const payload = result.data;
+    const { token } = payload;
+    if (!token) {
+      throw Error();
+    }
+    localStorage.setItem('token', token);
     yield put(loginSuccess(payload));
+    yield put(hideModal());
   } catch (error) {
     const { message } = error.response.data;
     yield put(loginError(message));

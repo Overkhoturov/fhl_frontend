@@ -1,0 +1,30 @@
+.container {
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 34px 0;
+}
+
+.header_home {
+  background: none;
+  z-index: 10;
+}
+
+.navbar {
+  background: transparent;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 80px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}

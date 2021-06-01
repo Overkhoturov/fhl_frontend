@@ -10,6 +10,7 @@ import Players from './pages/Players';
 import Profile from './pages/Profile';
 import Registration from './pages/Registration';
 import Tournaments from './pages/Tournaments';
+import Notification from './components/Notification';
 
 import CONSTANTS from './constants';
 import './App.css';
@@ -29,6 +30,7 @@ function App() {
         <Route path={`${CONSTANTS.TOURNAMENTS}/:id`} component={Tournaments} />
         <Route component={NotFound} />
       </Switch>
+      <Notification />
     </Router>
   );
 }

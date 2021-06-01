@@ -9,7 +9,7 @@ import { showModal } from '../../actions/home';
 import './index.css';
 
 const Header = (props) => {
-  const { isShowNavigation, classHeader } = props;
+  const { isShowNavigation, classHeader, showLoginButton } = props;
   const dispatch = useDispatch();
 
   return (
@@ -42,6 +42,7 @@ const Header = (props) => {
             </li>
             {isShowNavigation ? <Navigation /> : ''}
           </ul>
+          {showLoginButton && (
           <ul
             className="navbar-nav nav-pills"
           >
@@ -49,6 +50,7 @@ const Header = (props) => {
               <button type="button" className="nav-link" onClick={() => dispatch(showModal())}>Войти</button>
             </li>
           </ul>
+          ) }
         </div>
       </nav>
       <LogIn />
@@ -58,11 +60,13 @@ const Header = (props) => {
 
 Header.propTypes = {
   isShowNavigation: PropTypes.bool,
+  showLoginButton: PropTypes.bool,
   classHeader: PropTypes.string,
 };
 
 Header.defaultProps = {
   isShowNavigation: false,
+  showLoginButton: true,
   classHeader: '',
 };
 
