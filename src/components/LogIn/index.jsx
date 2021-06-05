@@ -79,6 +79,15 @@ const LogInModal = () => {
           Войти
         </button>
       </div>
+      <div className="row">
+        <Link
+          className="col"
+          to={CONSTANTS.FORGOT}
+          onClick={() => handleCloseModal()}
+        >
+          Забыл пароль
+        </Link>
+      </div>
     </Modal>
   );
 };

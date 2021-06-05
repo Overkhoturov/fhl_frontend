@@ -8,8 +8,9 @@ export default {
   PLAYERS: '/players',
   PROFILE: '/profile',
   REGISTRATION: '/registration',
+  FORGOT: '/forgot',
 
-  SERVER: 'http://localhost:8080',
+  SERVER: process.env.REACT_APP_SERVER,
   ROLES: {
     TOP: 'Топ',
     JUNGLE: 'Лес',

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import {
   loginSuccess, loginError, registrationSuccess, registrationError,
+  forgotPasswordError, forgotPasswordSuccess,
 } from '../actions/auth';
 import { hideModal } from '../actions/home';
 import CONSTANTS from '../constants';
@@ -40,14 +41,29 @@ async function registrationRequest(payload) {
 
 export function* registrationSaga(action) {
   try {
-    console.log('action.payload', action.payload);
     const result = yield call(registrationRequest, action.payload);
     const payload = result.data;
     yield put(registrationSuccess(payload));
-    console.log('success');
   } catch (error) {
     console.log('error', error);
     // const { message } = error.response.data;
     yield put(registrationError());
+  }
+}
+
+async function forgotPasswordRequest(payload) {
+  const result = await axios.post(`${CONSTANTS.SERVER}/auth/forgot`, payload);
+  return result;
+}
+
+export function* forgotPasswordSaga(action) {
+  try {
+    const result = yield call(forgotPasswordRequest, action.payload);
+    const payload = result.data;
+    yield put(forgotPasswordSuccess(payload));
+  } catch (error) {
+    console.log('error', error);
+    // const { message } = error.response.data;
+    yield put(forgotPasswordError());
   }
 }

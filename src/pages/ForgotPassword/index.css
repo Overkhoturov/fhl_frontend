@@ -1,0 +1,28 @@
+.registration-form {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  flex-direction: column;
+  background-color: #3D3F51;
+  max-width: 50%;
+  margin: auto;
+}
+
+.registration-form__input {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.registration-form__role-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.registration-form__role-inputs input {
+  margin-right: 10px;
+}
+
+.registration-form__role-header {
+  margin-bottom: 20px;
+  color: #B7BADF;
+}

@@ -10,6 +10,7 @@ import Players from './pages/Players';
 import Profile from './pages/Profile';
 import Registration from './pages/Registration';
 import Tournaments from './pages/Tournaments';
+import ForgotPassword from './pages/ForgotPassword';
 import Notification from './components/Notification';
 
 import CONSTANTS from './constants';
@@ -28,6 +29,7 @@ function App() {
         <Route path={CONSTANTS.REGISTRATION} component={Registration} />
         <Route exact path={CONSTANTS.TOURNAMENTS} component={Tournaments} />
         <Route path={`${CONSTANTS.TOURNAMENTS}/:id`} component={Tournaments} />
+        <Route exact path={CONSTANTS.FORGOT} component={ForgotPassword} />
         <Route component={NotFound} />
       </Switch>
       <Notification />
