@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import {
   loginSuccess, loginError, registrationSuccess, registrationError,
-  forgotPasswordError, forgotPasswordSuccess,
+  forgotPasswordError, forgotPasswordSuccess, resetPasswordSuccess, resetPasswordError,
 } from '../actions/auth';
 import { hideModal } from '../actions/home';
 import CONSTANTS from '../constants';
@@ -65,5 +65,23 @@ export function* forgotPasswordSaga(action) {
     console.log('error', error);
     // const { message } = error.response.data;
     yield put(forgotPasswordError());
+  }
+}
+
+async function resetPasswordRequest(payload) {
+  const { token, id, newPassword } = payload;
+  const result = await axios.put(`${CONSTANTS.SERVER}/auth/reset-password/${id}`, { token, newPassword });
+  return result;
+}
+
+export function* resetPasswordSaga(action) {
+  try {
+    const result = yield call(resetPasswordRequest, action.payload);
+    const payload = result.data;
+    yield put(resetPasswordSuccess(payload));
+  } catch (error) {
+    console.log('error', error);
+    // const { message } = error.response.data;
+    yield put(resetPasswordError());
   }
 }
