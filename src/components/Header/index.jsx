@@ -15,8 +15,6 @@ const Header = (props) => {
   const auth = useSelector((state) => state.auth);
   const { isLogedIn } = auth;
 
-  console.log('auth', auth);
-
   const onLogOut = () => {
     localStorage.removeItem('token');
 

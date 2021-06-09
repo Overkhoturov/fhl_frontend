@@ -29,6 +29,10 @@ export default (state = initialState, action) => {
       return { ...state, status: true, isShowAlert: true };
     case actionTypes.AUTH_REGISTRATION_ERROR:
       return { ...state, status: false, isShowAlert: true };
+    case actionTypes.AUTH_RESET_PASSWORD_SUCCESS:
+      return { ...state, status: true, isShowAlert: true };
+    case actionTypes.AUTH_RESET_PASSWORD_ERROR:
+      return { ...state, status: false, isShowAlert: true };
     case actionTypes.AUTH_LOGOUT:
       return {
         ...state, token: '', isShowAlert: false, isLogedIn: false,

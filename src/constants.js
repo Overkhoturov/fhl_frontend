@@ -9,6 +9,7 @@ export default {
   PROFILE: '/profile',
   REGISTRATION: '/registration',
   FORGOT: '/forgot',
+  RESET_PASSWORD: '/reset-password',
 
   SERVER: process.env.REACT_APP_SERVER,
   ROLES: {
