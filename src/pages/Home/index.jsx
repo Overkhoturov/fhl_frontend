@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 import CONSTANTS from '../../constants';
 
 import './index.css';
+import './cards.css';
 
 export default memo(() => {
   const dispatch = useDispatch();
@@ -50,26 +51,26 @@ export default memo(() => {
             <h1 className="banner__title">
               LEGION CYBER ARENA, ТАГАНРОГ
             </h1>
-            <p className="banner__description" />
+            <p className="banner__description">
+              Строчка или даже две с подробностями предстоящего мероприятия или турнира,
+              какие условия у турнира и все такое. Много всего можно написать.
+            </p>
             <Link to={`${CONSTANTS.TOURNAMENTS}/cyber-versus`} className="banner__btn">Перейти к турниру</Link>
           </div>
         </div>
       </div>
       <section className="container">
-        <h2 className="title">Проведенные мероприятия</h2>
-        <div className="games">
+        <div className="cards">
           {homeTournaments.map((tournament) => (
-            <div key={tournament.id} className="games__item">
+            <div key={tournament.id} className="card">
               <Link
                 to={`${CONSTANTS.TOURNAMENTS}/${tournament.name}`}
-                className="games__image"
+                className="card__image card__image--game"
                 style={{ backgroundImage: `url(${tournament.avatarUrl})` }}
               />
-              <div className="games__desc">
-                <h3 className="games__title">
-                  <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.name}`} className="games__link">{tournament.desciption}</Link>
-                </h3>
-                <div className="games__date">{tournament.date}</div>
+              <div className="card__content card__content--game">
+                <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.name}`} className="card__title">{tournament.desciption}</Link>
+                <div className="card__date">{tournament.date}</div>
               </div>
             </div>
           ))}

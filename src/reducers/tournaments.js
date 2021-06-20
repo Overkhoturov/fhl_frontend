@@ -1,7 +1,7 @@
 // import * as actionTypes from '../action-types/tournaments';
 
 const initialState = {
-  showModal: false,
+  showMenu: false,
 };
 
 export default (state = initialState, action) => {
