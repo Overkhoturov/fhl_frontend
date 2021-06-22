@@ -8,38 +8,17 @@ import Header from '../../components/Header';
 import CONSTANTS from '../../constants';
 
 import './index.css';
+import './cards.css';
 
 export default memo(() => {
   const dispatch = useDispatch();
-  const home = useSelector((state) => state.home);
+  const tournaments = useSelector((state) => state.tournaments);
+  const { allTournaments } = tournaments;
+  const lastTournament = allTournaments.length ? allTournaments[allTournaments.length - 1] : '';
 
-  console.log('home', home);
   useEffect(() => {
     dispatch(getTournaments());
   }, []);
-  const homeTournaments = [
-    {
-      id: 1,
-      name: 'cyber-versus',
-      desciption: 'Кибер Арена Versus, Таганрог',
-      date: '2021-04-10',
-      avatarUrl: `${CONSTANTS.SERVER}/images/cyber_club.jpg`,
-    },
-    {
-      id: 2,
-      name: 'cyber-arena-rnd-2',
-      desciption: 'Кибер-Арена, Ростов-на-Дону',
-      date: '2020-12-30',
-      avatarUrl: `${CONSTANTS.SERVER}/images/cyber_club.jpg`,
-    },
-    {
-      id: 3,
-      name: 'legion',
-      desciption: 'Legion Cyber Arena, Таганрог',
-      date: '2020-09-20',
-      avatarUrl: `${CONSTANTS.SERVER}/images/cyber_club.jpg`,
-    },
-  ];
 
   return (
     <>
@@ -48,28 +27,28 @@ export default memo(() => {
         <div className="banner__container">
           <div className="banner__content">
             <h1 className="banner__title">
-              LEGION CYBER ARENA, ТАГАНРОГ
+              {lastTournament.name}
             </h1>
-            <p className="banner__description" />
-            <Link to={`${CONSTANTS.TOURNAMENTS}/cyber-versus`} className="banner__btn">Перейти к турниру</Link>
+            <p className="banner__description">
+              Строчка или даже две с подробностями предстоящего мероприятия или турнира,
+              какие условия у турнира и все такое. Много всего можно написать.
+            </p>
+            <Link to={`${CONSTANTS.TOURNAMENTS}/${lastTournament.id}`} className="banner__btn">Перейти к турниру</Link>
           </div>
         </div>
       </div>
       <section className="container">
-        <h2 className="title">Проведенные мероприятия</h2>
-        <div className="games">
-          {homeTournaments.map((tournament) => (
-            <div key={tournament.id} className="games__item">
+        <div className="cards">
+          {allTournaments.map((tournament) => (
+            <div key={tournament.id} className="card">
               <Link
-                to={`${CONSTANTS.TOURNAMENTS}/${tournament.name}`}
-                className="games__image"
-                style={{ backgroundImage: `url(${tournament.avatarUrl})` }}
+                to={`${CONSTANTS.TOURNAMENTS}/${tournament.id}`}
+                className="card__image card__image--game"
+                style={{ backgroundImage: `url(${CONSTANTS.SERVER}/images/${tournament.banner})` }}
               />
-              <div className="games__desc">
-                <h3 className="games__title">
-                  <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.name}`} className="games__link">{tournament.desciption}</Link>
-                </h3>
-                <div className="games__date">{tournament.date}</div>
+              <div className="card__content card__content--game">
+                <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.id}`} className="card__title">{tournament.name}</Link>
+                <div className="card__date">{tournament.date}</div>
               </div>
             </div>
           ))}

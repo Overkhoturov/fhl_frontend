@@ -13,7 +13,6 @@ async function getTournamentsRequest() {
 export default function* getTournamentsSaga() {
   try {
     const result = yield call(getTournamentsRequest);
-    console.log('result', result);
     const payload = result.data;
     yield put(getTournamentsSuccess(payload));
   } catch (error) {

@@ -3,6 +3,27 @@
   width: 100%;
   background-size: cover;
   overflow-x: hidden;
+  background-repeat: no-repeat;
+}
+
+.banner__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.banner__container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 50vw 0 50vw;
+  border-color: transparent #272A33 #272A33 #272A33;
 }
 
 .banner__content {
@@ -12,13 +33,8 @@
   background: rgba(19, 20, 28, 0.5);
 }
 
-.banner__container {
+.banner__content > *{
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: calc(100vh - 92px);
-  max-height: 577px;
 }
 
 .banner__content::before {
@@ -42,7 +58,7 @@
   line-height: 73px;
 }
 
-.banner__description {
+.banner__description {	
   max-width: 800px;
   margin: 0 auto 25px;
   text-align: center;
@@ -50,7 +66,7 @@
   line-height: 25px;
 }
 
-.banner__btn {
+.banner__btn {	
   display: inline-block;
   margin: 0 auto;
   padding: 20px 30px;
@@ -64,160 +80,143 @@
   background: #fff;
 }
 
-.banner__container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 0;
-  border-style: solid;
-  border-width: 200px 50vw 0 50vw;
-  border-color: transparent #272A33 #272A33 #272A33;
+.admsliders__list {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-.games {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 auto 50px;
+.admsliders__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 30px;
 }
 
-.games__item {
-	width: 100%;
-	margin-bottom: 70px;
+.admsliders__item:nth-child(odd) {
+  background: #3D3F51;
 }
 
-.games__image {
-	position: relative;
-	display: block;
-	height: 360px;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+.dmsliders__img {
+  width: 20%;
 }
 
-.games__image::before {
-	content: "";
-	position: absolute;
-	top: 0; 
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(36, 38, 50, 0.8);
-	opacity: 0;
-	transition: opacity .3s ease-in-out;
+.admsliders__title {
+  width: 20%;
 }
 
-.games__image::after {
-	content: "ПОДРОБНЕЕ О ТУРНИРЕ";
-	position: absolute;
-	display: block;
-	width: 100%;
-	top: 50%; 		
-	transform: translateY(-50%);
-	opacity: 0;
-	transition: opacity .3s ease-in-out;
-
-	text-align: center;
-	font-family: 'Source Sans Pro';
-	font-style: normal;
-	font-weight: bold;
-	font-size: 24px;
-	line-height: 30px;
-	text-align: center;
-
-	color: #B7BADF;
+.admsliders__description {
+  width: 30%;
 }
 
-.games__image:hover::before,
-.games__image:hover::after {
-	opacity: 1;	
+.admsliders__actions {
+  display: flex;
+  flex-direction: column;	
 }
 
-.games__link {
-	display: flex;
-	color: #fff;	
-	flex-direction: column;
-	text-decoration: none;
+.admsliders__btn:first-child {
+  margin-bottom: 10px;
 }
 
-.games__link:hover {
-	color: #fff;
-	text-decoration: none;
+.nav-link__user-icon {
+  margin-top: -5px;
 }
 
-.games__desc {
-	position: relative;
-	padding: 24px 55px 24px 99px;
-	background: #3d3f51;
-	text-decoration: none;
-	color: #fff;		
+@media (max-width: 768px) {
+  .header.header_home {
+    padding: 0;    
+  }
+
+  .container.container--header {
+    padding: 0 10px 0 25px;
+  }
+
+  .banner { 
+    background-position-x: center;
+  }
+
+  .banner__content { 
+    padding: 25px 20px 45px; 
+  }
+
+  .banner__content::before {  
+    top: -50px;    
+    border-width: 50px 50vw 0 50vw;    
+  }
+
+  .banner__container {
+    padding-top: 70px;
+  }
+
+  .banner__container::after {   
+    border-width: 50px 50vw 0 50vw;
+  }
+
+  .banner__title {
+    padding: 0 20px;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .banner__description {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .banner__btn {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
 }
 
-.games__desc::before {
-	content: "";
-	position: absolute;
-	left: 20px;
-	bottom: 0;
-	width: 59px;
-	height: 145px;
-	background-image: url("../../assets/img/lighthpise.svg");
-	background-size: contain;
-}
 
-.games__title {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 24px;
-	line-height: 30px;
-	color: #FFFFFF;
-}
+@media (max-width: 900px) and (orientation: landscape) {
+  .banner__container {    
+    padding-top: 100px;
+  }
 
-@media (min-width: 768px) {
-	.games__item {
-		width: calc(50% - 40px);
-	}
+  .banner__content::before {   
+    top: -80px;    
+    border-width: 80px 50vw 0 50vw;    
+  }
 
-	.games__item:not(:nth-child(3n)) {
-		margin-right: 60px;
-	}
-}
+  .banner__container::after {   
+    border-width: 80px 50vw 0 50vw;  
+  }
 
-@media (min-width: 1024px) {
-	.games__item {
-		width: calc(33.33% - 40px);	
-		max-width: 500px;
-	}
-}
+  .banner__content {
+    padding: 25px 25px 60px;
+  }
 
-.title {
-	text-transform: uppercase;	
-	font-style: normal;
-	font-weight: 800;
-	font-size: 24px;
-	line-height: 1.2;
-	text-align: center;
-	color: #b7badf;
-	margin-bottom: 20px;
-	margin-top: 20px;
-}
+  .banner__title {
+    font-size: 26px;
+  }
 
-@media (min-width: 768px) {
-	.title {		
-		font-size: 30px;
-		line-height: 1.2px;		
-		margin-bottom: 30px;
-		margin-top: 30px;
-	}
+  .banner__description {
+    font-size: 15px;
+  }
+
+  .banner__btn {
+    font-size: 15px;
+  }
 }
 
 @media (min-width: 1024px) {
-	.title {		
-		font-size: 40px;
-		line-height: 49px;		
-		margin-bottom: 89px;
-		margin-top: 93px;
-	}
+  .banner__container {
+    padding-top: 300px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .banner__content {
+    padding: 35px 0 60px;
+  }
+
+  .banner__content::before {   
+    top: -100px;
+    border-width: 100px 50vw 0 50vw;
+  }
+
+  .banner__container::after {   
+    border-width: 100px 50vw 0 50vw;    
+  }
 }
