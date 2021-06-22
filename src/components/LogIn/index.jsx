@@ -27,6 +27,7 @@ const LogInModal = () => {
       isOpen={home.showModal}
       appElement={document.querySelector('#root')}
       onRequestClose={() => handleCloseModal()}
+      closeTimeoutMS={500}
       style={{
         overlay: {
           backgroundColor: 'rgba(28, 34, 68, 0.5)',
