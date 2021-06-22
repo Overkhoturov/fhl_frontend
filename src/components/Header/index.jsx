@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 
 import LogIn from '../LogIn';
 import Navigation from '../Navigation';
-// import { showModal } from '../../actions/home';
 import './index.css';
 
 const Header = (props) => {
-  const {
-    isShowNavigation, classHeader,
-    // showLoginButton,
-  } = props;
+  const { isShowNavigation, classHeader } = props;
 
   return (
     <header className={`header ${classHeader}`}>
@@ -48,13 +44,11 @@ const Header = (props) => {
 
 Header.propTypes = {
   isShowNavigation: PropTypes.bool,
-  // showLoginButton: PropTypes.bool,
   classHeader: PropTypes.string,
 };
 
 Header.defaultProps = {
   isShowNavigation: false,
-  // showLoginButton: true,
   classHeader: '',
 };
 

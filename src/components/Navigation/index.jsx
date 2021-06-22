@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -19,8 +19,14 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const header = useSelector((state) => state.header);
+  const tournaments = useSelector((state) => state.tournaments);
+  const { allTournaments } = tournaments;
   const { isLogedIn } = auth;
   const { showTournamentMenu, showBurgerMenu } = header;
+
+  useEffect(() => {
+    dispatch(tournamentsToggleMenu(false));
+  }, []);
 
   const onLogOut = () => {
     localStorage.removeItem('token');
@@ -59,17 +65,7 @@ const Navigation = () => {
               className={`dropdown-menu ${showTournamentMenu && 'show'}`}
               style={showTournamentMenu ? tournamentStyle : null}
             >
-              <Link to="game.html" className="dropdown-item">Кибер Арена Versus, Таганрог</Link>
-              <Link to="to" className="dropdown-item">Кибер-Арена, Ростов-на-Дону</Link>
-              <Link to="to" className="dropdown-item">Legion Cyber Arena, Таганрог</Link>
-              <Link to="to" className="dropdown-item">Pride & FF15, Online</Link>
-              <Link to="to" className="dropdown-item">Solo Cup, Online 2</Link>
-              <Link to="to" className="dropdown-item">Solo Cup, Online</Link>
-              <Link to="to" className="dropdown-item">Team Cup, Online</Link>
-              <Link to="to" className="dropdown-item">Кибер-Арена, Ростов-на-Дону</Link>
-              <Link to="to" className="dropdown-item">Лаборатория Inostudio, ИКТИБ</Link>
-              <Link to="to" className="dropdown-item">ТРЦ Мармелад, Таганрог</Link>
-              <Link to="to" className="dropdown-item">Cyber Club, Таганрог</Link>
+              {allTournaments.map((tournament) => <Link to={`/${tournament.id}`} className="dropdown-item">{tournament.name}</Link>)}
             </div>
           </li>
           <li className="menu__item">

@@ -4,5 +4,5 @@ import {
 } from '../action-types/tournaments';
 
 export const getTournaments = () => ({ type: TOURNAMENTS_GET_TOURNAMENTS });
-export const getTournamentsSuccess = () => ({ type: TOURNAMENTS_GET_SUCCESS });
+export const getTournamentsSuccess = (payload) => ({ type: TOURNAMENTS_GET_SUCCESS, payload });
 export const getTournamentsErrror = () => ({ type: TOURNAMENTS_GET_ERROR });
