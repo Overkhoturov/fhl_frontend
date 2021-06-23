@@ -36,12 +36,11 @@ const LogInModal = () => {
         content: {
           maxWidth: '630px',
           maxHeight: '375px',
-          left: '25%',
-          top: '25%',
           background: '#3D3F51',
           border: '1px solid rgba(0,0,0,.2)',
           borderRadius: '.3rem',
           padding: 0,
+          margin: 'auto',
         },
       }}
     >
@@ -82,7 +81,7 @@ const LogInModal = () => {
         </div>
         <div className="popup__footer">
           <div className="popup__label">
-            Нет аккаунта?
+            {'Нет аккаунта? '}
             <Link
               to={CONSTANTS.REGISTRATION}
               onClick={() => handleCloseModal()}
