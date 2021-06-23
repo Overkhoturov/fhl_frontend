@@ -26,3 +26,12 @@
   margin-bottom: 20px;
   color: #B7BADF;
 }
+
+.registration-choose {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  background-color: #3D3F51;
+  max-width: 50%;
+  margin: auto;
+}

@@ -6,6 +6,7 @@ import { logOut } from '../../actions/auth';
 import { showModal } from '../../actions/home';
 import { tournamentsToggleMenu, toggleBurgerMenu } from '../../actions/header';
 import './index.css';
+import constants from '../../constants';
 
 const tournamentStyle = {
   position: 'absolute',
@@ -65,7 +66,7 @@ const Navigation = () => {
               className={`dropdown-menu ${showTournamentMenu && 'show'}`}
               style={showTournamentMenu ? tournamentStyle : null}
             >
-              {allTournaments.map((tournament) => <Link to={`/${tournament.id}`} className="dropdown-item">{tournament.name}</Link>)}
+              {allTournaments.map((tournament) => <Link key={tournament.id} to={`${constants.TOURNAMENTS}/${tournament.id}`} className="dropdown-item">{tournament.name}</Link>)}
             </div>
           </li>
           <li className="menu__item">

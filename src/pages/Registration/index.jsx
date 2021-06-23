@@ -1,28 +1,21 @@
 import React, { memo, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { registrationRequest } from '../../actions/auth';
 import Header from '../../components/Header';
-import constants from '../../constants';
 
 import './index.css';
 
 export default memo(() => {
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [city, setCity] = useState('');
-  const [nick, setNick] = useState('');
-  const [mainRole, setMainRole] = useState('');
-  const [additionRoles, setAdditionRoles] = useState([]);
   const [submitClicked, setSubmitClicked] = useState(false);
   const [isCorrectPassword, setIsCorrectPassword] = useState(true);
+  const [step, setStep] = useState(0);
 
   const dispatch = useDispatch();
-  const { ROLES } = constants;
 
   useEffect(() => {
     setIsCorrectPassword(password === repeatPassword);
@@ -37,117 +30,70 @@ export default memo(() => {
   const submitForm = (event) => {
     event.preventDefault();
     setSubmitClicked(true);
-    if (!login || !email || !password || !repeatPassword) return;
+    if (!email || !password || !repeatPassword) return;
     if (!isCorrectPassword) return;
-    dispatch(registrationRequest({
-      login, password, name, phone, city, nick, mainRole, additionRoles, email,
-    }));
+    dispatch(registrationRequest({ password, email }));
   };
 
-  const onChangeAdditionalRoles = (event) => {
-    const currentRoles = [...additionRoles];
-    const currentValue = event.target.value;
-    if (currentRoles.includes(currentValue)) {
-      currentRoles.splice(currentRoles.indexOf(currentValue), 1);
-    } else {
-      currentRoles.push(currentValue);
-    }
-
-    setAdditionRoles(currentRoles);
+  const resendEmail = (event) => {
+    event.preventDefault();
+    console.log('resend email');
   };
 
   return (
     <>
       <Header showLoginButton={false} />
-      <form className="registration-form" onSubmit={submitForm}>
-        <input
-          className={`input registration-form__input form-control ${isWrong(login) ? '' : 'input__wrong'}`}
-          placeholder="Придумайте логин*"
-          value={login}
-          onChange={(event) => setLogin(event.target.value.trim())}
-        />
-        <input
-          className={`input registration-form__input form-control ${isWrong(password) ? '' : 'input__wrong'}`}
-          placeholder="Придумайте пароль*"
-          value={password}
-          type="password"
-          onChange={(event) => setPassword(event.target.value.trim())}
-        />
-        <input
-          className={`input registration-form__input form-control ${isWrong(repeatPassword) && isCorrectPassword ? '' : 'input__wrong'}`}
-          placeholder="Повторите пароль*"
-          value={repeatPassword}
-          type="password"
-          onChange={(event) => setRepeatPassword(event.target.value.trim())}
-        />
-        <input
-          className={`input registration-form__input form-control ${isWrong(email) ? '' : 'input__wrong'}`}
-          placeholder="Введите почту*"
-          value={email}
-          type="email"
-          onChange={(event) => setEmail(event.target.value.trim())}
-        />
-        <input
-          className="input registration-form__input form-control"
-          placeholder="ФИО"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-        <input
-          className="input registration-form__input form-control"
-          placeholder="Телефон"
-          value={phone}
-          maxLength={12}
-          onChange={(event) => setPhone(event.target.value.trim())}
-        />
-        <input
-          className="input registration-form__input form-control"
-          placeholder="Город"
-          value={city}
-          onChange={(event) => setCity(event.target.value)}
-        />
-        <input
-          className="input registration-form__input form-control"
-          placeholder="Ник (ру)"
-          value={nick}
-          onChange={(event) => setNick(event.target.value)}
-        />
-        <div className="registration-form__input">
-          <div className="registration-form__role-header">Основная позиция</div>
-          <div className="registration-form__role-inputs">
-            {Object.keys(ROLES).map((roleKey) => (
-              <div key={roleKey}>
-                <input
-                  type="radio"
-                  name="main-role"
-                  id={`main-${roleKey}`}
-                  onChange={() => setMainRole(roleKey)}
-                />
-                <label htmlFor={`main-${roleKey}`}>{ROLES[roleKey]}</label>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="registration-form__input">
-          <div className="registration-form__role-header">Дополнительные позиции</div>
-          <div className="registration-form__role-inputs">
-            {Object.keys(ROLES).map((roleKey) => (
-              <div key={roleKey}>
-                <input
-                  type="checkbox"
-                  name="additional-role"
-                  id={`additional-${roleKey}`}
-                  value={roleKey}
-                  onChange={onChangeAdditionalRoles}
-                />
-                <label htmlFor={`additional-${roleKey}`}>{ROLES[roleKey]}</label>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        <button className="btn button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-      </form>
+      {step === 0
+        && (
+        <div className="registration-choose">
+          <button className="btn button" type="button" onClick={() => setStep(2)}>Email</button>
+          <button className="btn button" type="button">Google</button>
+        </div>
+        )}
+      {step === 1 && (
+        <form className="registration-form" onSubmit={submitForm}>
+          <input
+            className={`input registration-form__input form-control ${isWrong(email) ? '' : 'input__wrong'}`}
+            placeholder="Введите почту*"
+            value={email}
+            type="email"
+            onChange={(event) => setEmail(event.target.value.trim())}
+          />
+          <input
+            className={`input registration-form__input form-control ${isWrong(password) ? '' : 'input__wrong'}`}
+            placeholder="Придумайте пароль*"
+            value={password}
+            type="password"
+            onChange={(event) => setPassword(event.target.value.trim())}
+          />
+          <input
+            className={`input registration-form__input form-control ${isWrong(repeatPassword) && isCorrectPassword ? '' : 'input__wrong'}`}
+            placeholder="Повторите пароль*"
+            value={repeatPassword}
+            type="password"
+            onChange={(event) => setRepeatPassword(event.target.value.trim())}
+          />
+          <button className="btn button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        </form>
+      )}
+      {step === 2 && (
+        <div>
+          <div className="registration-confirm__icon">SVG</div>
+          <div>
+            <div className="registration-confirm__header">
+              ПОДТВЕРЖДЕНИЕ РЕГИСТРАЦИИ
+            </div>
+            <div className="registration-confirm__message">
+              На вашу почту было отправлено письмо.
+              Перейдите по ссылке в письме, чтобы подтвердить регистрацию.
+            </div>
+            <Link to="/" className="registration-confirm__resend-link" onClick={() => resendEmail}>
+              ОТПРАВИТЬ ПИСЬМО ПОВТОРНО
+            </Link>
+          </div>
+        </div>
+      )}
     </>
   );
 });
