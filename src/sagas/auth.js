@@ -45,7 +45,6 @@ export function* registrationSaga(action) {
     const payload = result.data;
     yield put(registrationSuccess(payload));
   } catch (error) {
-    console.log('error', error);
     // const { message } = error.response.data;
     yield put(registrationError());
   }
@@ -62,7 +61,6 @@ export function* forgotPasswordSaga(action) {
     const payload = result.data;
     yield put(forgotPasswordSuccess(payload));
   } catch (error) {
-    console.log('error', error);
     // const { message } = error.response.data;
     yield put(forgotPasswordError());
   }
@@ -80,7 +78,6 @@ export function* resetPasswordSaga(action) {
     const payload = result.data;
     yield put(resetPasswordSuccess(payload));
   } catch (error) {
-    console.log('error', error);
     // const { message } = error.response.data;
     yield put(resetPasswordError());
   }
