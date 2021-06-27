@@ -118,12 +118,14 @@ export default memo(() => {
             {Object.keys(ROLES).map((roleKey) => (
               <div key={roleKey}>
                 <input
+                  className="registration-form__role-input--main"
                   type="radio"
                   name="main-role"
                   id={`main-${roleKey}`}
                   onChange={() => setMainRole(roleKey)}
                 />
-                <label htmlFor={`main-${roleKey}`}>{ROLES[roleKey]}</label>
+                <span />
+                <label className="registration-form__role-label" htmlFor={`main-${roleKey}`}>{ROLES[roleKey]}</label>
               </div>
             ))}
           </div>
@@ -134,13 +136,15 @@ export default memo(() => {
             {Object.keys(ROLES).map((roleKey) => (
               <div key={roleKey}>
                 <input
+                  className="registration-form__role-input--secondary"
                   type="checkbox"
                   name="additional-role"
                   id={`additional-${roleKey}`}
                   value={roleKey}
                   onChange={onChangeAdditionalRoles}
                 />
-                <label htmlFor={`additional-${roleKey}`}>{ROLES[roleKey]}</label>
+                <span />
+                <label className="registration-form__role-label" htmlFor={`additional-${roleKey}`}>{ROLES[roleKey]}</label>
               </div>
             ))}
           </div>

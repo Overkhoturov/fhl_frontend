@@ -26,3 +26,69 @@
   margin-bottom: 20px;
   color: #B7BADF;
 }
+
+
+
+
+.registration-form__role-input--main {
+  display: none; 
+}
+
+.registration-form__role-label {
+  position: relative;
+  left: -25px;
+  cursor: pointer;
+  padding-left: 35px;
+}
+
+.registration-form__role-input--main + span {
+  text-align: center;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #6C6E84;
+}
+
+.registration-form__role-input--main + span:before {
+  content: url("../../assets/img/buttons/radio-checked.svg");
+  position: relative;
+  top: 2.5px;
+  display: inline-block;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.registration-form__role-input--main:checked + span:before {
+  opacity: 1;
+}
+
+.registration-form__role-input--secondary {
+  display: none;
+}
+
+.registration-form__role-input--secondary + span {
+  text-align: center;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border-radius: 7px;
+  background-color: #6C6E84;
+  transition: background-color .3s ease-in-out;
+}
+
+.registration-form__role-input--secondary + span:before {
+  content: url("../../assets/img/buttons/checkbox-checked.svg");
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.registration-form__role-input--secondary:checked + span {
+  background-color: #FFFFFF;
+}
+.registration-form__role-input--secondary:checked + span:before {
+  opacity: 1;
+}

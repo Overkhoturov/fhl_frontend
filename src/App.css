@@ -24,6 +24,11 @@ body {
 .input::placeholder {
   color: #FFFFFF;
 }
+.input:active,
+.input:focus {
+  outline: none;
+}
+
 
 .input__wrong {
   box-shadow: 0 0 0 0.25rem rgb(250 0 0 / 30%);
