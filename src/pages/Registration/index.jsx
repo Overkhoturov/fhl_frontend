@@ -13,13 +13,18 @@ export default memo(() => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const [submitClicked, setSubmitClicked] = useState(false);
   const [isCorrectPassword, setIsCorrectPassword] = useState(true);
+  const [isCorrectEmail, setIsCorrectEmail] = useState(true);
   const [step, setStep] = useState(0);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     setIsCorrectPassword(password === repeatPassword);
-  }, [password, repeatPassword]);
+    const emailRegExp = /^\S+@\S+\.\S+$/;
+    if (email) {
+      setIsCorrectEmail(emailRegExp.test(email));
+    }
+  }, [password, repeatPassword, email]);
 
   const isWrong = (value) => {
     if (!value && submitClicked) {
@@ -30,34 +35,25 @@ export default memo(() => {
   const submitForm = (event) => {
     event.preventDefault();
     setSubmitClicked(true);
-    if (!email || !password || !repeatPassword) return;
-    if (!isCorrectPassword) return;
+    if (!email || !password || !repeatPassword || !isCorrectPassword || !isCorrectEmail) return;
     dispatch(registrationRequest({ password, email }));
+    setStep(1);
   };
 
   const resendEmail = (event) => {
     event.preventDefault();
-    console.log('resend email');
+    dispatch(registrationRequest({ password, email }));
   };
 
   return (
     <>
       <Header showLoginButton={false} />
-
-      {step === 0
-        && (
-        <div className="registration-choose">
-          <button className="btn button" type="button" onClick={() => setStep(2)}>Email</button>
-          <button className="btn button" type="button">Google</button>
-        </div>
-        )}
-      {step === 1 && (
+      {step === 0 && (
         <form className="registration-form" onSubmit={submitForm}>
           <input
-            className={`input registration-form__input form-control ${isWrong(email) ? '' : 'input__wrong'}`}
+            className={`input registration-form__input form-control ${isWrong(email) && isCorrectEmail ? '' : 'input__wrong'}`}
             placeholder="Введите почту*"
             value={email}
-            type="email"
             onChange={(event) => setEmail(event.target.value.trim())}
           />
           <input
@@ -77,7 +73,7 @@ export default memo(() => {
           <button className="btn button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
         </form>
       )}
-      {step === 2 && (
+      {step === 1 && (
         <div>
           <div className="registration-confirm__icon">SVG</div>
           <div>
@@ -88,7 +84,7 @@ export default memo(() => {
               На вашу почту было отправлено письмо.
               Перейдите по ссылке в письме, чтобы подтвердить регистрацию.
             </div>
-            <Link to="/" className="registration-confirm__resend-link" onClick={() => resendEmail}>
+            <Link to="/" className="registration-confirm__resend-link" onClick={resendEmail}>
               ОТПРАВИТЬ ПИСЬМО ПОВТОРНО
             </Link>
           </div>
