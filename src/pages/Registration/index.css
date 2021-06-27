@@ -35,3 +35,53 @@
   max-width: 50%;
   margin: auto;
 }
+
+.registration-confirm {
+  display: flex;
+  padding: 50px;
+  background-color: #3D3F51;
+  max-width: 53%;
+  margin: 7% auto 0;
+  flex-grow: 100px;
+}
+
+.registration-confirm__icon {
+  margin-right: 50px;
+}
+
+.registration-confirm__header {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  color: #B7BADF;
+  margin-bottom: 10px;
+}
+
+.registration-confirm__resend-link {
+  font-size: 18px;
+  line-height: 23px;
+  color: #FFFFFF;
+  text-decoration: underline;
+  transition: color .3s ease;
+}
+
+.registration-confirm__resend-link:hover {
+  color: #B7BADF;
+}
+
+@media (max-width: 1000px) {
+  .registration-confirm {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .registration-confirm__icon {
+    margin: 0 0 50px 0;
+  }
+
+  .registration-confirm__header {
+    text-align: center;
+  }
+}
