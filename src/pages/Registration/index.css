@@ -8,9 +8,16 @@
   margin: auto;
 }
 
-.registration-form__input {
+.registration-form__input,
+.registration-form__input--container {
   margin-bottom: 30px;
   width: 100%;
+}
+
+.registration-form__input:active,
+.registration-form__input:focus {
+  background-color: #6C6E84;
+  color: #FFFFFF;
 }
 
 .registration-form__role-inputs {
@@ -26,9 +33,6 @@
   margin-bottom: 20px;
   color: #B7BADF;
 }
-
-
-
 
 .registration-form__role-input--main {
   display: none; 
@@ -89,6 +93,11 @@
 .registration-form__role-input--secondary:checked + span {
   background-color: #FFFFFF;
 }
+
 .registration-form__role-input--secondary:checked + span:before {
   opacity: 1;
+}
+
+.registration-form__button {
+  font-weight: 600;
 }

@@ -112,7 +112,7 @@ export default memo(() => {
           value={nick}
           onChange={(event) => setNick(event.target.value)}
         />
-        <div className="registration-form__input">
+        <div className="registration-form__input--container">
           <div className="registration-form__role-header">Основная позиция</div>
           <div className="registration-form__role-inputs">
             {Object.keys(ROLES).map((roleKey) => (
@@ -130,7 +130,7 @@ export default memo(() => {
             ))}
           </div>
         </div>
-        <div className="registration-form__input">
+        <div className="registration-form__input--container">
           <div className="registration-form__role-header">Дополнительные позиции</div>
           <div className="registration-form__role-inputs">
             {Object.keys(ROLES).map((roleKey) => (
@@ -150,7 +150,7 @@ export default memo(() => {
           </div>
         </div>
 
-        <button className="btn button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <button className="btn button registration-form__button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       </form>
     </>
   );
