@@ -51,8 +51,7 @@
 .nav__logo:hover,
 .nav__login:hover,
 .menu__link:hover,
-.menu__link:hover path,
-.nav__logo-img:hover path {
+.menu__link:hover path {
   color: #B7BAD1;
   fill: #B7BAD1;
   cursor: pointer;
