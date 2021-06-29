@@ -6,14 +6,11 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import { confirmEmailRequest } from '../../actions/auth';
 
-import './index.css';
-
 const ConfirmEmail = memo((props) => {
   const dispatch = useDispatch();
   const { location } = props;
 
   useEffect(() => {
-    console.log('props', props);
     const { search } = location;
     dispatch(confirmEmailRequest(search));
   }, []);
@@ -45,7 +42,7 @@ const ConfirmEmail = memo((props) => {
             Почта подтверждена
           </div>
           <div className="registration-confirm__message">
-            <Link to="/"> На главную </Link>
+            <Link to="/" className="registration-confirm__resend-link"> На главную </Link>
           </div>
         </div>
       </div>
