@@ -10,7 +10,7 @@ import CONSTANTS from '../../constants';
 
 const LogInModal = () => {
   const home = useSelector((state) => state.home);
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const handleCloseModal = () => {
@@ -19,7 +19,7 @@ const LogInModal = () => {
 
   const submitLoginForm = (event) => {
     event.preventDefault();
-    dispatch(loginRequest({ login, password }));
+    dispatch(loginRequest({ email, password }));
   };
 
   return (
@@ -62,8 +62,8 @@ const LogInModal = () => {
               name="user_email"
               placeholder="Логин"
               className="form-control input popup__input"
-              value={login}
-              onChange={(event) => setLogin(event.target.value)}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
             <span className="text-danger" />
           </div>

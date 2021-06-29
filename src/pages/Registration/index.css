@@ -64,6 +64,7 @@
   line-height: 29px;
   color: #B7BADF;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .registration-confirm__resend-link {
