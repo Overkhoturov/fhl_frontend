@@ -5,7 +5,7 @@
   flex-direction: column;
   background-color: #3D3F51;
   max-width: 50%;
-  margin: auto;
+  margin: 10% auto 0;
 }
 
 .registration-form__input,

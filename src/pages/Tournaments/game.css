@@ -1,0 +1,53 @@
+.game-menu {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+}
+
+.game-menu__link {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-bottom: 4px solid #3D3F51;
+}
+
+.game-menu__link:hover,
+.game-menu__link.active {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 4px solid #B7BADF;
+}
+
+@media (min-width: 1024px) {
+  .game-menu {
+    width: 100%;
+    flex-direction: row;    
+  }    
+
+  .game-menu__item:not(:last-child) {
+    margin-right: 35px;
+  }
+
+  .game-menu__link {
+    font-size: 16px;
+  }
+}
+
+
+@media (min-width: 1366px) {
+  .game-menu__item:not(:last-child) {
+    margin-right: 55px;
+  }
+
+  .game-menu__link {
+    font-size: 20px;
+  }
+}

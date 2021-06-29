@@ -3,6 +3,24 @@
 	align-items: center;
 }
 
+.header,
+.header-page {
+	background: #3D3F51;
+}
+
+.header {
+	padding: 0;
+}
+
+.header-page {
+    padding: 0;
+}
+
+.header_home {	
+	background: none;
+	z-index: 10;
+}
+
 .navbar-text {
 	color: #fff;
 }

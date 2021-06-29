@@ -1,0 +1,95 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.table__row {
+    display: flex;
+}
+
+.table__row:not(:last-child) {
+    border-bottom: 1px solid#9B9CA9;
+}
+
+.table__col {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 30px;    
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+}
+
+.table__col--head {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #6C6E7A;
+}
+
+.table__col  .player {
+    margin: 0 0 6px 0;
+    padding: 0;
+}
+
+.nik {
+    font-size: 18px;
+    color: #B7BADF;
+}
+
+@media (max-width: 767px) {    
+    .table__row {
+        flex-direction: column;
+    }
+
+    .table__col--head {
+        display: none;
+    }
+
+    .table__col--num {
+        display: none;
+    }
+
+    .table__col {
+        padding: 18px 10px;
+    }
+
+    .table__col .team {
+        padding: 0;
+        font-weight: bold;
+        color: #B7BADF;
+    }
+}
+
+@media (min-width: 768px) {
+    .table__col--head { 
+        font-size: 18px;
+        line-height: 1.2; 
+    }
+
+    .table__row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .table__col--1 { width: 10%; }
+    .table__col--2 { width: 20%; }
+    .table__col--3 { width: 30%; }
+    .table__col--4 { width: 40%; }
+    .table__col--5 { width: 50%; }
+    .table__col--6 { width: 60%; }
+    .table__col--7 { width: 70%; }
+    .table__col--8 { width: 80%; }
+    .table__col--9 { width: 90%; }
+}
+
+@media (min-width: 1024px) {
+    .table__col--head { 
+        font-size: 24px;
+        line-height: 1.2;
+    }
+}
