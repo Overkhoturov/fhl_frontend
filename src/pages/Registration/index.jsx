@@ -1,8 +1,8 @@
 import React, { memo, useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { registrationRequest } from '../../actions/auth';
+import { registrationRequest, changeStepRegistration } from '../../actions/auth';
 import Header from '../../components/Header';
 
 import './index.css';
@@ -14,7 +14,8 @@ export default memo(() => {
   const [submitClicked, setSubmitClicked] = useState(false);
   const [isCorrectPassword, setIsCorrectPassword] = useState(true);
   const [isCorrectEmail, setIsCorrectEmail] = useState(true);
-  const [step, setStep] = useState(0);
+  const auth = useSelector((state) => state.auth);
+  const { currentStepRegistration } = auth;
 
   const dispatch = useDispatch();
 
@@ -25,6 +26,10 @@ export default memo(() => {
       setIsCorrectEmail(emailRegExp.test(email));
     }
   }, [password, repeatPassword, email]);
+
+  useEffect(() => {
+    dispatch(changeStepRegistration(0));
+  }, []);
 
   const isWrong = (value) => {
     if (!value && submitClicked) {
@@ -37,7 +42,6 @@ export default memo(() => {
     setSubmitClicked(true);
     if (!email || !password || !repeatPassword || !isCorrectPassword || !isCorrectEmail) return;
     dispatch(registrationRequest({ password, email }));
-    setStep(1);
   };
 
   const resendEmail = (event) => {
@@ -48,7 +52,7 @@ export default memo(() => {
   return (
     <>
       <Header showLoginButton={false} />
-      {step === 0 && (
+      {currentStepRegistration === 0 && (
         <form className="registration-form" onSubmit={submitForm}>
           <input
             className={`input registration-form__input form-control ${isWrong(email) && isCorrectEmail ? '' : 'input__wrong'}`}
@@ -73,7 +77,7 @@ export default memo(() => {
           <button className="btn button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
         </form>
       )}
-      {step === 1 && (
+      {currentStepRegistration === 1 && (
         <div className="registration-confirm">
           <div className="registration-confirm__icon">
             <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">

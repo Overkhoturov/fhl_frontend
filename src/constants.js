@@ -10,6 +10,7 @@ export default {
   REGISTRATION: '/registration',
   FORGOT: '/forgot',
   RESET_PASSWORD: '/reset-password',
+  CONFIRM_EMAIL: '/auth/confirm',
 
   SERVER: process.env.REACT_APP_SERVER,
   ROLES: {

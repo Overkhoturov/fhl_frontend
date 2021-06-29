@@ -13,6 +13,7 @@ import Tournaments from './pages/Tournaments';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Notification from './components/Notification';
+import ConfirmEmail from './pages/ConfirmEmail';
 
 import CONSTANTS from './constants';
 import './App.css';
@@ -32,6 +33,7 @@ function App() {
         <Route path={`${CONSTANTS.TOURNAMENTS}/:id`} component={Tournaments} />
         <Route exact path={CONSTANTS.FORGOT} component={ForgotPassword} />
         <Route path={`${CONSTANTS.RESET_PASSWORD}/:id/:token`} component={ResetPassword} />
+        <Route path={`${CONSTANTS.CONFIRM_EMAIL}`} component={ConfirmEmail} />
         <Route component={NotFound} />
       </Switch>
       <Notification />

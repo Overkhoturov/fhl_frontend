@@ -4,22 +4,23 @@ import axios from 'axios';
 import {
   loginSuccess, loginError, registrationSuccess, registrationError,
   forgotPasswordError, forgotPasswordSuccess, resetPasswordSuccess, resetPasswordError,
+  confirmEmailSuccess, confirmEmailError,
 } from '../actions/auth';
 import { hideModal } from '../actions/home';
 import CONSTANTS from '../constants';
 
-async function loginRequest(login, password) {
+async function loginRequest(email, password) {
   const result = await axios.post(`${CONSTANTS.SERVER}/auth/login`, {
-    login,
+    email,
     password,
   });
   return result;
 }
 
 export function* loginSaga(action) {
-  const { login, password } = action.payload;
+  const { email, password } = action.payload;
   try {
-    const result = yield call(loginRequest, login, password);
+    const result = yield call(loginRequest, email, password);
     const payload = result.data;
     const { token } = payload;
     if (!token) {
@@ -45,8 +46,12 @@ export function* registrationSaga(action) {
     const payload = result.data;
     yield put(registrationSuccess(payload));
   } catch (error) {
-    // const { message } = error.response.data;
-    yield put(registrationError());
+    const message = '';
+    // if (error.response.data && error.response.data.errors) {
+    //   message = error.response.data.errors.map((item) => Object.keys(item));
+    //   message.join(' ');
+    // }
+    yield put(registrationError(message));
   }
 }
 
@@ -80,5 +85,21 @@ export function* resetPasswordSaga(action) {
   } catch (error) {
     // const { message } = error.response.data;
     yield put(resetPasswordError());
+  }
+}
+
+async function confirmEmailRequest(payload) {
+  const result = await axios.get(`${CONSTANTS.SERVER}/auth/confirm${payload}`);
+  return result;
+}
+
+export function* confirmEmailSaga(action) {
+  try {
+    const result = yield call(confirmEmailRequest, action.payload);
+    const payload = result.data;
+    yield put(confirmEmailSuccess(payload));
+  } catch (error) {
+    // const { message } = error.response.data;
+    yield put(confirmEmailError());
   }
 }

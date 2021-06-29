@@ -4,6 +4,8 @@ import {
   AUTH_LOGOUT,
   AUTH_FORGOT_PASSWORD_REQUEST, AUTH_FORGOT_PASSWORD_SUCCESS, AUTH_FORGOT_PASSWORD_ERROR,
   AUTH_RESET_PASSWORD_ERROR, AUTH_RESET_PASSWORD_SUCCESS, AUTH_RESET_PASSWORD_REQUEST,
+  AUTH_CONFIRM_EMAIL_REQUEST, AUTH_CONFIRM_EMAIL_SUCCESS, AUTH_CONFIRM_EMAIL_ERROR,
+  AUTH_CHANGE_STEP_REGISTRATION,
 } from '../action-types/auth';
 
 export const loginRequest = (payload) => ({ type: AUTH_LOGIN_REQUEST, payload });
@@ -21,5 +23,13 @@ export const forgotPasswordError = (payload) => ({ type: AUTH_FORGOT_PASSWORD_ER
 export const resetPasswordRequest = (payload) => ({ type: AUTH_RESET_PASSWORD_REQUEST, payload });
 export const resetPasswordSuccess = (payload) => ({ type: AUTH_RESET_PASSWORD_SUCCESS, payload });
 export const resetPasswordError = (payload) => ({ type: AUTH_RESET_PASSWORD_ERROR, payload });
+
+export const confirmEmailRequest = (payload) => ({ type: AUTH_CONFIRM_EMAIL_REQUEST, payload });
+export const confirmEmailSuccess = (payload) => ({ type: AUTH_CONFIRM_EMAIL_SUCCESS, payload });
+export const confirmEmailError = (payload) => ({ type: AUTH_CONFIRM_EMAIL_ERROR, payload });
+
+export const changeStepRegistration = (payload) => ({
+  type: AUTH_CHANGE_STEP_REGISTRATION, payload,
+});
 
 export const logOut = () => ({ type: AUTH_LOGOUT });
