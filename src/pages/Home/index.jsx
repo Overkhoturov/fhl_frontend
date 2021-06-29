@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { getTournaments } from '../../actions/tournaments';
 import Header from '../../components/Header';
+import formatTime from '../../utils/formatTime';
 
 import CONSTANTS from '../../constants';
 
@@ -48,7 +49,7 @@ export default memo(() => {
               />
               <div className="card__content card__content--game">
                 <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.id}`} className="card__title">{tournament.name}</Link>
-                <div className="card__date">{tournament.date}</div>
+                <div className="card__date">{formatTime(tournament.date)}</div>
               </div>
             </div>
           ))}
