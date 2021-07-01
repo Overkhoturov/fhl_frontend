@@ -15,7 +15,7 @@ export default memo(() => {
   const dispatch = useDispatch();
   const tournaments = useSelector((state) => state.tournaments);
   const { allTournaments } = tournaments;
-  const lastTournament = allTournaments.length ? allTournaments[allTournaments.length - 1] : '';
+  const lastTournament = allTournaments.length ? allTournaments[0] : '';
 
   useEffect(() => {
     dispatch(getTournaments());

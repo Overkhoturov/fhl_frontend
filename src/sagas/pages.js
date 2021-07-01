@@ -1,5 +1,6 @@
 import { put, call } from 'redux-saga/effects';
 import axios from 'axios';
+import moment from 'moment';
 
 import CONSTANTS from '../constants';
 
@@ -17,7 +18,8 @@ export function* getTournamentsSaga() {
   try {
     const result = yield call(getTournamentsRequest);
     const payload = result.data;
-    yield put(getTournamentsSuccess(payload));
+    const sortedPayload = payload.sort((a, b) => moment(b.date).format('YYYYMMDD') - moment(a.date).format('YYYYMMDD'));
+    yield put(getTournamentsSuccess(sortedPayload));
   } catch (error) {
     const { message } = error.response.data;
     yield put(getTournamentsErrror(message));
