@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../actions/auth';
 import { showModal } from '../../actions/home';
 import { tournamentsToggleMenu, toggleBurgerMenu } from '../../actions/header';
+import { getTournaments } from '../../actions/tournaments';
 import './index.css';
 import constants from '../../constants';
 
@@ -27,6 +28,7 @@ const Navigation = () => {
 
   useEffect(() => {
     dispatch(tournamentsToggleMenu(false));
+    dispatch(getTournaments());
   }, []);
 
   const onLogOut = () => {

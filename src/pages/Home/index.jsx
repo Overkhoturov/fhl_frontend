@@ -1,8 +1,7 @@
-import React, { memo, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { memo } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getTournaments } from '../../actions/tournaments';
 import Header from '../../components/Header';
 import formatTime from '../../utils/formatTime';
 
@@ -12,14 +11,9 @@ import './index.css';
 import './cards.css';
 
 export default memo(() => {
-  const dispatch = useDispatch();
   const tournaments = useSelector((state) => state.tournaments);
   const { allTournaments } = tournaments;
   const lastTournament = allTournaments.length ? allTournaments[0] : '';
-
-  useEffect(() => {
-    dispatch(getTournaments());
-  }, []);
 
   return (
     <>
