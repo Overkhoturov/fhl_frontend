@@ -1,8 +1,6 @@
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Logo from '../../components/Logo';
-
 const TabNet = memo((props) => {
   const [isLoadNet, setIsloadNet] = useState(true);
   const { challongeLink } = props;
@@ -15,7 +13,7 @@ const TabNet = memo((props) => {
       </h2>
       {showLogo && (
       <div className="net-loader">
-        <Logo width="80%" height="100%" />
+        <div className="spinner-border" role="status" />
         <span>
           {challongeLink ? 'Сетка загружается...' : 'Сетка отсутствует'}
         </span>

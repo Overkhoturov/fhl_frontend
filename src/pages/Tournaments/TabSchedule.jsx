@@ -2,8 +2,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-import Logo from '../../components/Logo';
-
 const TabSchedule = memo((props) => {
   const { schedule } = props;
   const showLogo = !schedule;
@@ -16,7 +14,7 @@ const TabSchedule = memo((props) => {
       {showLogo
         ? (
           <div className="net-loader">
-            <Logo width="80%" height="100%" />
+            <div className="spinner-border" role="status" />
             <span>
               Расписание отсутствует
             </span>
