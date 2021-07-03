@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import PageLoader from '../../components/PageLoader';
 import { getCurrentTournament } from '../../actions/tournaments';
+import { tournamentsToggleMenu } from '../../actions/header';
 import formatTime from '../../utils/formatTime';
 
 import TabNet from './TabNet';
@@ -27,7 +28,8 @@ const Tournaments = memo((props) => {
 
   useEffect(() => {
     dispatch(getCurrentTournament(match.params.id));
-  }, []);
+    dispatch(tournamentsToggleMenu(false));
+  }, [match.params.id]);
 
   return (
     <>
@@ -44,20 +46,25 @@ const Tournaments = memo((props) => {
                   {formatTime(currentTournament.date)}
                 </h2>
                 <ul className="game-menu">
-                  {constants.TOURNAMENTS_TABS.map((tab, tabIndex) => (
-                    <li key={tab.name} className="game-menu__item">
-                      <Link
-                        to="/"
-                        className={`game-menu__link ${tabIndex === currentTab && 'active'}`}
-                        onClick={(event) => {
-                          event.preventDefault();
-                          setCurrentTab(tabIndex);
-                        }}
-                      >
-                        {tab.text}
-                      </Link>
-                    </li>
-                  ))}
+                  {constants.TOURNAMENTS_TABS.map((tab, tabIndex) => {
+                    if (!currentTournament[tab.name]) {
+                      return null;
+                    }
+                    return (
+                      <li key={tab.name} className="game-menu__item">
+                        <Link
+                          to="/"
+                          className={`game-menu__link ${tabIndex === currentTab && 'active'}`}
+                          onClick={(event) => {
+                            event.preventDefault();
+                            setCurrentTab(tabIndex);
+                          }}
+                        >
+                          {tab.text}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </header>
