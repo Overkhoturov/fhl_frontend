@@ -1,8 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-import Logo from '../../components/Logo';
-
 const TabRegular = memo((props) => {
   const { regulation } = props;
   const showLogo = !regulation;
@@ -13,7 +11,7 @@ const TabRegular = memo((props) => {
       </h2>
       {showLogo ? (
         <div className="net-loader">
-          <Logo width="80%" height="100%" />
+          <div className="spinner-border" role="status" />
           <span>
             Регламент отсутствует
           </span>

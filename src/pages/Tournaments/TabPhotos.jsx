@@ -3,8 +3,6 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Logo from '../../components/Logo';
-
 const TabNet = memo((props) => {
   const { photos } = props;
   const showLogo = !photos;
@@ -16,7 +14,7 @@ const TabNet = memo((props) => {
       </h2>
       {showLogo ? (
         <div className="net-loader">
-          <Logo width="80%" height="100%" />
+          <div className="spinner-border" role="status" />          
           <span>
             Фотографии отсутствуют
           </span>
