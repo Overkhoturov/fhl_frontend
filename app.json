@@ -1,0 +1,13 @@
+{
+	"name": "fhl_frontend",
+	"repository": "https://github.com/Overkhoturov/fhl_frontend",
+	"buildpacks": [
+	  {
+		"url": "mars/create-react-app"
+	  }
+	],
+	"env": {
+		"REACT_APP_SERVER": { "required": true },
+		"DISABLE_ESLINT_PLUGIN": { "required": true, "value": true }
+	}
+  }
