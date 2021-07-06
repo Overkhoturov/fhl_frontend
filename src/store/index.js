@@ -8,7 +8,9 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   combinedReducers(),
-  compose(applyMiddleware(sagaMiddleware)),
+  compose(applyMiddleware(sagaMiddleware),
+    // eslint-disable-next-line no-underscore-dangle
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
 );
 
 sagaMiddleware.run(rootSaga);
