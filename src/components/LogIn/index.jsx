@@ -80,29 +80,33 @@ const LogInModal = () => {
           </div>
         </div>
         <div className="popup__footer">
-          <div className="popup__label">
-            {'Нет аккаунта? '}
-            <Link
-              to={CONSTANTS.REGISTRATION}
-              onClick={() => handleCloseModal()}
-              className="popup__link"
-            >
-              Зарегистрироваться
-            </Link>
+          <div className="popup__links">
+            <div className="popup__label">
+              {'Нет аккаунта? '}
+              <div className="popup__container">
+                <Link
+                  to={CONSTANTS.REGISTRATION}
+                  onClick={() => handleCloseModal()}
+                  className="popup__link"
+                >
+                  Зарегистрироваться
+                </Link>
+              </div>
+            </div>
+            <div className="popup__label">
+              <Link
+                className="popup__link"
+                to={CONSTANTS.FORGOT}
+                onClick={() => handleCloseModal()}
+              >
+                Забыл пароль
+              </Link>
+            </div>
           </div>
           <div className="popup__btn-group">
             <button type="submit" className="button btn popup__btn">
               Войти
             </button>
-          </div>
-          <div className="popup__label">
-            <Link
-              className="popup__link"
-              to={CONSTANTS.FORGOT}
-              onClick={() => handleCloseModal()}
-            >
-              Забыл пароль
-            </Link>
           </div>
         </div>
       </form>
