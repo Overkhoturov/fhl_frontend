@@ -32,7 +32,7 @@ function App() {
         <Route exact path={CONSTANTS.TOURNAMENTS} component={Tournaments} />
         <Route path={`${CONSTANTS.TOURNAMENTS}/:id`} component={Tournaments} />
         <Route exact path={CONSTANTS.FORGOT} component={ForgotPassword} />
-        <Route path={`${CONSTANTS.RESET_PASSWORD}/:id/:token`} component={ResetPassword} />
+        <Route path={`${CONSTANTS.RESET_PASSWORD}/:token`} component={ResetPassword} />
         <Route path={`${CONSTANTS.CONFIRM_EMAIL}`} component={ConfirmEmail} />
         <Route component={NotFound} />
       </Switch>

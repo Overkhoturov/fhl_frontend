@@ -72,8 +72,8 @@ export function* forgotPasswordSaga(action) {
 }
 
 async function resetPasswordRequest(payload) {
-  const { token, id, newPassword } = payload;
-  const result = await axios.put(`${CONSTANTS.SERVER}/auth/reset-password/${id}`, { token, newPassword });
+  const { token, newPassword } = payload;
+  const result = await axios.put(`${CONSTANTS.SERVER}/auth/reset-password`, { token, newPassword });
   return result;
 }
 
