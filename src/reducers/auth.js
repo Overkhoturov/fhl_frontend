@@ -1,15 +1,16 @@
 import * as actionTypes from '../action-types/auth';
 
 const tokenLS = localStorage.getItem('token');
+const uidLS = localStorage.getItem('uid');
 
 const initialState = {
   isLogedIn: Boolean(tokenLS),
   isShowAlert: false,
   token: tokenLS || '',
   message: '',
-  user: '',
+  user: null,
   status: false,
-  id: '',
+  id: uidLS || '',
   currentStepRegistration: 0,
 };
 
@@ -22,7 +23,7 @@ export default (state = initialState, action) => {
         isShowAlert: true,
         isLogedIn: true,
         token: action.payload.token,
-        id: action.payload.id,
+        id: action.payload.uid,
       };
     case actionTypes.AUTH_LOGIN_ERROR:
       return { ...state, status: false, isShowAlert: true };
@@ -46,10 +47,12 @@ export default (state = initialState, action) => {
       return { ...state, status: false, isShowAlert: true };
     case actionTypes.AUTH_LOGOUT:
       return {
-        ...state, token: '', isShowAlert: false, isLogedIn: false,
+        ...state, token: '', isShowAlert: false, isLogedIn: false, user: null,
       };
     case actionTypes.AUTH_CHANGE_STEP_REGISTRATION:
       return { ...state, currentStepRegistration: action.payload };
+    case actionTypes.AUTH_GET_USER_SUCCESS:
+      return { ...state, user: action.payload };
     default:
       return state;
   }

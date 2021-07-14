@@ -6,11 +6,16 @@ import {
   AUTH_RESET_PASSWORD_ERROR, AUTH_RESET_PASSWORD_SUCCESS, AUTH_RESET_PASSWORD_REQUEST,
   AUTH_CONFIRM_EMAIL_REQUEST, AUTH_CONFIRM_EMAIL_SUCCESS, AUTH_CONFIRM_EMAIL_ERROR,
   AUTH_CHANGE_STEP_REGISTRATION,
+  AUTH_GET_USER_REQUEST, AUTH_GET_USER_SUCCESS, AUTH_GET_USER_ERROR,
 } from '../action-types/auth';
 
 export const loginRequest = (payload) => ({ type: AUTH_LOGIN_REQUEST, payload });
 export const loginSuccess = (payload) => ({ type: AUTH_LOGIN_SUCCESS, payload });
 export const loginError = (payload) => ({ type: AUTH_LOGIN_ERROR, payload });
+
+export const getUserRequest = (payload) => ({ type: AUTH_GET_USER_REQUEST, payload });
+export const getUserSuccess = (payload) => ({ type: AUTH_GET_USER_SUCCESS, payload });
+export const getUserError = (payload) => ({ type: AUTH_GET_USER_ERROR, payload });
 
 export const registrationRequest = (payload) => ({ type: AUTH_REGISTRATION_REQUEST, payload });
 export const registrationSuccess = (payload) => ({ type: AUTH_REGISTRATION_SUCCESS, payload });
