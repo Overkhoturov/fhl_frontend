@@ -36,6 +36,10 @@ export default (state = initialState, action) => {
       return { ...state, status: true, isShowAlert: true };
     case actionTypes.AUTH_RESET_PASSWORD_ERROR:
       return { ...state, status: false, isShowAlert: true };
+    case actionTypes.AUTH_FORGOT_PASSWORD_SUCCESS:
+      return { ...state, status: true, isShowAlert: true };
+    case actionTypes.AUTH_FORGOT_PASSWORD_ERROR:
+      return { ...state, status: false, isShowAlert: true };
     case actionTypes.AUTH_CONFIRM_EMAIL_SUCCESS:
       return { ...state, status: true, isShowAlert: true };
     case actionTypes.AUTH_CONFIRM_EMAIL_ERROR:
