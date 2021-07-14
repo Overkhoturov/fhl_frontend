@@ -20,8 +20,8 @@ const ResetPassword = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const { token, id } = match.params;
-    if (!token || !id) history.push(CONSTANTS.HOME);
+    const { token } = match.params;
+    if (!token) history.push(CONSTANTS.HOME);
   }, []);
 
   useEffect(() => {
@@ -42,7 +42,6 @@ const ResetPassword = (props) => {
 
     const payload = {
       newPassword: password,
-      id: match.params.id,
       token: match.params.token,
     };
     dispatch(resetPasswordRequest(payload));
@@ -75,7 +74,6 @@ const ResetPassword = (props) => {
 ResetPassword.propTypes = {
   match: {
     params: {
-      id: PropTypes.string.isRequired,
       token: PropTypes.string.isRequired,
     },
   },
