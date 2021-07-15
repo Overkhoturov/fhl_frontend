@@ -216,6 +216,16 @@
     }
 }
 
+@media (min-width: 1600px) and (max-width: 2560px) {
+    .card-image {
+        height: 240px;
+    }
+
+    .card {
+        width: calc(33.3% - 100px);
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1365px) {
     .card {
 		width: calc(50% - 20px);
@@ -259,5 +269,11 @@
         left: 20px;
         width: 59px;
         height: 145px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1599px) {
+    .card {
+        width: calc(33.3% - 60px);
     }
 }

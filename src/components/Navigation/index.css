@@ -161,10 +161,10 @@
     transform: rotate(-45deg);
   }
 
-  .burger-menu_active .burger-menu_button {
+  /*.burger-menu_active .burger-menu_button {
     position: fixed;
     left: 90%;
-  }
+  }*/
       
   .menu {
     position: fixed;
@@ -302,11 +302,5 @@
 @media (min-width: 1366px) {  
   .menu__item:not(:last-child) {
     margin-right: 80px;
-  }
-}
-
-@media (max-width: 376px) {
-  .burger-menu_lines-active {
-    left: 0;
   }
 }
