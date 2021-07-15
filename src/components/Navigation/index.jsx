@@ -58,7 +58,7 @@ const Navigation = () => {
     <>
       <div className={`burger-menu ${showBurgerMenu ? 'burger-menu_active' : ''}`}>
         <Link to="/" onClick={onOpenBurgerMenu} className="burger-menu_button">
-          <span className="burger-menu_lines" />
+          <span className={`burger-menu_lines ${showBurgerMenu ? 'burger-menu_lines-active' : ''}`} />
         </Link>
 
         <ul className="menu">

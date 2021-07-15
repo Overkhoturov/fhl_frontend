@@ -61,6 +61,9 @@
   z-index: 100;
 }
 
+.burger-menu {
+  position: relative;
+}
 
 .menu__link {
   border: none;
@@ -299,5 +302,11 @@
 @media (min-width: 1366px) {  
   .menu__item:not(:last-child) {
     margin-right: 80px;
+  }
+}
+
+@media (max-width: 376px) {
+  .burger-menu_lines-active {
+    left: 0;
   }
 }
