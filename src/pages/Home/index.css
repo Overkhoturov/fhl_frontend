@@ -1,9 +1,20 @@
 .banner {
+  position: relative;
   background-image: url(../../assets/img/slider/banner.jpg);
   width: 100%;
   background-size: cover;
   overflow-x: hidden;
   background-repeat: no-repeat;
+}
+
+.banner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(19, 20, 28, 0.5);
 }
 
 .banner__container {
@@ -13,42 +24,16 @@
   justify-content: flex-end;
 }
 
-.banner__container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 0;
-  border-style: solid;
-  border-width: 200px 50vw 0 50vw;
-  border-color: transparent #272A33 #272A33 #272A33;
-}
-
 .banner__content {
   position: relative;
   padding: 70px 0 100px;
   text-align: center;
-  background: rgba(19, 20, 28, 0.5);
+  z-index: 10;  
 }
 
 .banner__content > *{
   position: relative;
   z-index: 1;
-}
-
-.banner__content::before {
-  content: "";
-  position: absolute;
-  top: -200px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 0;
-  border-style: solid;
-  border-width: 200px 50vw 0 50vw;
-  border-color: transparent rgba(19, 20, 28, 0.5) rgba(19, 20, 28, 0.5) rgba(19, 20, 28, 0.5);
 }
 
 .banner__title {
@@ -139,17 +124,8 @@
     padding: 25px 20px 45px; 
   }
 
-  .banner__content::before {  
-    top: -50px;    
-    border-width: 50px 50vw 0 50vw;    
-  }
-
   .banner__container {
     padding-top: 70px;
-  }
-
-  .banner__container::after {   
-    border-width: 50px 50vw 0 50vw;
   }
 
   .banner__title {
@@ -173,15 +149,6 @@
 @media (max-width: 900px) and (orientation: landscape) {
   .banner__container {    
     padding-top: 100px;
-  }
-
-  .banner__content::before {   
-    top: -80px;    
-    border-width: 80px 50vw 0 50vw;    
-  }
-
-  .banner__container::after {   
-    border-width: 80px 50vw 0 50vw;  
   }
 
   .banner__content {
@@ -210,14 +177,5 @@
 @media (min-width: 1024px) and (max-width: 1365px) {
   .banner__content {
     padding: 35px 0 60px;
-  }
-
-  .banner__content::before {   
-    top: -100px;
-    border-width: 100px 50vw 0 50vw;
-  }
-
-  .banner__container::after {   
-    border-width: 100px 50vw 0 50vw;    
   }
 }
