@@ -2,15 +2,13 @@ import { put, call } from 'redux-saga/effects';
 import axios from 'axios';
 import moment from 'moment';
 
-import CONSTANTS from '../constants';
-
 import {
   getTournamentsSuccess, getTournamentsErrror, getCurrentTournamentSuccess,
   getCurrentTournamentErrror,
 } from '../actions/tournaments';
 
 async function getTournamentsRequest() {
-  const result = await axios.get(`${CONSTANTS.SERVER}/tournaments/`);
+  const result = await axios.get(`/api/tournaments/`);
   return result;
 }
 
@@ -26,7 +24,7 @@ export function* getTournamentsSaga() {
   }
 }
 async function getCurrentTournamentRequest(payload) {
-  const result = await axios.get(`${CONSTANTS.SERVER}/tournaments/${payload}`);
+  const result = await axios.get(`/api/tournaments/${payload}`);
   return result;
 }
 

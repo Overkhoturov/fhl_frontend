@@ -10,7 +10,7 @@ import { hideModal } from '../actions/home';
 import CONSTANTS from '../constants';
 
 async function loginRequest(email, password) {
-  const result = await axios.post(`${CONSTANTS.SERVER}/auth/login`, {
+  const result = await axios.post(`/api/auth/login`, {
     email,
     password,
   });
@@ -36,7 +36,7 @@ export function* loginSaga(action) {
 }
 
 async function registrationRequest(payload) {
-  const result = await axios.post(`${CONSTANTS.SERVER}/auth/registrate`, payload);
+  const result = await axios.post(`/api/auth/registrate`, payload);
   return result;
 }
 
@@ -56,7 +56,7 @@ export function* registrationSaga(action) {
 }
 
 async function forgotPasswordRequest(payload) {
-  const result = await axios.post(`${CONSTANTS.SERVER}/auth/forgot`, payload);
+  const result = await axios.post(`/api/auth/forgot`, payload);
   return result;
 }
 
@@ -73,7 +73,7 @@ export function* forgotPasswordSaga(action) {
 
 async function resetPasswordRequest(payload) {
   const { token, newPassword } = payload;
-  const result = await axios.put(`${CONSTANTS.SERVER}/auth/reset-password`, { token, newPassword });
+  const result = await axios.put(`/api/auth/reset-password`, { token, newPassword });
   return result;
 }
 
@@ -89,7 +89,7 @@ export function* resetPasswordSaga(action) {
 }
 
 async function confirmEmailRequest(payload) {
-  const result = await axios.get(`${CONSTANTS.SERVER}/auth/confirm${payload}`);
+  const result = await axios.get(`/api/auth/confirm${payload}`);
   return result;
 }
 

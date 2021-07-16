@@ -39,7 +39,7 @@ export default memo(() => {
               <Link
                 to={`${CONSTANTS.TOURNAMENTS}/${tournament.id}`}
                 className="card__image card__image--game"
-                style={{ backgroundImage: `url(${CONSTANTS.SERVER}/images/${tournament.banner})` }}
+                style={{ backgroundImage: `url(/api/images/${tournament.banner})` }}
               />
               <div className="card__content card__content--game">
                 <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.id}`} className="card__title">{tournament.name}</Link>
