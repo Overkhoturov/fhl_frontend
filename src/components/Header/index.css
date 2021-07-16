@@ -17,8 +17,10 @@
 }
 
 .header_home {	
+  position: relative;
 	background: none;
-	z-index: 10;
+  z-index: 10;  
+  background: linear-gradient(180deg, #1C2244 0%, rgba(28, 34, 68, 0) 100%);
 }
 
 .navbar-text {
