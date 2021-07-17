@@ -30,7 +30,7 @@ body {
 .input:focus {
 	background-color: #6C6E84;
   outline: #B7BAD1 solid 3px;
-	box-shadow: 0 1px 1px #B7BAD1;
+	box-shadow: none;
 	color: #fff;
 }
 
