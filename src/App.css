@@ -13,7 +13,7 @@ body {
   font-weight: normal;
   font-size: 18px;
   line-height: 23px;
-  color: #FFFFFF;
+  color: #fff;
   background: #6C6E84;
   border: none;
   border-radius: unset;
@@ -21,14 +21,18 @@ body {
   padding-bottom: 10px;
   margin-bottom: 30px;
 }
+
 .input::placeholder {
   color: #B7BAD1;
 }
+
 .input:active,
 .input:focus {
-  outline: none;
+	background-color: #6C6E84;
+  outline: #B7BAD1 solid 3px;
+	box-shadow: 0 1px 1px #B7BAD1;
+	color: #fff;
 }
-
 
 .input__wrong {
   box-shadow: 0 0 0 0.25rem rgb(250 0 0 / 30%);
