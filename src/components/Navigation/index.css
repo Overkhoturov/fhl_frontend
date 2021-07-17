@@ -158,11 +158,6 @@
     transform: rotate(-45deg);
   }
 
-  .burger-menu_active .burger-menu_button {
-    position: fixed;
-    left: 90%;
-  }
-      
   .menu {
     position: fixed;
     top: 0;       
