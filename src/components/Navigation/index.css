@@ -296,3 +296,8 @@
     margin-right: 80px;
   }
 }
+
+.popup__confirm {
+  display: flex;
+  justify-content: space-between;
+}

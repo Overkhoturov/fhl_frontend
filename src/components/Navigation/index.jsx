@@ -1,7 +1,9 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Modal from 'react-modal';
 
+import { ReactComponent as CloseSvg } from '../../assets/img/close.svg';
 import { logOut } from '../../actions/auth';
 import { showModal } from '../../actions/home';
 import { tournamentsToggleMenu, toggleBurgerMenu } from '../../actions/header';
@@ -22,8 +24,10 @@ const Navigation = () => {
   const auth = useSelector((state) => state.auth);
   const header = useSelector((state) => state.header);
   const tournaments = useSelector((state) => state.tournaments);
+  const [profileName, setProfileName] = useState('');
+  const [showConfirm, setShowConfirm] = useState(false);
   const { allTournaments } = tournaments;
-  const { isLogedIn } = auth;
+  const { isLogedIn, user } = auth;
   const { showTournamentMenu, showBurgerMenu } = header;
 
   useEffect(() => {
@@ -31,9 +35,19 @@ const Navigation = () => {
     dispatch(getTournaments());
   }, []);
 
+  useEffect(() => {
+    if (user && (user.nick_name || user.email)) {
+      const splittedEmail = user.email.split('@');
+      const [firstPartEmail] = splittedEmail;
+      return setProfileName(user.nick_name || firstPartEmail);
+    }
+    return setProfileName('');
+  }, [auth]);
+
   const onLogOut = () => {
     localStorage.removeItem('token');
     dispatch(logOut());
+    setShowConfirm(false);
   };
 
   const onOpenBurgerMenu = (event) => {
@@ -46,7 +60,7 @@ const Navigation = () => {
     if (!isLogedIn) {
       return dispatch(showModal());
     }
-    return onLogOut();
+    return setShowConfirm(true);
   };
 
   const onOpenTournament = (event) => {
@@ -81,6 +95,11 @@ const Navigation = () => {
             <Link className="menu__link" to="todanate">Поддержать</Link>
           </li>
           <li className="nav-item menu__item menu__item--login">
+            {user && (
+            <Link to={`${constants.PROFILE}/${user.id}`} className="menu__link">
+              {profileName}
+            </Link>
+            )}
             <Link to="/" className="menu__link" onClick={onClickLog}>
               <svg className="nav-link__user-icon" width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 17L15.9669 13.0693C15.7173 12.5663 15.3266 12.142 14.8398 11.8452C14.353 11.5484 13.7898 11.391 13.2151 11.3912H4.70549C4.13064 11.3905 3.56729 11.5477 3.0804 11.8446C2.59352 12.1415 2.20293 12.566 1.95367 13.0693L0 17H18Z" fill="white" />
@@ -93,6 +112,43 @@ const Navigation = () => {
 
         <div className="burger-menu_overlay" />
       </div>
+      <Modal
+        isOpen={showConfirm}
+        appElement={document.querySelector('#root')}
+        onRequestClose={() => setShowConfirm(false)}
+        closeTimeoutMS={500}
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(28, 34, 68, 0.5)',
+            zIndex: 1050,
+          },
+          content: {
+            maxWidth: '630px',
+            maxHeight: '200px',
+            background: '#3D3F51',
+            border: '1px solid rgba(0,0,0,.2)',
+            borderRadius: '.3rem',
+            padding: 0,
+            margin: 'auto',
+          },
+        }}
+      >
+        <div className="popup__header">
+          <h5 className="modal-title popup__title">
+            Уверены, что хотите выйти?
+          </h5>
+          <button type="button" className="close" onClick={() => setShowConfirm(false)}>
+            <CloseSvg />
+          </button>
+        </div>
+        <div className="popup__body">
+          <div className="popup__btn-group popup__confirm">
+            <button type="button" className="button btn popup__btn" onClick={() => onLogOut()}> Да </button>
+            <button type="button" className="button btn popup__btn" onClick={() => setShowConfirm(false)}> Отмена </button>
+          </div>
+        </div>
+
+      </Modal>
     </>
   );
 };

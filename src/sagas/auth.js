@@ -2,12 +2,27 @@ import { put, call } from 'redux-saga/effects';
 import axios from 'axios';
 
 import {
-  loginSuccess, loginError, registrationSuccess, registrationError,
+  loginSuccess, loginError, registrationSuccess, registrationError, logOut,
   forgotPasswordError, forgotPasswordSuccess, resetPasswordSuccess, resetPasswordError,
-  confirmEmailSuccess, confirmEmailError,
+  confirmEmailSuccess, confirmEmailError, getUserSuccess, getUserRequest,
 } from '../actions/auth';
 import { hideModal } from '../actions/home';
 import CONSTANTS from '../constants';
+
+async function getUserAxios(uid) {
+  const result = await axios.get(`${CONSTANTS.SERVER}/users/${uid}`);
+  return result;
+}
+
+export function* getUserSaga(action) {
+  try {
+    const result = yield call(getUserAxios, action.payload);
+    const payload = result.data;
+    yield put(getUserSuccess(payload));
+  } catch (error) {
+    yield put(logOut());
+  }
+}
 
 async function loginRequest(email, password) {
   const result = await axios.post(`${CONSTANTS.SERVER}/auth/login`, {
@@ -22,13 +37,15 @@ export function* loginSaga(action) {
   try {
     const result = yield call(loginRequest, email, password);
     const payload = result.data;
-    const { token } = payload;
+    const { token, uid } = payload;
     if (!token) {
       throw Error();
     }
     localStorage.setItem('token', token);
+    localStorage.setItem('uid', uid);
     yield put(loginSuccess(payload));
     yield put(hideModal());
+    yield put(getUserRequest(uid));
   } catch (error) {
     const { message } = error.response.data;
     yield put(loginError(message));

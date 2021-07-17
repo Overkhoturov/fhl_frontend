@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import { getUserRequest } from './actions/auth';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Clubs from './pages/Clubs';
@@ -19,6 +21,16 @@ import CONSTANTS from './constants';
 import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+  // const auth = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const uid = localStorage.getItem('uid');
+    if (uid) {
+      dispatch(getUserRequest(uid));
+    }
+  }, []);
+
   return (
     <Router>
       <Switch>
