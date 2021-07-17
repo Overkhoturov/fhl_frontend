@@ -137,6 +137,14 @@
     font-size: 16px;
   }
 
+  .popup__btn-group {
+    width: 100%;
+  }
+
+  .popup__btn {
+    width: 100%;
+  }
+
   .popup__label {
     font-size: 16px;
     margin-bottom: 10px;
@@ -169,5 +177,23 @@
   }
   .popup__btn {
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 376px) {
+  .popup__header {
+    padding: 15px 20px;
+  }
+
+  .popup__body {
+    padding: 0 15px 0;
+  }
+
+  .popup__footer {
+    padding: 0 15px 20px;
+  }
+
+  .popup__title {
+    font-size: 14px;
   }
 }
