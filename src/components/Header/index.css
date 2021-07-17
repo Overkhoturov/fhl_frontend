@@ -45,6 +45,20 @@
   background-position-y: bottom;
 }
 
+.nav-link__user-icon {
+  margin-top: -5px;
+}
+
+@media (max-width: 767px) {
+  .header.header_home {
+    padding: 0;    
+  }
+
+  .container.container--header {
+    padding: 0 10px 0 25px;
+  }
+}
+
 @media (min-width: 768px) {
   .container.container--top {
     padding: 30px 150px 30px 25px; 
