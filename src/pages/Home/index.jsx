@@ -7,7 +7,7 @@ import formatTime from '../../utils/formatTime';
 
 import CONSTANTS from '../../constants';
 
-import './index.css';
+import './banner.css';
 import './cards.css';
 
 export default memo(() => {
