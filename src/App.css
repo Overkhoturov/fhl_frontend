@@ -50,14 +50,15 @@ body {
 
 .button:hover {
 	background-color: #B7BADF;
-	box-shadow: 0px 15px 30px rgba(17, 20, 39, 0.7);
 	border-color: #B7BADF;
 }
 
-.button:active {
+.button:active,
+.button:focus {
 	background-color: #6C6E84;
 	color: #FFFFFF;
 	border-color: #6C6E84;
+	box-shadow: none;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
