@@ -32,7 +32,7 @@ export default memo(() => {
           </div>
         </div>
       </div>
-      <section className="container">
+      <section className="container container--cards">
         <div className="cards">
           {allTournaments.map((tournament) => (
             <div key={tournament.id} className="card">
