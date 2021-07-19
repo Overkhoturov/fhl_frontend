@@ -28,7 +28,7 @@ export default memo(() => {
               Строчка или даже две с подробностями предстоящего мероприятия или турнира,
               какие условия у турнира и все такое. Много всего можно написать.
             </p>
-            <Link to={`${CONSTANTS.TOURNAMENTS}/${lastTournament.id}`} className="banner__btn">Перейти к турниру</Link>
+            <Link to={`${CONSTANTS.TOURNAMENTS}/${lastTournament.id}`} className="button banner__button">Перейти к турниру</Link>
           </div>
         </div>
       </div>
