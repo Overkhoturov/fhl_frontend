@@ -43,6 +43,10 @@
   margin: auto;
 }
 
+.registration-form__button {
+  font-size: 18px;
+}
+
 .registration-confirm {
   display: flex;
   padding: 50px;
