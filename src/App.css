@@ -51,6 +51,7 @@ body {
 
 .button:hover {
   background-color: #B7BADF;
+  color: #242632;
 }
 
 .button:active {
