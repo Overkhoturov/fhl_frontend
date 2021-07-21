@@ -44,20 +44,23 @@ body {
   padding: 20px 30px;
   color: #242632;
   background: #fff;
-  border-radius: 0;
-  border-color: #fff;
+	border: none;
+	outline: none;
+  /*border-radius: 0;
+  border-color: #fff;*/
+	transition: all .15s ease-in-out;
 }
 
 .button:hover {
 	background-color: #B7BADF;
-	box-shadow: 0px 15px 30px rgba(17, 20, 39, 0.7);
-	border-color: #B7BADF;
+	/*box-shadow: 0px 15px 30px rgba(17, 20, 39, 0.7);*/
+	/*border-color: #B7BADF;*/
 }
 
 .button:active {
 	background-color: #6C6E84;
 	color: #FFFFFF;
-	border-color: #6C6E84;
+	/*border-color: #6C6E84;*/
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
