@@ -36,7 +36,7 @@ export default memo(() => {
           type="email"
           onChange={(event) => setEmail(event.target.value.trim())}
         />
-        <button className="btn button" type="submit">Отправить на почту</button>
+        <button className="button registration-form__button" type="submit">Отправить на почту</button>
       </form>
     </>
   );

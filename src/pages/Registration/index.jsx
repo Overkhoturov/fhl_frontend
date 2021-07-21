@@ -74,7 +74,7 @@ export default memo(() => {
             type="password"
             onChange={(event) => setRepeatPassword(event.target.value.trim())}
           />
-          <button className="registration-form button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+          <button className="registration-form__button button" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
         </form>
       )}
       {currentStepRegistration === 1 && (
