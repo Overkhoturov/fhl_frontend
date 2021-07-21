@@ -102,8 +102,8 @@ const LogInModal = () => {
               </Link>
             </div>
           </div>
-          <div className="popup__button-group">
-            <button type="submit" className="button popup__button">
+          <div className="popup__btn-group">
+            <button type="submit" className="button popup__btn">
               Войти
             </button>
           </div>

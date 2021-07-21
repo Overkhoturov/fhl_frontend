@@ -76,7 +76,7 @@
   display: inline-block;
 }
 
-.popup__button {
+.popup__btn {
   width: 145px;
   text-transform: uppercase;
   font-size: 18px;
@@ -150,7 +150,7 @@
     padding: 0 15px 0;
   }
 
-  .popup__button-group {
+  .popup__btn-group {
     margin-top: 15px;
     width: 100%;
   }
