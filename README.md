@@ -9,6 +9,8 @@
 
 3) `npm i`
 
+4) Create `.env` file and add `REACT_APP_SERVER=https://fhl-api.herokuapp.com` 
+
 ## Start app
 
 In the project directory, you can run:
