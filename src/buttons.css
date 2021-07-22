@@ -1,0 +1,20 @@
+.button {
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 20px 30px;
+  color: #242632;
+  background: #fff;
+  border: none;
+  outline: none;
+  transition: all .15s ease-in-out;
+}
+
+.button:hover {
+  background-color: #B7BADF;
+  color: #242632;
+}
+
+.button:active {
+  background-color: #6C6E84;
+  color: #FFFFFF;
+}
