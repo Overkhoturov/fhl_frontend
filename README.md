@@ -9,7 +9,8 @@
 
 3) `npm i`
 
-4) Create `.env` file and add `REACT_APP_SERVER=https://fhl-api.herokuapp.com` 
+4) Create `.env` file and add set `REACT_APP_SERVER` environment variable to the address of the API server. 
+> If you dont want to run API server on your machine, you can set it to `https://fhl-api.herokuapp.com` (our staging build) 
 
 ## Start app
 
