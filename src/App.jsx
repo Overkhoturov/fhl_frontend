@@ -19,6 +19,7 @@ import ConfirmEmail from './pages/ConfirmEmail';
 
 import CONSTANTS from './constants';
 import './App.css';
+import './buttons.css';
 
 function App() {
   const dispatch = useDispatch();

@@ -34,6 +34,13 @@
   color: #B7BADF;
 }
 
+.registration-form__button {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 20px 30px;
+}
+
 .registration-choose {
   display: flex;
   justify-content: space-around;

@@ -103,7 +103,7 @@ const LogInModal = () => {
             </div>
           </div>
           <div className="popup__btn-group">
-            <button type="submit" className="button btn popup__btn">
+            <button type="submit" className="button popup__btn">
               Войти
             </button>
           </div>
