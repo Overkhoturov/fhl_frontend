@@ -14,15 +14,21 @@
   width: 100%;
 }
 
-.registration-form__input:active,
-.registration-form__input:focus {
-  background-color: #6C6E84;
-  color: #FFFFFF;
-}
-
 .registration-form__role-inputs {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.registration-form__role-input-container {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .registration-form__role-inputs {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .registration-form__role-inputs input {
