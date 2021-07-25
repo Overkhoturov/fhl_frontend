@@ -1,24 +1,32 @@
-import { put, call } from 'redux-saga/effects';
+import { put, call, select } from 'redux-saga/effects';
 import axios from 'axios';
 
 import {
   loginSuccess, loginError, registrationSuccess, registrationError, logOut,
   forgotPasswordError, forgotPasswordSuccess, resetPasswordSuccess, resetPasswordError,
-  confirmEmailSuccess, confirmEmailError, getUserSuccess, getUserRequest,
+  confirmEmailSuccess, confirmEmailError, getUserSuccess, getUserRequest, changeMainUserInfoSuccess,
+  changeMainUserInfoError,
 } from '../actions/auth';
 import { hideModal } from '../actions/home';
 import CONSTANTS from '../constants';
 
-async function getUserAxios(uid) {
-  const result = await axios.get(`${CONSTANTS.SERVER}/users/${uid}`);
+async function getUserAxios(uid, token) {
+  const result = await axios.get(`${CONSTANTS.SERVER}/users/${uid}`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
   return result;
 }
 
 export function* getUserSaga(action) {
   try {
-    const result = yield call(getUserAxios, action.payload);
-    const payload = result.data;
-    yield put(getUserSuccess(payload));
+    const token = yield select((state) => state.auth.token);
+    if (token) {
+      const result = yield call(getUserAxios, action.payload, token);
+      const payload = result.data;
+      yield put(getUserSuccess(payload));
+    }
   } catch (error) {
     yield put(logOut());
   }
@@ -118,5 +126,28 @@ export function* confirmEmailSaga(action) {
   } catch (error) {
     // const { message } = error.response.data;
     yield put(confirmEmailError());
+  }
+}
+
+async function changeMainUserInfoRequest(payload, uid, token) {
+  const result = await axios.put(`${CONSTANTS.SERVER}/users/${uid}/profile`, payload, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  return result;
+}
+
+export function* changeMainUserInfoSaga(action) {
+  try {
+    const { id, token } = yield select((state) => state.auth);
+    console.log('payload', action.payload);
+    const result = yield call(changeMainUserInfoRequest, action.payload, id, token);
+    const payload = result.data;
+    console.log('result', result);
+    yield put(changeMainUserInfoSuccess(payload));
+  } catch (error) {
+    // const { message } = error.response.data;
+    yield put(changeMainUserInfoError());
   }
 }

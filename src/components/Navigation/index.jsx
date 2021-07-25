@@ -45,7 +45,6 @@ const Navigation = () => {
   }, [auth]);
 
   const onLogOut = () => {
-    localStorage.removeItem('token');
     dispatch(logOut());
     setShowConfirm(false);
   };

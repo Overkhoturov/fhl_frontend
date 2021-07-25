@@ -7,6 +7,7 @@ import {
   AUTH_CONFIRM_EMAIL_REQUEST, AUTH_CONFIRM_EMAIL_SUCCESS, AUTH_CONFIRM_EMAIL_ERROR,
   AUTH_CHANGE_STEP_REGISTRATION,
   AUTH_GET_USER_REQUEST, AUTH_GET_USER_SUCCESS, AUTH_GET_USER_ERROR,
+  AUTH_CHANGE_INFO_REQUEST, AUTH_CHANGE_INFO_SUCCESS, AUTH_CHANGE_INFO_ERROR,
 } from '../action-types/auth';
 
 export const loginRequest = (payload) => ({ type: AUTH_LOGIN_REQUEST, payload });
@@ -38,3 +39,7 @@ export const changeStepRegistration = (payload) => ({
 });
 
 export const logOut = () => ({ type: AUTH_LOGOUT });
+
+export const changeMainUserInfoRequest = (payload) => ({ type: AUTH_CHANGE_INFO_REQUEST, payload });
+export const changeMainUserInfoSuccess = (payload) => ({ type: AUTH_CHANGE_INFO_SUCCESS, payload });
+export const changeMainUserInfoError = (payload) => ({ type: AUTH_CHANGE_INFO_ERROR, payload });

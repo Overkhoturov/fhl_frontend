@@ -46,6 +46,8 @@ export default (state = initialState, action) => {
     case actionTypes.AUTH_CONFIRM_EMAIL_ERROR:
       return { ...state, status: false, isShowAlert: true };
     case actionTypes.AUTH_LOGOUT:
+      localStorage.removeItem('token');
+      localStorage.removeItem('uid');
       return {
         ...state, token: '', isShowAlert: false, isLogedIn: false, user: null,
       };
@@ -53,6 +55,10 @@ export default (state = initialState, action) => {
       return { ...state, currentStepRegistration: action.payload };
     case actionTypes.AUTH_GET_USER_SUCCESS:
       return { ...state, user: action.payload };
+    case actionTypes.AUTH_CHANGE_INFO_SUCCESS:
+      return { ...state, status: true, isShowAlert: true };
+    case actionTypes.AUTH_CHANGE_INFO_ERROR:
+      return { ...state, status: false, isShowAlert: true };
     default:
       return state;
   }
