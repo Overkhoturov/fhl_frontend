@@ -65,7 +65,7 @@ const ResetPassword = (props) => {
           type="password"
           onChange={(event) => setRepeatPassword(event.target.value.trim())}
         />
-        <button className="btn button" type="submit">Изменить</button>
+        <button className="button" type="submit">Изменить</button>
       </form>
     </>
   );
