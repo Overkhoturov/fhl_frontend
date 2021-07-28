@@ -5,7 +5,8 @@
 .popup__header {
   display: flex;
   justify-content: space-between;
-  padding: 30px 45px;
+  align-items: flex-start;
+  padding: 30px 30px 20px 45px;
 }
 
 .popup__body {
@@ -97,6 +98,7 @@
 }
 
 .ReactModal__Content {
+  height: fit-content;
   opacity: 0;
   transform: translateY(-100px);
   transition: all 500ms ease-in-out;
@@ -146,7 +148,7 @@
   }
 
   .popup__footer {
-    padding: 0 15px 0;
+    padding: 15px;
   }
 
   .popup__btn-group {
