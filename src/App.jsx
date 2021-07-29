@@ -10,6 +10,7 @@ import Donuts from './pages/Donuts';
 import Events from './pages/Events';
 import Players from './pages/Players';
 import Profile from './pages/Profile';
+import EditProfile from './pages/Profile/Edit';
 import Registration from './pages/Registration';
 import Tournaments from './pages/Tournaments';
 import ForgotPassword from './pages/ForgotPassword';
@@ -41,6 +42,7 @@ function App() {
         <Route path={CONSTANTS.DONATES} component={Donuts} />
         <Route path={CONSTANTS.EVENTS} component={Events} />
         <Route path={CONSTANTS.PLAYERS} component={Players} />
+        <Route path={`${CONSTANTS.PROFILE}/:id/edit`} component={EditProfile} />
         <Route path={`${CONSTANTS.PROFILE}/:id`} component={Profile} />
         <Route path={CONSTANTS.REGISTRATION} component={Registration} />
         <Route exact path={CONSTANTS.TOURNAMENTS} component={Tournaments} />
