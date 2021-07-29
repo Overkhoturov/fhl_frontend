@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './index.css';
 import { Link } from 'react-router-dom';
-import VK from '../svgComponents/Social/Vzwk';
+import VK from '../svgComponents/Social/Vk';
 import TELEGRAM from '../svgComponents/Social/Telegram';
 import INSTAGRAM from '../svgComponents/Social/Instagram';
 import YOUTUBE from '../svgComponents/Social/Youtube';
