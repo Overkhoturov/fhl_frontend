@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
-import Logo from '../Logo';
+import Logo from '../svgComponents/Logo';
 
 const PageLoader = (props) => {
   const { isLoading } = props;
