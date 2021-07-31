@@ -19,3 +19,17 @@
   background-color: #6C6E84;
   color: #FFFFFF;
 }
+
+@media (min-width: 768px) {
+  .button {
+    padding: 16px 25px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .button {
+    padding: 20px 30px;
+    font-size: 24px;
+  }
+}
