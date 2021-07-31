@@ -34,20 +34,22 @@ const Profile = (props) => {
   return (
     <>
       <Header isShowNavigation />
-      <header className="header header-page">
-        <div className="container container--top">
-          <h1 className="main-title">
-            {username}
-          </h1>
-          <h2 className="main-date">
-            {user?.rank}
-          </h2>
+      <div className="main">
+        <header className="header header-page">
+          <div className="container container--top">
+            <h1 className="main-title">
+              {username}
+            </h1>
+            <h2 className="main-date">
+              {user?.rank}
+            </h2>
+          </div>
+        </header>
+        <div>
+          <Link to={`${match.url}/edit`} className="burger-menu_button">
+            Редактировать данные
+          </Link>
         </div>
-      </header>
-      <div>
-        <Link to={`${match.url}/edit`} className="burger-menu_button">
-          Редактировать данные
-        </Link>
       </div>
       <Footer />
     </>

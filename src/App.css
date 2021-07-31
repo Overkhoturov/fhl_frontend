@@ -7,6 +7,10 @@ body {
   background: #272A33;
 }
 
+.root {
+  min-height: 100vh;
+}
+
 .input {
   font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
@@ -70,7 +74,7 @@ img {
 }
 
 .title {
-  text-transform: uppercase;	
+  text-transform: uppercase;
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
@@ -86,7 +90,7 @@ img {
 }
 
 .main-title {
-  font-family: 'Montserrat', sans-serif;	
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 25px;
@@ -170,18 +174,18 @@ img {
 }
 
 @media (min-width: 768px) {
-  .title {		
+  .title {
     font-size: 30px;
-    line-height: 1.2;		
+    line-height: 1.2;
     margin-bottom: 30px;
     margin-top: 30px;
   }
 }
 
 @media (min-width: 1024px) {
-  .title {		
+  .title {
     font-size: 40px;
-    line-height: 49px;		
+    line-height: 49px;
     margin-bottom: 89px;
     margin-top: 93px;
   }
@@ -200,7 +204,7 @@ img {
   border-radius: unset;
 }
 
-a {	
+a {
   text-decoration: none;
 }
 

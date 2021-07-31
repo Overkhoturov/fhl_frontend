@@ -8,7 +8,7 @@ import './index.css';
 export default (() => (
   <>
     <Header />
-    <div>
+    <div className="main">
       Donuts
     </div>
     <Footer />

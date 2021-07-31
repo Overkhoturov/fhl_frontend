@@ -35,52 +35,54 @@ const Tournaments = memo((props) => {
   return (
     <>
       <Header isShowNavigation />
-      {currentTournament
-        ? (
-          <>
-            <header className="header header-page">
-              <div className="container container--top">
-                <h1 className="main-title">
-                  {currentTournament.name}
-                </h1>
-                <h2 className="main-date">
-                  {formatTime(currentTournament.date)}
-                </h2>
-                <ul className="game-menu">
-                  {constants.TOURNAMENTS_TABS.map((tab, tabIndex) => {
-                    if (!currentTournament[tab.name]) {
-                      return null;
-                    }
-                    return (
-                      <li key={tab.name} className="game-menu__item">
-                        <Link
-                          to="/"
-                          className={`game-menu__link ${tabIndex === currentTab && 'active'}`}
-                          onClick={(event) => {
-                            event.preventDefault();
-                            setCurrentTab(tabIndex);
-                          }}
-                        >
-                          {tab.text}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </header>
-            <main className="main">
-              <div className="container">
-                {currentTab === 0 && <TabNet challongeLink={currentTournament?.challonge_link} />}
-                {currentTab === 1 && <TabCrews />}
-                {currentTab === 2 && <TabSchedule schedule={currentTournament?.schedule} />}
-                {currentTab === 3 && <TabRegular />}
-                {currentTab === 4 && <TabPhotos />}
-              </div>
-            </main>
-          </>
-        )
-        : <PageLoader />}
+      <div className="main">
+        {currentTournament
+          ? (
+            <>
+              <header className="header header-page">
+                <div className="container container--top">
+                  <h1 className="main-title">
+                    {currentTournament.name}
+                  </h1>
+                  <h2 className="main-date">
+                    {formatTime(currentTournament.date)}
+                  </h2>
+                  <ul className="game-menu">
+                    {constants.TOURNAMENTS_TABS.map((tab, tabIndex) => {
+                      if (!currentTournament[tab.name]) {
+                        return null;
+                      }
+                      return (
+                        <li key={tab.name} className="game-menu__item">
+                          <Link
+                            to="/"
+                            className={`game-menu__link ${tabIndex === currentTab && 'active'}`}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              setCurrentTab(tabIndex);
+                            }}
+                          >
+                            {tab.text}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </header>
+              <main className="main">
+                <div className="container">
+                  {currentTab === 0 && <TabNet challongeLink={currentTournament?.challonge_link} />}
+                  {currentTab === 1 && <TabCrews />}
+                  {currentTab === 2 && <TabSchedule schedule={currentTournament?.schedule} />}
+                  {currentTab === 3 && <TabRegular />}
+                  {currentTab === 4 && <TabPhotos />}
+                </div>
+              </main>
+            </>
+          )
+          : <PageLoader />}
+      </div>
       <Footer />
     </>
   );
