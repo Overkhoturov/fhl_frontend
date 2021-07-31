@@ -17,6 +17,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Notification from './components/Notification';
 import ConfirmEmail from './pages/ConfirmEmail';
+import Footer from './components/Footer';
 
 import CONSTANTS from './constants';
 import './App.css';
@@ -52,6 +53,7 @@ function App() {
         <Route component={NotFound} />
       </Switch>
       <Notification />
+      <Footer />
     </Router>
   );
 }
