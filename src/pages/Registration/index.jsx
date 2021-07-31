@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { registrationRequest, changeStepRegistration } from '../../actions/auth';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import './index.css';
 
@@ -114,6 +115,7 @@ export default memo(() => {
           </div>
         </div>
       )}
+      <Footer />
     </>
   );
 });

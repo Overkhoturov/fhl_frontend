@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import PageLoader from '../../components/PageLoader';
 import { getCurrentTournament } from '../../actions/tournaments';
 import { tournamentsToggleMenu } from '../../actions/header';
@@ -80,6 +81,7 @@ const Tournaments = memo((props) => {
           </>
         )
         : <PageLoader />}
+      <Footer />
     </>
   );
 });

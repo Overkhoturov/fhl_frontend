@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { forgotPasswordRequest } from '../../actions/auth';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import './index.css';
 
@@ -38,6 +39,7 @@ export default memo(() => {
         />
         <button className="button registration-form__button" type="submit">Отправить на почту</button>
       </form>
+      <Footer />
     </>
   );
 });

@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import { resetPasswordRequest } from '../../actions/auth';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import './index.css';
 import CONSTANTS from '../../constants';
@@ -67,6 +68,7 @@ const ResetPassword = (props) => {
         />
         <button className="btn button" type="submit">Изменить</button>
       </form>
+      <Footer />
     </>
   );
 };

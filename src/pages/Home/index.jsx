@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import formatTime from '../../utils/formatTime';
 
 import CONSTANTS from '../../constants';
@@ -49,6 +50,7 @@ export default memo(() => {
           ))}
         </div>
       </section>
+      <Footer />
     </>
   );
 });

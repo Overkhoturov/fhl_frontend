@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { getUserRequest } from '../../actions/auth';
 
 import './index.css';
@@ -48,6 +49,7 @@ const Profile = (props) => {
           Редактировать данные
         </Link>
       </div>
+      <Footer />
     </>
   );
 };

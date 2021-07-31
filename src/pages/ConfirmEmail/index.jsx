@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
 import { confirmEmailRequest } from '../../actions/auth';
 
 const ConfirmEmail = memo((props) => {
@@ -46,7 +48,7 @@ const ConfirmEmail = memo((props) => {
           </div>
         </div>
       </div>
-
+      <Footer />
     </>
   );
 });

@@ -81,6 +81,7 @@
 
   .footer-menu__item--social {
     padding-left: 33%;
+    padding-right: 2%;
   }
 
   .footer-menu__item:not(:first-child) {
