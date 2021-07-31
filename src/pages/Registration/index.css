@@ -40,13 +40,6 @@
   color: #B7BADF;
 }
 
-.registration-form__button {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1;
-  padding: 20px 30px;
-}
-
 .registration-choose {
   display: flex;
   justify-content: space-around;
@@ -168,8 +161,4 @@
 
 .registration-form__role-input--secondary:checked + span:before {
   opacity: 1;
-}
-
-.registration-form__button {
-  font-weight: 600;
 }

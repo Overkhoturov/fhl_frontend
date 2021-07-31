@@ -55,19 +55,6 @@
   line-height: 1.3;
 }
 
-.banner__btn {	
-  display: inline-block;
-  margin: 0 auto;
-  padding: 10px 15px;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 29px;
-  text-align: center;
-  color: #242632;
-  text-decoration: none;
-  background: #fff;
-}
-
 @media (min-width: 576px) {
   .banner {
     background-position-x: center;
@@ -96,11 +83,6 @@
     font-size: 18px;
     line-height: 1.2;
   }
-
-  .banner__btn {
-    padding: 16px 25px;
-    font-size: 18px;
-  }
 }
 
 @media (min-width: 992px) {
@@ -111,11 +93,6 @@
   .banner__description {	
     font-size: 20px;
     line-height: 25px;
-  }
-
-  .banner__btn {
-    padding: 20px 30px;
-    font-size: 24px;
   }
 }
 
