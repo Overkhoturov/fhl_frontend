@@ -250,6 +250,7 @@
   }
 }
 
+
 @media (min-width: 1024px) {
   .nav {
     justify-content: space-between;
@@ -300,4 +301,10 @@
 .popup__confirm {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 376px) {
+  .popup__btn--short {
+    width: unset;
+  }
 }
