@@ -10,17 +10,17 @@
 }
 
 .button:hover {
-  background-color: #B7BADF;
+  background-color: #b7badf;
   color: #242632;
 }
 
 .button:focus {
-  outline: 3px solid #B7BAD1;
+  outline: 3px solid #b7bad1;
 }
 
 .button:active {
-  background-color: #6C6E84;
-  color: #FFFFFF;
+  background-color: #6c6e84;
+  color: #fff;
 }
 
 .button:active,
