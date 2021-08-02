@@ -12,6 +12,7 @@
 .button:hover {
   background-color: #B7BADF;
   color: #242632;
+  outline: none;
 }
 
 .button:focus {
@@ -21,4 +22,5 @@
 .button:active {
   background-color: #6C6E84;
   color: #FFFFFF;
+  outline: none;
 }
