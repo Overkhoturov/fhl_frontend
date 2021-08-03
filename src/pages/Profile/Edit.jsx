@@ -42,9 +42,11 @@ export default memo(() => {
       setInstaLink(user.insta_link || '');
       setMainRole(user.main_role || '');
       setAdditionRoles(user.additional_roles.split(' ') || '');
-      const [currentRank, curentDivision] = user.rank.split(' ');
-      setRank(currentRank || '');
-      setDivision(curentDivision || '');
+      if (user.rank) {
+        const [currentRank, curentDivision] = user.rank.split(' ');
+        setRank(currentRank || '');
+        setDivision(curentDivision || '');
+      }
       setAdditionRoles(user.additional_roles.split(' ') || '');
     }
   }, [user]);
