@@ -41,13 +41,15 @@ export default memo(() => {
       setVkLink(user.vk_link || '');
       setInstaLink(user.insta_link || '');
       setMainRole(user.main_role || '');
-      setAdditionRoles(user.additional_roles.split(' ') || '');
+      if (user.additional_roles) {
+        const splittedRoles = user.additional_roles.split(' ');
+        setAdditionRoles(splittedRoles);
+      }
       if (user.rank) {
         const [currentRank, curentDivision] = user.rank.split(' ');
         setRank(currentRank || '');
         setDivision(curentDivision || '');
       }
-      setAdditionRoles(user.additional_roles.split(' ') || '');
     }
   }, [user]);
   // const isWrong = (value) => {
