@@ -7,10 +7,6 @@ body {
   background: #272A33;
 }
 
-.root {
-  min-height: 100vh;
-}
-
 .input {
   font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
@@ -86,7 +82,7 @@ img {
 }
 
 .main {
-  min-height: calc(100vh - 250px);
+  min-height: calc(100vh - 192px);
 }
 
 .main-title {
@@ -100,6 +96,9 @@ img {
 }
 
 @media (min-width: 768px) {
+  .main {
+    min-height: calc(100vh - 181px);
+  }
   .main-title {
     font-size: 35px;
   }

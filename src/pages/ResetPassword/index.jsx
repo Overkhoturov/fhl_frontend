@@ -50,8 +50,8 @@ const ResetPassword = (props) => {
 
   return (
     <>
-      <Header showLoginButton={false} />
       <div className="main">
+        <Header showLoginButton={false} />
         <form className="registration-form" onSubmit={submitForm}>
           <input
             className={`input registration-form__input form-control ${isWrong(password) ? '' : 'input__wrong'}`}

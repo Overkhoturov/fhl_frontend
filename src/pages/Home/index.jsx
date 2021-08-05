@@ -18,9 +18,9 @@ export default memo(() => {
 
   return (
     <>
-      <div className="banner">
-        <Header isShowNavigation classHeader="header_home" />
-        <div className="main">
+      <div className="main">
+        <div className="banner">
+          <Header isShowNavigation classHeader="header_home" />
           <div className="banner__container">
             <div className="banner__content">
               <h1 className="banner__title">

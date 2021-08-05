@@ -52,8 +52,8 @@ export default memo(() => {
 
   return (
     <>
-      <Header showLoginButton={false} />
       <div className="main">
+        <Header showLoginButton={false} />
         {currentStepRegistration === 0 && (
           <form className="registration-form" onSubmit={submitForm}>
             <input

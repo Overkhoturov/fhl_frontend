@@ -33,8 +33,8 @@ const Profile = (props) => {
 
   return (
     <>
-      <Header isShowNavigation />
       <div className="main">
+        <Header isShowNavigation />
         <header className="header header-page">
           <div className="container container--top">
             <h1 className="main-title">

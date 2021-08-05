@@ -7,8 +7,8 @@ import './index.css';
 
 export default memo(() => (
   <>
-    <Header />
     <div className="main">
+      <Header />
       Events
     </div>
     <Footer />

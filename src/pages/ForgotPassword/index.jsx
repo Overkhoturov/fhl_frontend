@@ -28,8 +28,8 @@ export default memo(() => {
 
   return (
     <>
-      <Header showLoginButton={false} />
       <div className="main">
+        <Header showLoginButton={false} />
         <form className="registration-form" onSubmit={submitForm}>
           <input
             className={`input registration-form__input form-control ${isWrong(email) ? '' : 'input__wrong'}`}

@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,8 +34,8 @@ const Tournaments = memo((props) => {
 
   return (
     <>
-      <Header isShowNavigation />
       <div className="main">
+        <Header isShowNavigation />
         {currentTournament
           ? (
             <>
