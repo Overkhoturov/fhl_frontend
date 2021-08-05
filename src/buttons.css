@@ -27,3 +27,17 @@
 .button:hover {
   outline: none;
 }
+
+@media (min-width: 768px) {
+  .button {
+    padding: 16px 25px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .button {
+    padding: 20px 30px;
+    font-size: 24px;
+  }
+}

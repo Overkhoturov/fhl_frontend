@@ -96,11 +96,6 @@
     font-size: 18px;
     line-height: 1.2;
   }
-
-  .banner__btn {
-    padding: 16px 25px;
-    font-size: 18px;
-  }
 }
 
 @media (min-width: 992px) {
@@ -111,11 +106,6 @@
   .banner__description {	
     font-size: 20px;
     line-height: 25px;
-  }
-
-  .banner__btn {
-    padding: 20px 30px;
-    font-size: 24px;
   }
 }
 
