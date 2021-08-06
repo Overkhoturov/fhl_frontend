@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import { resetPasswordRequest } from '../../actions/auth';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer'
+import Footer from '../../components/Footer';
 
 import './index.css';
 import CONSTANTS from '../../constants';
@@ -50,26 +50,26 @@ const ResetPassword = (props) => {
 
   return (
     <>
-    <div className="main">
-      <Header showLoginButton={false} />
-      <form className="registration-form" onSubmit={submitForm}>
-        <input
-          className={`input registration-form__input form-control ${isWrong(password) ? '' : 'input__wrong'}`}
-          placeholder="Придумайте пароль*"
-          value={password}
-          type="password"
-          onChange={(event) => setPassword(event.target.value.trim())}
-        />
-        <input
-          className={`input registration-form__input form-control ${isWrong(repeatPassword) && isCorrectPassword ? '' : 'input__wrong'}`}
-          placeholder="Повторите пароль*"
-          value={repeatPassword}
-          type="password"
-          onChange={(event) => setRepeatPassword(event.target.value.trim())}
-        />
-        <button className="btn button" type="submit">Изменить</button>
-      </form>
-    </div>
+      <div className="main">
+        <Header showLoginButton={false} />
+        <form className="registration-form" onSubmit={submitForm}>
+          <input
+            className={`input registration-form__input form-control ${isWrong(password) ? '' : 'input__wrong'}`}
+            placeholder="Придумайте пароль*"
+            value={password}
+            type="password"
+            onChange={(event) => setPassword(event.target.value.trim())}
+          />
+          <input
+            className={`input registration-form__input form-control ${isWrong(repeatPassword) && isCorrectPassword ? '' : 'input__wrong'}`}
+            placeholder="Повторите пароль*"
+            value={repeatPassword}
+            type="password"
+            onChange={(event) => setRepeatPassword(event.target.value.trim())}
+          />
+          <button className="btn button" type="submit">Изменить</button>
+        </form>
+      </div>
       <Footer />
     </>
   );
