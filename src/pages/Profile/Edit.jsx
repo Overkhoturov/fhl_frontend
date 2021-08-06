@@ -18,17 +18,40 @@ export default memo(() => {
   const [instaLink, setInstaLink] = useState('');
   const [mainRole, setMainRole] = useState('');
   const [additionRoles, setAdditionRoles] = useState([]);
+  const [rank, setRank] = useState('');
+  const [division, setDivision] = useState('');
   // const [submitClicked, setSubmitClicked] = useState(false);
   const isLogedIn = useSelector((state) => state.auth.isLogedIn);
+  const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  const { ROLES } = constants;
-
+  const { ROLES, RANKS, DIVISIONS } = constants;
   useEffect(() => {
     if (!isLogedIn) {
       history.push('/');
     }
   }, []);
+  useEffect(() => {
+    if (user) {
+      setFirstName(user.first_name || '');
+      setLastname(user.last_name || '');
+      setPhone(user.phone || '');
+      setCity(user.city || '');
+      setNick(user.nick_name || '');
+      setVkLink(user.vk_link || '');
+      setInstaLink(user.insta_link || '');
+      setMainRole(user.main_role || '');
+      if (user.additional_roles) {
+        const splittedRoles = user.additional_roles.split(' ');
+        setAdditionRoles(splittedRoles);
+      }
+      if (user.rank) {
+        const [currentRank, curentDivision] = user.rank.split(' ');
+        setRank(currentRank || '');
+        setDivision(curentDivision || '');
+      }
+    }
+  }, [user]);
   // const isWrong = (value) => {
   //   if (!value && submitClicked) {
   //     return false;
@@ -48,6 +71,7 @@ export default memo(() => {
       additional_roles: additionRoles,
       vk_link: vkLink,
       insta_link: instaLink,
+      rank: `${rank} ${division}`,
     }));
   };
   const onChangeAdditionalRoles = (event) => {
@@ -108,6 +132,56 @@ export default memo(() => {
           value={instaLink}
           onChange={(event) => setInstaLink(event.target.value)}
         />
+        <select
+          className="input registration-form__input form-control"
+          onChange={(event) => setRank(event.target.value)}
+          value={rank}
+        >
+          <option key="blank" value="">Ранг</option>
+          {Object.keys(RANKS).map((rankKey) => (
+            <option
+              checked={rank === rankKey}
+              key={rankKey}
+              value={rankKey}
+            >
+              {RANKS[rankKey][1]}
+            </option>
+          ))}
+        </select>
+        {
+          (rank === RANKS.CHALLENGER[0]
+          || rank === RANKS.GRANDMASTER[0]
+          || rank === RANKS.MASTER[0])
+            ? (
+              <input
+                className="input registration-form__input form-control"
+                placeholder="Введите количество LP"
+                value={division}
+                type="number"
+                min={0}
+                onChange={(event) => setDivision(event.target.value)}
+              />
+            )
+            : (
+              <select
+                className="input registration-form__input form-control"
+                onChange={(event) => setDivision(event.target.value)}
+                value={division}
+              >
+                <option key="blank" value="">Дивизион</option>
+                {Object.keys(DIVISIONS).map((divisionKey) => (
+                  <option
+                    checked={division === divisionKey}
+                    key={`division-${divisionKey}`}
+                    value={DIVISIONS[divisionKey][0]}
+                  >
+                    {DIVISIONS[divisionKey][1]}
+                  </option>
+                ))}
+              </select>
+            )
+        }
+
         <div className="registration-form__input">
           <div className="registration-form__role-header">Основная позиция</div>
           <div className="registration-form__role-inputs">
@@ -119,6 +193,7 @@ export default memo(() => {
                   name="main-role"
                   id={`main-${roleKey}`}
                   onChange={() => setMainRole(roleKey)}
+                  checked={mainRole === roleKey}
                 />
                 <span />
                 <label className="registration-form__role-label" htmlFor={`main-${roleKey}`}>{ROLES[roleKey]}</label>
@@ -138,6 +213,7 @@ export default memo(() => {
                   id={`additional-${roleKey}`}
                   value={roleKey}
                   onChange={onChangeAdditionalRoles}
+                  checked={additionRoles.includes(roleKey)}
                 />
                 <span />
                 <label className="registration-form__role-label" htmlFor={`additional-${roleKey}`}>{ROLES[roleKey]}</label>
