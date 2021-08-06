@@ -1,23 +1,21 @@
 .danate-service {
-    text-align: center;
-    background-color: #3D3F51;
-    padding-bottom: 55px;
+  text-align: center;
+  background-color: #3D3F51;
+  padding-bottom: 55px;
 }
 
-.danate-service{
-    background-image: url(../../assets/img/lighthouse.svg);
-    background-size: 9%;
-    background-repeat: no-repeat;
-    background-position: 80%;
-    background-position-y: bottom;
+.danate-service {
+  background-image: url(../../assets/img/lighthouse.svg);
+  background-size: 9%;
+  background-repeat: no-repeat; 
+  background-position: 80%;
+  background-position-y: bottom;
 }
 
 .danate-service .title-line {
-    background-color:unset;
-    font-size: 60px;
+  background-color:unset;
+  font-size: 60px;
 }
-
-
 
 .title-line__description {
     max-width: 800px;
@@ -28,86 +26,73 @@
 }
 
 .danate-service__btn {
-    display: inline-block;
-    margin: 0 auto;
-    padding: 20px 30px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    color: #242632;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #fff;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 20px 30px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #242632;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fff;
 }
 
 .danate-cards {
-    width: 1350px;
-    display: flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
+  width: 1350px;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .danate-card {
-    width: 250px;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
+  width: 250px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
 }
 
-
-.danate-card__image{
-    width: 250px ;
-    height: 250px;
-}
-
-@media (max-width: 576px) {
-
+.danate-card__image {
+  width: 250px ;
+  height: 250px;
 }
 
 @media (max-width: 768px) {
-    .danate-service .title-line {
-        font-size: 26px;
-    }
+  .danate-service .title-line {
+    font-size: 26px;
+  }
 
-    .title-line__description { 
-      font-size: 14px;
-    }
+  .title-line__description { 
+    font-size: 14px;
+  }
 
-    .danate-service__btn {
-        font-size: 13px;
-        padding: 10px 15px;
-    }
+  .danate-service__btn {
+    font-size: 13px;
+    padding: 10px 15px;
+  }
 
-    .danate-cards {
-        width: 270px;
-    }
-
-
+  .danate-cards {
+    width: 270px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-    .danate-cards {
-        width: 540px;
-    }
+  .danate-cards {
+    width: 540px;
+  }
 }
 
-@media (min-width: 992px) and (max-width: 1100px){
-    .danate-cards {
-        width: 810px;
-    }
+@media (min-width: 992px) and (max-width: 1200px){
+  .danate-cards {
+    width: 810px;
+  }
 }
 
-@media (min-width: 1100px) and (max-width: 1360px) {
-    .danate-cards {
-        width: 1080px;
-    }
-}
-
-@media (min-width: 1360px) and (max-width: 1400px) {
-    .danate-cards {
-        width: 1360px;
-    }
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .danate-cards {
+    width: 1360px;
+  }
 }
