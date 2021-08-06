@@ -9,6 +9,7 @@
   width: 100%;
   margin-bottom: 70px;
   border: none;
+  border-radius: 0;
   background: #3d3f51;
 }
 
@@ -41,7 +42,6 @@
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity .3s ease-in-out;
-
   text-align: center;
   font-family: 'Source Sans Pro';
   font-style: normal;
@@ -49,7 +49,6 @@
   font-size: 24px;
   line-height: 30px;
   text-align: center;
-
   color: #B7BADF;
 }
 
@@ -71,13 +70,11 @@
   color: #fff;	
   flex-direction: column;
   text-decoration: none;
-
   font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   color: #FFFFFF;
   border: 0;
-
   transition: color .3s ease;
 }
 
@@ -159,12 +156,12 @@
 
 @media (min-width: 576px) {
   .card {		
-    justify-content: space-between;
     flex-direction: column;
     width: calc(50% - 20px);
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 30px;
+    min-height: 324px;
   }
 
   .card__image {
@@ -212,9 +209,9 @@
     padding: 15px 20px 15px 70px;
   }
 
-  .card__content--game::before {       
+  .card__content--game::before {
+    top: -35px;
     left: 15px;
-    bottom: -1px;
     width: 40px;
     height: 140px;       
   }
@@ -238,16 +235,10 @@
 }
 
 @media (min-width: 1400px) {
-  .cards {
-    margin-left: -25px;
-    margin-right: -25px;
-  }
-
   .card {
-    width: calc(25% - 50px);	
+    width: calc(25% - 30px);	
     max-width: 500px;
-    margin-left: 25px;
-    margin-right: 25px;
+    min-height: 350px;
   }
 
   .card__image { 
@@ -256,7 +247,7 @@
   }
 
   .card__title {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 30px;
   }
 
@@ -265,12 +256,13 @@
   }
 
   .card__content--game {
-    padding: 20px 20px 20px 99px;
+    padding: 20px 20px 20px 90px;
   }
 
   .card__content--game::before {
+    top: -6px;
     left: 20px;
-    width: 59px;
-    height: 145px;
+    width: 53px;
+    height: 130px;
   }
 }
