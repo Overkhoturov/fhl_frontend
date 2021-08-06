@@ -1,4 +1,5 @@
 .button {
+  font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
   padding: 20px 30px;
@@ -26,4 +27,21 @@
 .button:active,
 .button:hover {
   outline: none;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 16px 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .button {
+    padding: 20px 30px;
+    font-size: 18px;
+  }
+  
+  .button--banner {
+    font-size: 24px;
+  }
 }

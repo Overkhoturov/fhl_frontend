@@ -301,3 +301,6 @@
   display: flex;
   justify-content: space-between;
 }
+.popup__btn--short {
+  width: unset;
+}

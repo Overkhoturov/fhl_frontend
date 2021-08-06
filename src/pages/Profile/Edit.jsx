@@ -221,7 +221,7 @@ export default memo(() => {
             ))}
           </div>
         </div>
-        <button className="btn button" type="submit">изменить данные</button>
+        <button className="button" type="submit">изменить данные</button>
       </form>
     </>
   );
