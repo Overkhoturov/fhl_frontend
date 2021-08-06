@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer'
 import { getUserRequest } from '../../actions/auth';
 
 import './index.css';
@@ -33,24 +33,24 @@ const Profile = (props) => {
 
   return (
     <>
-      <div className="main">
-        <Header isShowNavigation />
-        <header className="header header-page">
-          <div className="container container--top">
-            <h1 className="main-title">
-              {username}
-            </h1>
-            <h2 className="main-date">
-              {user?.rank}
-            </h2>
-          </div>
-        </header>
-        <div>
-          <Link to={`${match.url}/edit`} className="burger-menu_button">
-            Редактировать данные
-          </Link>
+    <div className="main">
+      <Header isShowNavigation />
+      <header className="header header-page">
+        <div className="container container--top">
+          <h1 className="main-title">
+            {username}
+          </h1>
+          <h2 className="main-date">
+            {user?.rank}
+          </h2>
         </div>
+      </header>
+      <div>
+        <Link to={`${match.url}/edit`} className="burger-menu_button">
+          Редактировать данные
+        </Link>
       </div>
+    </div>
       <Footer />
     </>
   );
