@@ -91,7 +91,7 @@ const Navigation = () => {
             <Link className="menu__link" to="toclubs">Клубы</Link>
           </li>
           <li className="menu__item">
-            <Link className="menu__link" to="todanate">Поддержать</Link>
+            <Link className="menu__link" to={constants.DONATES}>Поддержать</Link>
           </li>
           <li className="nav-item menu__item menu__item--login">
             {user && (
