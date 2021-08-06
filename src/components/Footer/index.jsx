@@ -10,32 +10,30 @@ const Footer = () => (
   <footer className="footer">
     <div className="container footer-container">
 
-      <div className="footer-menu">
-        <ul className="footer-menu__item--string">
-          <li className="footer-menu__item">
-            <Link to="/" className="footer-menu__link">Турниры</Link>
-          </li>
-          <li className="footer-menu__item">
-            <Link to="players" className="footer-menu__link">Игроки</Link>
-          </li>
-          <li className="footer-menu__item">
-            <Link to="toclubs" className="footer-menu__link">Клубы</Link>
-          </li>
-          <li className="footer-menu__item">
-            <Link to="todanate" className="footer-menu__link">Поддержать</Link>
-          </li>
-        </ul>
-        <div className="footer-menu__item--social">
-          <a className="footer-menu__social" href="https://vk.com/firehorn" target="_blank" rel="noreferrer">
-            <VkIcon />
-          </a>
-          <a className="footer-menu__social" href="https://www.youtube.com/channel/UChaA9krZaM5qgR6-u0YE2pAe" target="_blank" rel="noreferrer">
-            <YoutubeIcon />
-          </a>
-          <a className="footer-menu__social" href="https://www.instagram.com/firehornleague/" target="_blank" rel="noreferrer">
-            <InstagramIcon />
-          </a>
-        </div>
+      <ul className="footer-menu">
+        <li className="footer-menu__item">
+          <Link to="/" className="footer-menu__link">Главная</Link>
+        </li>
+        <li className="footer-menu__item">
+          <Link to="players" className="footer-menu__link">Игроки</Link>
+        </li>
+        <li className="footer-menu__item">
+          <Link to="toclubs" className="footer-menu__link">Клубы</Link>
+        </li>
+        <li className="footer-menu__item">
+          <Link to="todanate" className="footer-menu__link">Поддержать</Link>
+        </li>
+      </ul>
+      <div className="footer-social">
+        <a className="footer-menu__social" href="https://vk.com/firehorn" target="_blank" rel="noreferrer">
+          <VkIcon />
+        </a>
+        <a className="footer-menu__social" href="https://www.youtube.com/channel/UChaA9krZaM5qgR6-u0YE2pAe" target="_blank" rel="noreferrer">
+          <YoutubeIcon />
+        </a>
+        <a className="footer-menu__social" href="https://www.instagram.com/firehornleague/" target="_blank" rel="noreferrer">
+          <InstagramIcon />
+        </a>
       </div>
     </div>
   </footer>
