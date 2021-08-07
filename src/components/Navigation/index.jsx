@@ -85,13 +85,13 @@ const Navigation = () => {
             </div>
           </li>
           <li className="menu__item">
-            <Link className="menu__item menu__link" to="players">Игроки</Link>
+            <Link className="menu__item menu__link" to={`${constants.PLAYERS}`}>Игроки</Link>
           </li>
           <li className="menu__item">
-            <Link className="menu__link" to="toclubs">Клубы</Link>
+            <Link className="menu__link" to={`${constants.CLUBS}`}>Клубы</Link>
           </li>
           <li className="menu__item">
-            <Link className="menu__link" to="todanate">Поддержать</Link>
+            <Link className="menu__link" to={`${constants.DONATES}`}>Поддержать</Link>
           </li>
           <li className="nav-item menu__item menu__item--login">
             {user && (
