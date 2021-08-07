@@ -19,8 +19,6 @@ export default (state = initialState, action) => {
     case actionTypes.AUTH_LOGIN_SUCCESS:
       return {
         ...state,
-        status: true,
-        isShowAlert: true,
         isLogedIn: true,
         token: action.payload.token,
         id: action.payload.uid,
