@@ -5,11 +5,7 @@
 .popup__header {
   display: flex;
   justify-content: space-between;
-  padding: 30px 45px;
-}
-
-.popup__body {
-  padding: 0 45px 10px;
+  margin-bottom: 20px;
 }
 
 .popup__footer {
@@ -18,7 +14,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 45px 45px;
+  padding-top: 10px;
 }
 
 .popup__label {
@@ -77,9 +73,7 @@
 }
 
 .popup__btn {
-  width: 145px;
   font-size: 18px;
-  font-weight: 600;
   line-height: 1;
   padding: 20px 30px;
 }
@@ -97,6 +91,8 @@
 }
 
 .ReactModal__Content {
+  height: fit-content;
+  padding: 30px 45px!important;
   opacity: 0;
   transform: translateY(-100px);
   transition: all 500ms ease-in-out;
@@ -117,36 +113,23 @@
     font-size: 18px;
   }
 
-  .popup__header {
-    padding: 20px 30px;
+  .ReactModal__Content {
+    padding: 20px 30px!important;
   }
 
   .popup__input {
     margin-bottom: 20px!important;
   }
-
-  .popup__body {
-    padding-bottom: 0;
-  }
-
 }
 
 @media (max-width: 376px) {
-  .popup__header {
-    padding: 15px 20px;
+  .ReactModal__Content {
+    padding: 15px 20px!important;
   }
 
   .popup__label,
   .popup__link {
     font-size: 16px;
-  }
-
-  .popup__body {
-    padding: 0 15px 0;
-  }
-
-  .popup__footer {
-    padding: 0 15px 0;
   }
 
   .popup__btn-group {

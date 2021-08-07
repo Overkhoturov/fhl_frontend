@@ -1,4 +1,5 @@
 .button {
+  font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
   padding: 20px 30px;
@@ -10,11 +11,37 @@
 }
 
 .button:hover {
-  background-color: #B7BADF;
+  background-color: #b7badf;
   color: #242632;
 }
 
+.button:focus {
+  outline: 3px solid #b7bad1;
+}
+
 .button:active {
-  background-color: #6C6E84;
-  color: #FFFFFF;
+  background-color: #6c6e84;
+  color: #fff;
+}
+
+.button:active,
+.button:hover {
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 16px 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .button {
+    padding: 20px 30px;
+    font-size: 18px;
+  }
+  
+  .button--banner {
+    font-size: 24px;
+  }
 }

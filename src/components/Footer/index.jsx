@@ -1,12 +1,13 @@
 import React, { memo } from 'react';
+
 import { Link } from 'react-router-dom';
 import InstagramIcon from '../Social/Instagram';
 import VkIcon from '../Social/Vk';
 import YoutubeIcon from '../Social/Youtube';
 
-import './index.css';
+import './index.scss';
 
-const Footer = () => (
+const FOOTER = () => (
   <footer className="footer">
     <div className="container footer-container">
 
@@ -25,17 +26,18 @@ const Footer = () => (
         </li>
       </ul>
       <div className="footer-social">
-        <a className="footer-menu__social" href="https://vk.com/firehorn" target="_blank" rel="noreferrer">
+        <a className="footer-social__link" href="https://vk.com/firehorn" target="_blank" rel="noreferrer">
           <VkIcon />
         </a>
-        <a className="footer-menu__social" href="https://www.youtube.com/channel/UChaA9krZaM5qgR6-u0YE2pAe" target="_blank" rel="noreferrer">
+        <a className="footer-social__link" href="https://www.youtube.com/channel/UChaA9krZaM5qgR6-u0YE2pAe" target="_blank" rel="noreferrer">
           <YoutubeIcon />
         </a>
-        <a className="footer-menu__social" href="https://www.instagram.com/firehornleague/" target="_blank" rel="noreferrer">
+        <a className="footer-social__link" href="https://www.instagram.com/firehornleague/" target="_blank" rel="noreferrer">
           <InstagramIcon />
         </a>
       </div>
     </div>
   </footer>
 );
-export default memo(Footer);
+
+export default memo(FOOTER);

@@ -21,6 +21,7 @@ import ConfirmEmail from './pages/ConfirmEmail';
 import CONSTANTS from './constants';
 import './App.css';
 import './buttons.css';
+// import FOOTER from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -52,7 +53,9 @@ function App() {
         <Route component={NotFound} />
       </Switch>
       <Notification />
+      {/* <FOOTER /> */}
     </Router>
+
   );
 }
 

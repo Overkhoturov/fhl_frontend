@@ -142,8 +142,8 @@ const Navigation = () => {
         </div>
         <div className="popup__body">
           <div className="popup__btn-group popup__confirm">
-            <button type="button" className="button btn popup__btn" onClick={() => onLogOut()}> Да </button>
-            <button type="button" className="button btn popup__btn" onClick={() => setShowConfirm(false)}> Отмена </button>
+            <button type="button" className="button popup__btn popup__btn--short" onClick={() => onLogOut()}> Да </button>
+            <button type="button" className="button popup__btn popup__btn--short" onClick={() => setShowConfirm(false)}> Нет </button>
           </div>
         </div>
 
