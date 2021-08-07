@@ -1,28 +1,31 @@
 import React, { memo, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 
+import EditModal from './EditModal';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { getUserRequest } from '../../actions/auth';
 
 import './index.css';
+import constants from '../../constants';
 
-const Profile = (props) => {
-  const dispatch = useDispatch();
+const Profile = () => {
   const user = useSelector((state) => state.auth.user);
-  const uid = localStorage.getItem('uid');
   const [username, setUsername] = useState('');
-  const { match } = props;
+  const [isShowModal, setIsShowModal] = useState(false);
+  const history = useHistory();
+  const isLogedIn = useSelector((state) => state.auth.isLogedIn);
 
-  console.log('match', match);
+  const onClickEdit = (event) => {
+    event.preventDefault();
+    setIsShowModal(!isShowModal);
+  };
 
   useEffect(() => {
-    if (uid) {
-      dispatch(getUserRequest(uid));
+    if (!isLogedIn) {
+      history.push(constants.HOME);
     }
-  }, [uid]);
+  }, [isLogedIn]);
 
   useEffect(() => {
     if (user?.first_name && user?.last_name) {
@@ -46,26 +49,15 @@ const Profile = (props) => {
           </div>
         </header>
         <div>
-          <Link to={`${match.url}/edit`} className="burger-menu_button">
+          <Link to="/" onClick={onClickEdit} className="burger-menu_button">
             Редактировать данные
           </Link>
         </div>
       </div>
       <Footer />
+      <EditModal isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
     </>
   );
-};
-
-Profile.propTypes = {
-  match: {
-    params: {
-      token: PropTypes.string.isRequired,
-    },
-  },
-};
-
-Profile.defaultProps = {
-  match: {},
 };
 
 export default memo(Profile);
