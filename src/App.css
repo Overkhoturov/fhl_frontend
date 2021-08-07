@@ -88,7 +88,7 @@ img {
 }
 
 .main {
-  min-height: calc(100vh - 250px);
+  min-height: calc(100vh - 192px);
 }
 
 .main-title {
@@ -102,6 +102,9 @@ img {
 }
 
 @media (min-width: 768px) {
+  .main {
+    min-height: calc(100vh - 135px);
+  }
   .main-title {
     font-size: 35px;
   }

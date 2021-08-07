@@ -1,45 +1,41 @@
 import React, { memo } from 'react';
-import './index.css';
+
 import { Link } from 'react-router-dom';
-import VK from '../svgComponents/Social/Vk';
-import TELEGRAM from '../svgComponents/Social/Telegram';
-import INSTAGRAM from '../svgComponents/Social/Instagram';
-import YOUTUBE from '../svgComponents/Social/Youtube';
+import InstagramIcon from '../Social/Instagram';
+import VkIcon from '../Social/Vk';
+import YoutubeIcon from '../Social/Youtube';
+
+import './index.scss';
 
 const FOOTER = () => (
   <footer className="footer">
-    <div className="container">
+    <div className="container footer-container">
 
       <ul className="footer-menu">
         <li className="footer-menu__item">
-          <Link className="footer-menu__link" to="#Турниры">Турниры</Link>
+          <Link to="/" className="footer-menu__link">Главная</Link>
         </li>
         <li className="footer-menu__item">
-          <Link className="footer-menu__link" to="#Игроки">Игроки</Link>
+          <Link to="players" className="footer-menu__link">Игроки</Link>
         </li>
         <li className="footer-menu__item">
-          <Link className="footer-menu__link" to="#Клубы">Клубы</Link>
+          <Link to="toclubs" className="footer-menu__link">Клубы</Link>
         </li>
         <li className="footer-menu__item">
-          <Link className="footer-menu__link" to="#Поддержать">Поддержать</Link>
+          <Link to="todanate" className="footer-menu__link">Поддержать</Link>
         </li>
-
-        <li className="footer-menu__item footer-menu__item--social">
-          <Link className="footer-menu__social vk-icon" to="#vk">
-            <VK />
-          </Link>
-          <Link className="footer-menu__social telegram-icon" to="#telegram">
-            <TELEGRAM />
-          </Link>
-          <Link className="footer-menu__social youtube-icon" to="#youtube">
-            <YOUTUBE />
-          </Link>
-          <Link className="footer-menu__social instagram-icon" to="#instagram">
-            <INSTAGRAM />
-          </Link>
-        </li>
-
       </ul>
+      <div className="footer-social">
+        <a className="footer-social__link" href="https://vk.com/firehorn" target="_blank" rel="noreferrer">
+          <VkIcon />
+        </a>
+        <a className="footer-social__link" href="https://www.youtube.com/channel/UChaA9krZaM5qgR6-u0YE2pAe" target="_blank" rel="noreferrer">
+          <YoutubeIcon />
+        </a>
+        <a className="footer-social__link" href="https://www.instagram.com/firehornleague/" target="_blank" rel="noreferrer">
+          <InstagramIcon />
+        </a>
+      </div>
     </div>
   </footer>
 );
