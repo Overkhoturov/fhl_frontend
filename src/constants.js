@@ -43,7 +43,6 @@ export default {
   TOURNAMENTS_TABS: [
     { text: 'сетка', name: 'challonge_link' },
     { text: 'составы', name: 'teams' },
-    { text: 'расписание', name: 'schedule' },
     { text: 'регламент', name: 'regulations' },
     { text: 'фотогалерея', name: 'photos' },
   ],

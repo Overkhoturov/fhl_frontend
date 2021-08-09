@@ -12,7 +12,6 @@ import formatTime from '../../utils/formatTime';
 
 import TabNet from './TabNet';
 import TabCrews from './TabCrews';
-import TabSchedule from './TabSchedule';
 import TabRegular from './TabRegular';
 import TabPhotos from './TabPhotos';
 import './index.scss';
@@ -21,7 +20,7 @@ import './table.css';
 import constants from '../../constants';
 
 const Tournaments = memo((props) => {
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState('challonge_link');
   const { match } = props;
   const dispatch = useDispatch();
   const tournaments = useSelector((state) => state.tournaments);
@@ -31,7 +30,6 @@ const Tournaments = memo((props) => {
     dispatch(getCurrentTournament(match.params.id));
     dispatch(tournamentsToggleMenu(false));
   }, [match.params.id]);
-
   return (
     <>
       <div className="main">
@@ -59,7 +57,7 @@ const Tournaments = memo((props) => {
                             className={`game-menu__link ${tabIndex === currentTab && 'active'}`}
                             onClick={(event) => {
                               event.preventDefault();
-                              setCurrentTab(tabIndex);
+                              setCurrentTab(tab.name);
                             }}
                           >
                             {tab.text}
@@ -72,11 +70,12 @@ const Tournaments = memo((props) => {
               </header>
               <main className="main">
                 <div className="container">
-                  {currentTab === 0 && <TabNet challongeLink={currentTournament?.challonge_link} />}
-                  {currentTab === 1 && <TabCrews />}
-                  {currentTab === 2 && <TabSchedule schedule={currentTournament?.schedule} />}
-                  {currentTab === 3 && <TabRegular regulation={currentTournament?.regulations} />}
-                  {currentTab === 4 && <TabPhotos />}
+                  {currentTournament?.challonge_link
+                    ? currentTab === 'challonge_link'
+                    && <TabNet challongeLink={currentTournament?.challonge_link} /> : <TabCrews />}
+                  {currentTab === 'teams' && <TabCrews />}
+                  {currentTab === 'regulations' && <TabRegular regulation={currentTournament?.regulations} />}
+                  {currentTab === 'photos' && <TabPhotos />}
                 </div>
               </main>
             </>
