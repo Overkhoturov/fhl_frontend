@@ -24,6 +24,7 @@
   margin: 0 auto;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   list-style-type: none;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
@@ -43,6 +44,10 @@
   transition: color .3s ease;
 }
 
+.menu__link {
+  border-bottom: 2px solid transparent;
+}
+
 .menu__link path,
 .nav__logo-img path {
   transition: fill .3s ease;
@@ -51,19 +56,27 @@
 .nav__logo:hover,
 .nav__login:hover,
 .menu__link:hover,
-.menu__link:hover path {
-  color: #B7BAD1;
-  fill: #B7BAD1;
+.menu__link:hover path {  
+  color: #fff;
+  fill: #fff;
   cursor: pointer;
+}
+
+.menu__link:hover,
+.menu__link:hover path {  
+  border-bottom: 2px solid #f05700;
 }
 
 .dropdown-menu {
   z-index: 100;
 }
 
+.menu__link.dropdown-toggle:hover {
+  border-bottom: 2px solid transparent;
+}
 
-.menu__link {
-  border: none;
+.menu__link.dropdown-toggle:hover::after {
+  border-top: .3em solid #f05700;
 }
 
 @media (max-width: 767px) {

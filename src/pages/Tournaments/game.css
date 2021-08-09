@@ -23,7 +23,7 @@
 .game-menu__link.active {
   color: #fff;
   text-decoration: none;
-  border-bottom: 4px solid #B7BADF;
+  border-bottom: 4px solid #f05700;
 }
 
 @media (min-width: 1024px) {
