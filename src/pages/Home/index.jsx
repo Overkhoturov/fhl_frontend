@@ -44,7 +44,7 @@ export default memo(() => {
                   style={{ backgroundImage: `url(${CONSTANTS.SERVER}/images/${tournament.banner})` }}
                 />
                 <div className="card__content card__content--game">
-                  <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.id}`} className="card__title">{tournament.name}</Link>
+                  <Link to={`${CONSTANTS.TOURNAMENTS}/${tournament.id}`} className="card__title">{tournament.name.substring(0, 15).concat('...')}</Link>
                   <div className="card__date">{formatTime(tournament.date)}</div>
                 </div>
               </div>
