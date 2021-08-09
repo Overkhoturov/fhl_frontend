@@ -1,27 +1,23 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import './index.scss';
 
 const TabRegular = memo((props) => {
   const { regulation } = props;
-  const showLogo = !regulation;
+  function createMarkup() {
+    return { __html: regulation };
+  }
+
   return (
     <>
-      <h2 className="title-line">
-        Регламент
-      </h2>
-      {showLogo ? (
-        <div className="net-loader">
-          <div className="spinner-border" role="status" />
-          <span>
-            Регламент отсутствует
-          </span>
-        </div>
-      )
-        : (
-          <article className="article">
-            {regulation}
-          </article>
-        )}
+      <div className="container">
+        <h2 className="title-line">
+          Регламент
+        </h2>
+        <article className="article">
+          <div dangerouslySetInnerHTML={createMarkup()} />
+        </article>
+      </div>
     </>
   );
 });

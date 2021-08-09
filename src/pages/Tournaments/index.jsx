@@ -15,7 +15,7 @@ import TabCrews from './TabCrews';
 import TabSchedule from './TabSchedule';
 import TabRegular from './TabRegular';
 import TabPhotos from './TabPhotos';
-import './index.css';
+import './index.scss';
 import './game.css';
 import './table.css';
 import constants from '../../constants';
@@ -75,7 +75,7 @@ const Tournaments = memo((props) => {
                   {currentTab === 0 && <TabNet challongeLink={currentTournament?.challonge_link} />}
                   {currentTab === 1 && <TabCrews />}
                   {currentTab === 2 && <TabSchedule schedule={currentTournament?.schedule} />}
-                  {currentTab === 3 && <TabRegular />}
+                  {currentTab === 3 && <TabRegular regulation={currentTournament?.regulations} />}
                   {currentTab === 4 && <TabPhotos />}
                 </div>
               </main>
