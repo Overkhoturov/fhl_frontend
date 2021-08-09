@@ -87,19 +87,7 @@
       text-align: center;
       color: #B7BADF;
     }
-
-    &--game {
-      &::after {
-        content: "ПОДРОБНЕЕ О ТУРНИРЕ"; 
-      }
-    }
-
-    &--event {
-      &::after {
-        content: "ПОДРОБНЕЕ О СОБЫТИИ";
-      }
-    }
-
+    
     &:hover {
       &::before,
       &::after {
@@ -197,37 +185,5 @@
 
     @media (min-width: 576px) { font-size: 16px; }
     @media (min-width: 1400px) { font-size: 16px; }
-  }
-
-  &__description {
-    display: none;
-
-    @media (min-width: 576px) {
-      margin-top: 24px;
-      margin-bottom: 18px;
-      font-size: 16px;
-    }
-  }
-
-  &__link {
-    display: none;
-
-    @media (min-width: 576px) {
-      display: inline-block;
-      font-size: 18px;
-      line-height: 24px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #fff;
-      border-bottom: 1px solid #fff;
-      transition: color .3s ease, border-color .3s ease;
-    }
-
-    &:hover {
-      @media (min-width: 576px) {
-        color: #B7BADF;
-        border-color: #B7BADF;
-      }
-    }
   }
 }
