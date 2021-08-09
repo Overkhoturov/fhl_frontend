@@ -15,7 +15,7 @@ import TabCrews from './TabCrews';
 import TabSchedule from './TabSchedule';
 import TabRegular from './TabRegular';
 import TabPhotos from './TabPhotos';
-import './index.css';
+import './index.scss';
 import './game.css';
 import './table.css';
 import constants from '../../constants';

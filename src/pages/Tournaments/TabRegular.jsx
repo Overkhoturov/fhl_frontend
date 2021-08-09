@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import './index.css';
+import './index.scss';
 
 const TabRegular = memo((props) => {
   const { regulation } = props;
@@ -15,7 +15,7 @@ const TabRegular = memo((props) => {
           Регламент
         </h2>
         <article className="article">
-          <div className="abc33" dangerouslySetInnerHTML={createMarkup()} />
+          <div dangerouslySetInnerHTML={createMarkup()} />
         </article>
       </div>
     </>
