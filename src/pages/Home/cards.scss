@@ -1,0 +1,233 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 90px auto 50px;
+  margin-top: 45px;
+  margin-bottom: 25px;
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  margin-bottom: 70px;
+  border: none;
+  border-radius: 0;
+  background: #3d3f51;
+  flex-direction: row-reverse;      
+  margin-bottom: 20px;
+  
+  @media (min-width: 576px) {
+    flex-direction: column;
+    width: calc(50% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    min-height: 324px;
+  }
+
+  @media (min-width: 992px) {
+    width: calc(33.33% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 1400px) {
+    width: calc(25% - 30px);	
+    max-width: 500px;
+    min-height: 374px;
+  }
+
+  &__image {
+    position: relative;
+    display: block;	
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    width: 30%;
+    height: auto;
+
+    @media (min-width: 576px) {
+      width: 100%;
+      height: 220px;
+    }
+
+    @media (min-width: 1400px) {
+      width: 100%;       
+      height: 250px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0; 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(36, 38, 50, 0.8);
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      width: 100%;
+      top: 50%; 		
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+      text-align: center;
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      color: #B7BADF;
+    }
+
+    &--game {
+      &::after {
+        content: "ПОДРОБНЕЕ О ТУРНИРЕ"; 
+      }
+    }
+
+    &--event {
+      &::after {
+        content: "ПОДРОБНЕЕ О СОБЫТИИ";
+      }
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        opacity: 1;	
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    color: #fff;	
+    flex-direction: column;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+    border: 0;
+    transition: color .3s ease;
+    font-size: 16px;
+    line-height: 1.2;
+
+    @media (min-width: 576px) {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 992px) { font-size: 16px; }
+
+    @media (min-width: 1400px) {
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    &:hover {
+      color: #B7BADF;
+      text-decoration: none;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding: 24px 55px;
+    background: #3d3f51;
+    text-decoration: none;
+    color: #fff;
+    width: 70%;
+    padding: 20px 15px;
+
+    @media (min-width: 576px) {
+      padding: 15px 20px;
+      width: 100%;
+    }
+
+    &--game {
+      @media (min-width: 576px) { padding: 15px 5px 15px 70px; }
+      @media (min-width: 1400px) { padding: 20px 20px 20px 90px; }
+
+      &::before {
+        content: "";
+        position: absolute;    
+        color: white;
+        background: url(../../assets/img/lighthouse-light.svg);
+        background-size: contain;
+        background-position-y: bottom;
+        background-repeat: no-repeat;
+        content: none;
+
+        @media (min-width: 576px) {
+          content: "";
+          top: -35px;
+          left: 15px;
+          width: 40px;
+          height: 140px;
+        }
+
+        @media (min-width: 1400px) {
+          top: -6px;
+          left: 20px;
+          width: 53px;
+          height: 130px;
+        }
+      }
+    }
+  }
+
+  &__date {
+    font-weight: 600;    
+    color: #B7BAD1;
+    font-size: 14px;
+
+    @media (min-width: 576px) { font-size: 16px; }
+    @media (min-width: 1400px) { font-size: 16px; }
+  }
+
+  &__description {
+    display: none;
+
+    @media (min-width: 576px) {
+      margin-top: 24px;
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+  }
+
+  &__link {
+    display: none;
+
+    @media (min-width: 576px) {
+      display: inline-block;
+      font-size: 18px;
+      line-height: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+      transition: color .3s ease, border-color .3s ease;
+    }
+
+    &:hover {
+      @media (min-width: 576px) {
+        color: #B7BADF;
+        border-color: #B7BADF;
+      }
+    }
+  }
+}
