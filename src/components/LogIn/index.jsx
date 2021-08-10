@@ -81,18 +81,6 @@ const LogInModal = () => {
         <div className="popup__footer">
           <div className="popup__links">
             <div className="popup__label">
-              {'Нет аккаунта? '}
-              <div className="popup__container">
-                <Link
-                  to={CONSTANTS.REGISTRATION}
-                  onClick={() => handleCloseModal()}
-                  className="popup__link"
-                >
-                  Зарегистрироваться
-                </Link>
-              </div>
-            </div>
-            <div className="popup__label">
               <Link
                 className="popup__link"
                 to={CONSTANTS.FORGOT}

@@ -72,7 +72,6 @@ const RegModal = (props) => {
         },
         content: {
           maxWidth: '630px',
-          maxHeight: '375px',
           background: '#3D3F51',
           border: 'none',
           borderRadius: 0,
@@ -122,7 +121,7 @@ const RegModal = (props) => {
           </div>
           <div className="popup__footer">
             <div className="popup__btn-group">
-              <button className="button popup__btn" type="submit">Зарегистрироваться</button>
+              <button className="button popup__btn popup__btn--registration" type="submit">Зарегистрироваться</button>
             </div>
           </div>
         </form>
