@@ -11,6 +11,8 @@ import { getTournaments } from '../../actions/tournaments';
 import './index.css';
 import constants from '../../constants';
 
+import RegModal from '../Registration';
+
 const tournamentStyle = {
   position: 'absolute',
   transform: 'translate3d(285px, 64px, 0px)',
@@ -29,6 +31,7 @@ const Navigation = () => {
   const { allTournaments } = tournaments;
   const { isLogedIn, user } = auth;
   const { showTournamentMenu, showBurgerMenu } = header;
+  const [isShowRegModal, setIsShowRegModal] = useState(false);
 
   useEffect(() => {
     dispatch(tournamentsToggleMenu(false));
@@ -62,6 +65,11 @@ const Navigation = () => {
     return setShowConfirm(true);
   };
 
+  const onClickReg = (event) => {
+    event.preventDefault();
+    setIsShowRegModal(!isShowRegModal);
+  };
+
   const onOpenTournament = (event) => {
     event.preventDefault();
     dispatch(tournamentsToggleMenu(!showTournamentMenu));
@@ -93,17 +101,20 @@ const Navigation = () => {
           <li className="menu__item">
             <Link className="menu__link" to={`${constants.DONATES}`}>Поддержать</Link>
           </li>
-
-          
-          <li className="nav-item menu__item menu__item--login">       
+          <li className="nav-item menu__item menu__item--login">
             {user && (
             <Link to={`${constants.PROFILE}/${user.id}`} className="menu__link">
               {profileName}
             </Link>
             )}
 
-            <Link to="/" className="button button--login" onClick={onClickLog}>              
+            <Link to="/" className="button button--login" onClick={onClickLog}>
               {!isLogedIn ? ' Вход' : ' Выйти'}
+            </Link>
+          </li>
+          <li className="nav-item menu__item menu__item--login">
+            <Link to="/" className="button button--login" onClick={onClickReg}>
+              Регистрация
             </Link>
           </li>
         </ul>
@@ -147,6 +158,7 @@ const Navigation = () => {
         </div>
 
       </Modal>
+      <RegModal isShowRegModal={isShowRegModal} setIsShowRegModal={setIsShowRegModal} />
     </>
   );
 };
