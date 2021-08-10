@@ -1,17 +1,13 @@
 import React, { memo, useState, useEffect } from 'react';
-/* import { Link } from 'react-router-dom'; */
 import { useSelector, useDispatch } from 'react-redux';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
 import { ReactComponent as CloseSvg } from '../../assets/img/close.svg';
-// import { hideModal } from '../../actions/home';
-import { changeStepRegistration, /* loginRequest, */ registrationRequest } from '../../actions/auth';
+import { changeStepRegistration, registrationRequest } from '../../actions/auth';
 import './index.scss';
-/* import CONSTANTS from '../../constants'; */
 
 const RegModal = (props) => {
-  /* const home = useSelector((state) => state.home); */
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
