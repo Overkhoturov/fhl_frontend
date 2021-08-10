@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
 import { ReactComponent as CloseSvg } from '../../assets/img/close.svg';
-import { hideModal } from '../../actions/home';
+// import { hideModal } from '../../actions/home';
 import { changeStepRegistration, /* loginRequest, */ registrationRequest } from '../../actions/auth';
 import './index.scss';
 /* import CONSTANTS from '../../constants'; */
@@ -23,9 +23,6 @@ const RegModal = (props) => {
   const { isShowRegModal, setIsShowRegModal } = props;
 
   const dispath = useDispatch();
-  const handleCloseModal = () => {
-    dispath(hideModal());
-  };
 
   useEffect(() => {
     setIsCorrectPassword(password === repeatPassword);
@@ -54,11 +51,6 @@ const RegModal = (props) => {
     setIsShowRegModal(!isShowRegModal);
   };
 
-  /* const resendEmail = (event) => {
-    event.preventDefault();
-    dispath(registrationRequest({ password, email }));
-  }; */
-
   return (
     <Modal
       isOpen={isShowRegModal}
@@ -84,7 +76,7 @@ const RegModal = (props) => {
         <h5 className="modal-title popup__title">
           РЕГИСТРАЦИЯ
         </h5>
-        <button type="button" className="close" onClick={() => handleCloseModal()}>
+        <button type="button" className="close" onClick={() => setIsShowRegModal(false)}>
           <CloseSvg />
         </button>
       </div>
