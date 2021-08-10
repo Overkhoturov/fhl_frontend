@@ -84,3 +84,25 @@
     font-size: 18px;
   }
 }
+
+@media (max-width: 1023px) {
+  .button--login,
+  .button--registration {
+    width: 100%;
+    padding: 18px 35px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #fff;
+    border: none;
+    background-color: #3d3f51;
+    border-top: 1px solid #fff;
+  }
+
+  .button--login {
+    margin-top: 60px;
+  }
+
+  .button--registration {
+    border-bottom: 1px solid #fff;
+  }
+}
