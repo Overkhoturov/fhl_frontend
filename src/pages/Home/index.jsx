@@ -9,7 +9,7 @@ import formatTime from '../../utils/formatTime';
 import CONSTANTS from '../../constants';
 
 import './banner.scss';
-import './cards.css';
+import './cards.scss';
 
 export default memo(() => {
   const tournaments = useSelector((state) => state.tournaments);
