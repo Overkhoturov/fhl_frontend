@@ -59,7 +59,7 @@ const LogInModal = () => {
             <input
               type="text"
               name="user_email"
-              placeholder="Логин"
+              placeholder="Email"
               className="form-control input popup__input"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
