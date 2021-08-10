@@ -46,7 +46,7 @@ const Tournaments = memo((props) => {
                     {formatTime(currentTournament.date)}
                   </h2>
                   <ul className="game-menu">
-                    {constants.TOURNAMENTS_TABS.map((tab, tabIndex) => {
+                    {constants.TOURNAMENTS_TABS.map((tab) => {
                       if (!currentTournament[tab.name]) {
                         return null;
                       }
@@ -54,7 +54,7 @@ const Tournaments = memo((props) => {
                         <li key={tab.name} className="game-menu__item">
                           <Link
                             to="/"
-                            className={`game-menu__link ${tabIndex === currentTab && 'active'}`}
+                            className={`game-menu__link ${tab.name === currentTab && 'active'}`}
                             onClick={(event) => {
                               event.preventDefault();
                               setCurrentTab(tab.name);
