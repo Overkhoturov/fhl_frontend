@@ -73,8 +73,7 @@
   }
 
   &__title {
-    display: flex;
-    flex-direction: column;
+    display: block;
     border: 0;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
@@ -82,6 +81,9 @@
     font-style: normal;
     font-weight: bold;	
     text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: #fff;
     transition: color .3s ease;
 
@@ -91,7 +93,7 @@
     }
 
     @media (min-width: 1400px) {
-      font-size: 22px;
+      font-size: 20px;
       line-height: 30px;
     }
 
