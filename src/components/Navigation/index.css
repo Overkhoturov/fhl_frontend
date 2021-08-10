@@ -280,12 +280,13 @@
     padding: 0;
   }
 
-  .menu__item--login {
-    margin-left: auto;
+  .menu__item {
+    margin-right: 40px;
   }
 
-  .menu__item:not(:last-child) {
-    margin-right: 40px;
+  .menu__item--login {
+    margin-left: auto;
+    margin-right: 20px;
   }
 
   .menu__link {
@@ -304,9 +305,17 @@
   }
 }
 
-@media (min-width: 1366px) {  
-  .menu__item:not(:last-child) {
+@media (min-width: 1366px) {
+  .menu__item {
     margin-right: 80px;
+  }
+
+  .menu__item--login {
+    margin-right: 20px;
+  }
+
+  .menu__item--registration {
+    margin-right: 40px;
   }
 }
 
@@ -314,6 +323,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .popup__btn--short {
   width: unset;
 }

@@ -47,6 +47,16 @@
   border: 1px solid #cc4a00;
 }
 
+.button--registration {
+  padding: 5px 10px;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+  color: #000;
+  text-transform: none;
+  background: #fff;
+  border: 1px solid #fff;
+}
 
 @media (min-width: 768px) {
   .button {
@@ -65,6 +75,11 @@
   }
 
   .button--login {
+    padding: 8px 16px;
+    font-size: 18px;
+  }
+
+  .button--registration {
     padding: 8px 16px;
     font-size: 18px;
   }

@@ -93,7 +93,7 @@ const Navigation = () => {
             </div>
           </li>
           <li className="menu__item">
-            <Link className="menu__item menu__link" to={`${constants.PLAYERS}`}>Игроки</Link>
+            <Link className="menu__link" to={`${constants.PLAYERS}`}>Игроки</Link>
           </li>
           <li className="menu__item">
             <Link className="menu__link" to={`${constants.CLUBS}`}>Клубы</Link>
@@ -101,7 +101,7 @@ const Navigation = () => {
           <li className="menu__item">
             <Link className="menu__link" to={`${constants.DONATES}`}>Поддержать</Link>
           </li>
-          <li className="nav-item menu__item menu__item--login">
+          <li className="menu__item menu__item--login">
             {user && (
             <Link to={`${constants.PROFILE}/${user.id}`} className="menu__link">
               {profileName}
@@ -112,8 +112,8 @@ const Navigation = () => {
               {!isLogedIn ? ' Вход' : ' Выйти'}
             </Link>
           </li>
-          <li className="nav-item menu__item menu__item--login">
-            <Link to="/" className="button button--login" onClick={onClickReg}>
+          <li className="menu__item menu__item--registration">
+            <Link to="/" className="button button--registration" onClick={onClickReg}>
               Регистрация
             </Link>
           </li>
