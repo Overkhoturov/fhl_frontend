@@ -77,13 +77,13 @@ const RegModal = (props) => {
         </button>
       </div>
       {currentStepRegistration === 0 && (
-        <form onSubmit={submitForm}>
+        <form onSubmit={submitForm} autoComplete="nope">
           <div className="popup__body">
             <div className="form-group mb-3">
               <input
                 className={`form-control input popup__input ${isWrong(email) && isCorrectEmail ? '' : 'input__wrong'}`}
                 type="text"
-                placeholder="Введите почту*"
+                placeholder="Email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value.trim())}
               />
@@ -91,7 +91,7 @@ const RegModal = (props) => {
             <div className="form-group mb-3">
               <input
                 className={`form-control input popup__input ${isWrong(password) ? '' : 'input__wrong'}`}
-                placeholder="Придумайте пароль*"
+                placeholder="Пароль"
                 value={password}
                 type="password"
                 onChange={(event) => setPassword(event.target.value.trim())}
@@ -100,7 +100,7 @@ const RegModal = (props) => {
             <div className="form-group mb-3">
               <input
                 className={`form-control input popup__input ${isWrong(repeatPassword) && isCorrectPassword ? '' : 'input__wrong'}`}
-                placeholder="Повторите пароль*"
+                placeholder="Повторите пароль"
                 value={repeatPassword}
                 type="password"
                 onChange={(event) => setRepeatPassword(event.target.value.trim())}
@@ -108,7 +108,7 @@ const RegModal = (props) => {
             </div>
           </div>
           <div className="popup__footer">
-            <div className="popup__btn-group">
+            <div className="popup__btn-group popup__btn-group--registration">
               <button className="button popup__btn popup__btn--registration" type="submit">Зарегистрироваться</button>
             </div>
           </div>
