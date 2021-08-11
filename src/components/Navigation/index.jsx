@@ -9,6 +9,7 @@ import { showModal } from '../../actions/home';
 import { tournamentsToggleMenu, toggleBurgerMenu } from '../../actions/header';
 import { getTournaments } from '../../actions/tournaments';
 import './index.css';
+import './dropdown.scss';
 import constants from '../../constants';
 
 const tournamentStyle = {
