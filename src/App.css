@@ -221,5 +221,6 @@ a {
 }
 
 .article a:hover {
-  color: #B7BADF;
+  color: currentColor;
+  border-bottom: 2px solid #f05700;
 }
