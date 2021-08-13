@@ -301,7 +301,7 @@
 
   .menu__link {
     font-size: 20px;
-    line-height: 25px;
+    line-height: 1.5;
   }
 
   .dropdown-toggle::after {

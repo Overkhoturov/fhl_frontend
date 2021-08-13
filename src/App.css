@@ -165,6 +165,12 @@ img {
   margin-right: 80px;
 }
 
+@media (max-width: 1023px) {
+  .nav-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
 .table {
   color: #fff;
 }
@@ -221,5 +227,6 @@ a {
 }
 
 .article a:hover {
-  color: #B7BADF;
+  color: currentColor;
+  border-bottom: 2px solid #f05700;
 }

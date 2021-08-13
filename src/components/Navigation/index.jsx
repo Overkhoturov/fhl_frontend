@@ -101,7 +101,8 @@ const Navigation = () => {
           <li className="menu__item">
             <Link className="menu__link" to={`${constants.DONATES}`}>Поддержать</Link>
           </li>
-          <li className="menu__item menu__item--login">
+
+          <li className="nav-item menu__item menu__item--login">
             {user && (
             <Link to={`${constants.PROFILE}/${user.id}`} className="menu__link">
               {profileName}

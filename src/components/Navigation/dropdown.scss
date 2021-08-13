@@ -1,0 +1,26 @@
+.dropdown-menu {
+  margin-top: 5px;
+  border: none;
+  border-radius: 0;  
+  background: #272a33;
+  outline: 1px solid #3d3f51;
+}
+
+.banner .dropdown-menu {
+  background: #3d3f51;
+}
+
+.dropdown-item {
+  color: #fff;
+
+  &:hover, 
+  &:focus {
+    color: #fff;
+    background: #f05700;
+  }
+
+  &:active {
+    background: #cc4a00;
+  }
+}
+

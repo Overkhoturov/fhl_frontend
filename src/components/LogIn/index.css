@@ -63,7 +63,7 @@
   line-height: 23px;
   color: #FFFFFF;
   transition: color .3s ease;
-  border-bottom: solid #B7BADF 2px;
+  border-bottom: 2px solid #B7BADF ;
 }
 
 .popup__links {
@@ -71,17 +71,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
-/*.popup__link::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: #B7BADF;
-  max-width: 330px;
-}*/
 
 .popup__link:hover {
-  color: #B7BADF;
+  color: #FFFFFF;
+  border-bottom: 2px solid #f05700;
 }
 
 .popup__title {
