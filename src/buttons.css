@@ -55,7 +55,7 @@
   color: #000;
   text-transform: none;
   background: #fff;
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
 }
 
 @media (min-width: 768px) {
@@ -95,14 +95,9 @@
     color: #fff;
     border: none;
     background-color: #3d3f51;
-    border-top: 1px solid #fff;
   }
 
-  .button--login {
-    margin-top: 60px;
-  }
-
-  .button--registration {
-    border-bottom: 1px solid #fff;
+  .button--login:hover {
+    border: none;
   }
 }

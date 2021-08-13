@@ -205,6 +205,16 @@
     border-bottom: 1px solid #fff;
   }
 
+  .menu__item--login {
+    margin-top: 60px;
+    border-top: 1px solid #fff;
+  }
+
+  .menu__item--login:hover,
+  .menu__item--registration:hover {
+    border-color: #f05700;
+  }
+
   .menu__item:first-child {
     border-top: 1px solid #fff;
   }
