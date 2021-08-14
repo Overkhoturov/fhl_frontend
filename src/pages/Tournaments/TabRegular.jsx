@@ -10,14 +10,12 @@ const TabRegular = memo((props) => {
 
   return (
     <>
-      <div className="container">
-        <h2 className="title-line">
-          Регламент
-        </h2>
-        <article className="article">
-          <div dangerouslySetInnerHTML={createMarkup()} />
-        </article>
-      </div>
+      <h2 className="title-line">
+        Регламент
+      </h2>
+      <article className="article">
+        <div dangerouslySetInnerHTML={createMarkup()} />
+      </article>
     </>
   );
 });
