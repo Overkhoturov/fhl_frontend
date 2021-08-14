@@ -72,8 +72,9 @@ const Tournaments = memo((props) => {
                 <div className="container">
                   {currentTournament?.challonge_link
                     ? currentTab === 'challonge_link'
-                    && <TabNet challongeLink={currentTournament?.challonge_link} /> : <TabCrews />}
-                  {currentTab === 'teams' && <TabCrews />}
+                    && <TabNet challongeLink={currentTournament?.challonge_link} />
+                    : <TabCrews teams={currentTournament?.teams} />}
+                  {currentTab === 'teams' && <TabCrews teams={currentTournament?.teams} />}
                   {currentTab === 'regulations' && <TabRegular regulation={currentTournament?.regulations} />}
                   {currentTab === 'photos' && <TabPhotos />}
                 </div>
