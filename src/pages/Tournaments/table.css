@@ -17,7 +17,7 @@
 .table__col {
     display: flex;
     flex-direction: column;
-    padding: 18px 30px;    
+    padding: 18px 30px;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     line-height: 23px;
@@ -41,7 +41,7 @@
     color: #B7BADF;
 }
 
-@media (max-width: 767px) {    
+@media (max-width: 767px) {
     .table__row {
         flex-direction: column;
     }
@@ -66,9 +66,9 @@
 }
 
 @media (min-width: 768px) {
-    .table__col--head { 
+    .table__col--head {
         font-size: 18px;
-        line-height: 1.2; 
+        line-height: 1.2;
     }
 
     .table__row {
@@ -88,7 +88,7 @@
 }
 
 @media (min-width: 1024px) {
-    .table__col--head { 
+    .table__col--head {
         font-size: 24px;
         line-height: 1.2;
     }
