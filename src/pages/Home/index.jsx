@@ -8,8 +8,8 @@ import formatTime from '../../utils/formatTime';
 
 import CONSTANTS from '../../constants';
 
-import './banner.css';
-import './cards.css';
+import './banner.scss';
+import './cards.scss';
 
 export default memo(() => {
   const tournaments = useSelector((state) => state.tournaments);
@@ -30,7 +30,7 @@ export default memo(() => {
                 Строчка или даже две с подробностями предстоящего мероприятия или турнира,
                 какие условия у турнира и все такое. Много всего можно написать.
               </p>
-              <Link to={`${CONSTANTS.TOURNAMENTS}/${lastTournament.id}`} className="button banner__btn">Перейти к турниру</Link>
+              <Link to={`${CONSTANTS.TOURNAMENTS}/${lastTournament.id}`} className="banner__btn">Узнать подробнее</Link>
             </div>
           </div>
         </div>

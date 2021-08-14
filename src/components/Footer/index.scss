@@ -1,12 +1,13 @@
 .footer {
-  background-color: #3d3f51;
   padding: 26px 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #3d3f51;
 
   @media (min-width: 768px) {
-    margin-top: 35px;
     display: flex;
-    align-items: center;
+    margin-top: 35px;
     height: 100px;
+    align-items: center;    
   }
 }
 
@@ -22,7 +23,7 @@
   }
 }
 
-.footer-menu{
+.footer-menu {
   display: flex;
   flex-direction: column;
   padding-left: 0;
@@ -36,41 +37,34 @@
   }
 
   &__item {
-    @media (min-width: 768px) {
-      padding-right: 60px;
-      margin: 0;
+    margin-bottom: 10px;
 
-      &:not(:first-child) {
-        margin-top: 0;
-      }
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+      margin-right: 60px;      
     }
 
-    @media (min-width: 992px) {padding-right: 85px;}
-    @media (min-width: 1200px) {padding-right: 105px;}
-    @media (min-width: 1366px) {padding-right: 125px;}
-
+    @media (min-width: 992px) { margin-right: 85px; }
+    @media (min-width: 1200px) { margin-right: 105px; }
+    @media (min-width: 1400px) { margin-right: 125px; }
   }
 
   &__link {
-    border: none;
+    border-bottom: 2px solid transparent;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 25px;
     color: #fff;
     text-decoration: none;
-    transition: color .3s ease;
-
-    @media (min-width: 1366px) {font-size: 20px;}
+    transition: color .3s ease;    
 
     &:hover {
-      color: #b7badf
+      border-bottom: 2px solid #f05700;
+      color: currentColor;      
     }
-  }
 
-  &__swg {
-    width: 2.15em;
-    height: 2em;
+    @media (min-width: 992px) { font-size: 20px; }
   }
 }
 
@@ -81,24 +75,25 @@
   border: none;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
-    margin: 0;
-    position: relative;
-    bottom: 3px;
-    left: 20px;
-  }
-
   &__link {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
     color: #9b9ca8;
-    transition: color .3s ease;
-    margin-top: 14px;
+    transition: background-color .4s ease;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: #fff;
+      background-color: #f05700;
+      outline: none;
     }
 
     &:not(:last-child) {
-      margin-right: 40px;
+      margin-right: 35px;
     }
   }
 }

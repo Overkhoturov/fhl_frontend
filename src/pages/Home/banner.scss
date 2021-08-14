@@ -1,0 +1,107 @@
+.banner {
+  position: relative;
+  background-image: url(../../assets/img/slider/banner.jpg);
+  width: 100%;
+  background-size: cover;
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-position-x: left;
+
+  @media (min-width: 576px) {
+    background-position-x: center;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(19, 20, 28, 0.5);
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 70px;
+
+    @media (min-width: 768px) {     
+      padding-left: 25px;
+      padding-right: 25px;      
+    }
+
+    @media (min-width: 1200px) {     
+      padding-top: 200px;
+    }
+
+    @media (min-width: 1400px) {
+      padding-top: 350px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding: 35px 25px;
+    text-align: center;
+    z-index: 10;
+
+    @media (min-width: 768px) {      
+      padding: 70px 0;     
+    }
+  
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    padding: 0 20px;
+    font-size: 20px;
+    line-height: 1.25;
+
+    @media (min-width: 576px)  { font-size: 30px; }
+    @media (min-width: 768px)  { font-size: 35px; }
+    @media (min-width: 992px)  { font-size: 40px; }
+    @media (min-width: 1200px) { font-size: 50px; }
+    @media (min-width: 1400px) { font-size: 60px; }
+  }
+
+  &__description {
+    max-width: 800px;
+    margin: 0 auto 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+
+    @media (min-width: 768px) { font-size: 18px; }
+    @media (min-width: 992px) { font-size: 20px; }
+  }
+  
+  &__btn {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 5px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;    
+    border-bottom: 3px solid #b7bad1;
+
+    &:hover {
+      color: #fff;
+      border-bottom: 3px solid#f05700;
+    }
+
+    @media (min-width: 576px) { font-size: 18px; }
+    @media (min-width: 768px) { font-size: 22px; }
+    @media (min-width: 992px) { font-size: 25px; }
+  }
+}

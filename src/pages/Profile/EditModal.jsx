@@ -1,14 +1,14 @@
 import React, { memo, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 
 import { changeMainUserInfoRequest } from '../../actions/auth';
-import Header from '../../components/Header';
 import constants from '../../constants';
 
 import './index.css';
 
-export default memo(() => {
+const EditModal = ((props) => {
   const [lastname, setLastname] = useState('');
   const [firstName, setFirstName] = useState('');
   const [phone, setPhone] = useState('');
@@ -21,16 +21,11 @@ export default memo(() => {
   const [rank, setRank] = useState('');
   const [division, setDivision] = useState('');
   // const [submitClicked, setSubmitClicked] = useState(false);
-  const isLogedIn = useSelector((state) => state.auth.isLogedIn);
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
-  const history = useHistory();
   const { ROLES, RANKS, DIVISIONS } = constants;
-  useEffect(() => {
-    if (!isLogedIn) {
-      history.push('/');
-    }
-  }, []);
+  const { isShowModal, setIsShowModal } = props;
+
   useEffect(() => {
     if (user) {
       setFirstName(user.first_name || '');
@@ -73,6 +68,7 @@ export default memo(() => {
       insta_link: instaLink,
       rank: `${rank} ${division}`,
     }));
+    setIsShowModal(false);
   };
   const onChangeAdditionalRoles = (event) => {
     const currentRoles = [...additionRoles];
@@ -86,8 +82,27 @@ export default memo(() => {
   };
 
   return (
-    <>
-      <Header showLoginButton={false} />
+    <Modal
+      isOpen={isShowModal}
+      appElement={document.querySelector('#root')}
+      onRequestClose={() => setIsShowModal(false)}
+      closeTimeoutMS={500}
+      style={{
+        overlay: {
+          backgroundColor: 'rgba(28, 34, 68, 0.5)',
+          zIndex: 1050,
+        },
+        content: {
+          maxWidth: '80vw',
+          maxHeight: '80vh',
+          background: '#3D3F51',
+          border: '1px solid rgba(0,0,0,.2)',
+          borderRadius: '.3rem',
+          padding: 0,
+          margin: 'auto',
+        },
+      }}
+    >
       <form className="registration-form" onSubmit={submitForm}>
         <input
           className="input registration-form__input form-control"
@@ -223,6 +238,18 @@ export default memo(() => {
         </div>
         <button className="button" type="submit">изменить данные</button>
       </form>
-    </>
+    </Modal>
   );
 });
+
+EditModal.propTypes = {
+  isShowModal: PropTypes.bool,
+  setIsShowModal: PropTypes.func,
+};
+
+EditModal.defaultProps = {
+  isShowModal: false,
+  setIsShowModal: null,
+};
+
+export default memo(EditModal);
