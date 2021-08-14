@@ -45,12 +45,13 @@ const RegModal = (props) => {
     setSubmitClicked(true);
     if (!email || !password || !repeatPassword || !isCorrectEmail || !isCorrectPassword) return;
     dispatch(registrationRequest({ password, email }));
-    setIsShowRegModal(!isShowRegModal);
   };
 
   const resendEmail = (event) => {
     event.preventDefault();
     dispatch(registrationRequest({ password, email }));
+    setIsShowRegModal(!isShowRegModal);
+    dispatch(changeStepRegistration(0));
   };
 
   return (
@@ -92,6 +93,7 @@ const RegModal = (props) => {
                 placeholder="Email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value.trim())}
+                autoComplete="nope"
               />
             </div>
             <div className="form-group mb-3">

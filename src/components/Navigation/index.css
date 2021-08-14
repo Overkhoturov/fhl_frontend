@@ -319,7 +319,7 @@
   }
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1400px) {
   .menu__item {
     margin-right: 80px;
   }
@@ -329,7 +329,7 @@
   }
 
   .menu__item--registration {
-    margin-right: 40px;
+    margin-right: 0;
   }
 }
 
