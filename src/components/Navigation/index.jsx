@@ -59,6 +59,7 @@ const Navigation = () => {
 
   const onClickLog = (event) => {
     event.preventDefault();
+    document.activeElement.blur();
     if (!isLogedIn) {
       return dispatch(showModal());
     }
@@ -67,6 +68,7 @@ const Navigation = () => {
 
   const onClickReg = (event) => {
     event.preventDefault();
+    document.activeElement.blur();
     setIsShowRegModal(!isShowRegModal);
   };
 
