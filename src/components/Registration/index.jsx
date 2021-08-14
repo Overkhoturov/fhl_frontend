@@ -82,7 +82,7 @@ const RegModal = (props) => {
           <CloseSvg />
         </button>
       </div>
-      {currentStepRegistration === 1 && (
+      {currentStepRegistration === 0 && (
         <form onSubmit={submitForm} autoComplete="nope">
           <div className="popup__body">
             <div className="form-group mb-3">
@@ -120,7 +120,7 @@ const RegModal = (props) => {
           </div>
         </form>
       )}
-      {currentStepRegistration === 0 && (
+      {currentStepRegistration === 1 && (
         <>
           <div className="popup__body popup__body--confirm">
             <div className="popup__icon--confirm">
