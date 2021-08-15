@@ -59,7 +59,7 @@ const LogInModal = () => {
             <input
               type="text"
               name="user_email"
-              placeholder="Логин"
+              placeholder="Email"
               className="form-control input popup__input"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
@@ -80,18 +80,6 @@ const LogInModal = () => {
         </div>
         <div className="popup__footer">
           <div className="popup__links">
-            <div className="popup__label">
-              {'Нет аккаунта? '}
-              <div className="popup__container">
-                <Link
-                  to={CONSTANTS.REGISTRATION}
-                  onClick={() => handleCloseModal()}
-                  className="popup__link"
-                >
-                  Зарегистрироваться
-                </Link>
-              </div>
-            </div>
             <div className="popup__label">
               <Link
                 className="popup__link"

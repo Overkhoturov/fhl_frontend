@@ -1,0 +1,11 @@
+.popup {
+  &__btn--registration {
+    display: block;
+  }
+
+  &__btn-group--registration {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
