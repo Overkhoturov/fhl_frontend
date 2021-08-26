@@ -1,11 +1,12 @@
-import axios from 'axios';
-
 import { call, put } from 'redux-saga/effects';
+import axios from 'axios';
+import CONSTANTS from '../constants';
 
 import { getPlayersError, getPlayersSuccess } from '../actions/players';
 
 async function getPlayersAxios() {
-  const result = await axios.get('https://iryabuhin.github.io/users/players');
+  const result = await axios.get(`${CONSTANTS.SERVER}/users/players/`);
+  console.log(result);
   return result;
 }
 
@@ -15,7 +16,9 @@ function* getPlayersSaga() {
     const payload = result.data;
     yield put(getPlayersSuccess(payload));
   } catch (error) {
-    yield put(getPlayersError('Ошибка при загрузке игроков'));
+    const { message } = error.response.data;
+    yield put(getPlayersError(message));
   }
 }
+
 export default getPlayersSaga;

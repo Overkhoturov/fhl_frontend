@@ -10,10 +10,11 @@ import { getPlayers } from '../../actions/players';
 
 const Players = memo(() => {
   const dispatch = useDispatch();
-  const { error, loading } = useSelector((state) => state.players);
+  const { players, error, loading } = useSelector((state) => state.players);
 
   useEffect(() => {
     dispatch(getPlayers());
+    console.log(players);
   }, []);
   if (loading) {
     return <div>Загружается...</div>;
@@ -21,7 +22,6 @@ const Players = memo(() => {
   if (error) {
     return <div>Ошибочка</div>;
   }
-
   return (
     <>
       <div className="main">
