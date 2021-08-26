@@ -6,13 +6,16 @@ import {
   AUTH_CHANGE_INFO_REQUEST,
 } from '../action-types/auth';
 import { TOURNAMENTS_GET_CURRENT, TOURNAMENTS_GET_TOURNAMENTS } from '../action-types/tournaments';
+import { PLAYERS_GET_PLAYERS } from '../action-types/players';
 import {
   loginSaga, registrationSaga, forgotPasswordSaga, resetPasswordSaga, confirmEmailSaga, getUserSaga,
   changeMainUserInfoSaga,
 } from './auth';
 import { getTournamentsSaga, getCurrentTournamentSaga } from './pages';
+import getPlayersSaga from './players';
 
 function* rootSaga() {
+  yield takeEvery(PLAYERS_GET_PLAYERS, getPlayersSaga);
   yield takeEvery(AUTH_LOGIN_REQUEST, loginSaga);
   yield takeEvery(AUTH_REGISTRATION_REQUEST, registrationSaga);
   yield takeEvery(TOURNAMENTS_GET_TOURNAMENTS, getTournamentsSaga);
