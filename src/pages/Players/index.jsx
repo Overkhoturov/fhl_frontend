@@ -14,7 +14,6 @@ const Players = memo(() => {
 
   useEffect(() => {
     dispatch(getPlayers());
-    console.log(players);
   }, []);
   if (loading) {
     return <div>Загружается...</div>;
@@ -22,6 +21,15 @@ const Players = memo(() => {
   if (error) {
     return <div>Ошибочка</div>;
   }
+
+  function splitString(stringToSplit) {
+    return stringToSplit.split(' ');
+  }
+
+  players.forEach(
+    (e) => { if (e.additional_roles) { e.additional_roles = splitString(e.additional_roles); } },
+  );
+
   const wholePlayers = players.map((p) => (
     <Player
       id={p.id}
@@ -40,15 +48,15 @@ const Players = memo(() => {
           <h2 className="title-line">
             Игроки
           </h2>
-          <div className="players-table-header">
-            <div className="players-table-subheader">
-              <div className="players-table-subheader__item-first">№</div>
-              <div className="players-table-subheader__item-first">Ник</div>
+          <div className="players">
+            <div className="players__column">
+              <div className="players__column__item-first">№</div>
+              <div className="players__column__item-first">Ник</div>
             </div>
-            <div className="players-table-subheader">
-              <div className="players-table-subheader__item-second">Ранг</div>
-              <div className="players-table-subheader__item-second">Позиция</div>
-              <div className="players-table-subheader__item-second">Доп</div>
+            <div className="players__column">
+              <div className="players__column__item-second">Ранг</div>
+              <div className="players__column__item-second">Позиция</div>
+              <div className="players__column__item-second">Доп</div>
             </div>
           </div>
           {wholePlayers}
