@@ -51,13 +51,13 @@ const Players = memo(() => {
           </h2>
           <div className="players players-header">
             <div className="players__column">
-              <div className="players__column__item-first players__column__id players__column__id-header">№</div>
-              <div className="players__column__item-first players__column__nickname-header">Ник</div>
+              <div className="players__column__item-first players__column__id players__column__id-header players__column__item-header">№</div>
+              <div className="players__column__item-first players__column__nickname-header players__column__item-header">Ник</div>
             </div>
             <div className="players__column">
-              <div className="players__column__item-second">Ранг</div>
-              <div className="players__column__item-second">Позиция</div>
-              <div className="players__column__item-second">Доп</div>
+              <div className="players__column__item-second players__column__item-header">Ранг</div>
+              <div className="players__column__item-second players__column__item-header">Позиция</div>
+              <div className="players__column__item-second players__column__item-header">Доп</div>
             </div>
           </div>
           {wholePlayers}
