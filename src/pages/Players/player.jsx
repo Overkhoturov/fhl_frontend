@@ -63,7 +63,7 @@ import grandmasterSupport from '../../assets/img/ranked-positions/Position_Grand
 const Player = memo((props) => {
   let rankSrc = bgTrompley;
   let mainPos = bgTrompley;
-  let secondPos = bgTrompley;
+  const secondPosList = [];
   switch (props.rank) {
     case 'IRON 1':
     case 'IRON 2':
@@ -77,20 +77,18 @@ const Player = memo((props) => {
         case 'SUPPORT': mainPos = ironSupport; break;
         default:
       }
-      if (props.additional_roles) {
-        props.additional_roles.forEach(
-          (e) => {
-            switch (e) {
-              case 'TOP': secondPos = ironTop; break;
-              case 'JUNGLE': secondPos = ironJungle; break;
-              case 'MID': secondPos = ironMid; break;
-              case 'BOT': secondPos = ironBot; break;
-              case 'SUPPORT': secondPos = ironSupport; break;
-              default:
-            }
-          },
-        );
-      }
+      props.additional_roles.forEach(
+        (e) => {
+          switch (e) {
+            case 'TOP': secondPosList.push(ironTop); break;
+            case 'JUNGLE': secondPosList.push(ironJungle); break;
+            case 'MID': secondPosList.push(ironMid); break;
+            case 'BOT': secondPosList.push(ironBot); break;
+            case 'SUPPORT': secondPosList.push(ironSupport); break;
+            default:
+          }
+        },
+      );
       break;
     case 'BRONZE 1':
     case 'BRONZE 2':
@@ -108,11 +106,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = bronzeTop; break;
-              case 'JUNGLE': secondPos = bronzeJungle; break;
-              case 'MID': secondPos = bronzeMid; break;
-              case 'BOT': secondPos = bronzeBot; break;
-              case 'SUPPORT': secondPos = bronzeSupport; break;
+              case 'TOP': secondPosList.push(bronzeTop); break;
+              case 'JUNGLE': secondPosList.push(bronzeJungle); break;
+              case 'MID': secondPosList.push(bronzeMid); break;
+              case 'BOT': secondPosList.push(bronzeBot); break;
+              case 'SUPPORT': secondPosList.push(bronzeSupport); break;
               default:
             }
           },
@@ -135,11 +133,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = silverTop; break;
-              case 'JUNGLE': secondPos = silverJungle; break;
-              case 'MID': secondPos = silverMid; break;
-              case 'BOT': secondPos = silverBot; break;
-              case 'SUPPORT': secondPos = silverSupport; break;
+              case 'TOP': secondPosList.push(silverTop); break;
+              case 'JUNGLE': secondPosList.push(silverJungle); break;
+              case 'MID': secondPosList.push(silverMid); break;
+              case 'BOT': secondPosList.push(silverBot); break;
+              case 'SUPPORT': secondPosList.push(silverSupport); break;
               default:
             }
           },
@@ -162,11 +160,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = goldTop; break;
-              case 'JUNGLE': secondPos = goldJungle; break;
-              case 'MID': secondPos = goldMid; break;
-              case 'BOT': secondPos = goldBot; break;
-              case 'SUPPORT': secondPos = goldSupport; break;
+              case 'TOP': secondPosList.push(goldTop); break;
+              case 'JUNGLE': secondPosList.push(goldJungle); break;
+              case 'MID': secondPosList.push(goldMid); break;
+              case 'BOT': secondPosList.push(goldBot); break;
+              case 'SUPPORT': secondPosList.push(goldSupport); break;
               default:
             }
           },
@@ -189,11 +187,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = platTop; break;
-              case 'JUNGLE': secondPos = platJungle; break;
-              case 'MID': secondPos = platMid; break;
-              case 'BOT': secondPos = platBot; break;
-              case 'SUPPORT': secondPos = platSupport; break;
+              case 'TOP': secondPosList.push(platTop); break;
+              case 'JUNGLE': secondPosList.push(platJungle); break;
+              case 'MID': secondPosList.push(platMid); break;
+              case 'BOT': secondPosList.push(platBot); break;
+              case 'SUPPORT': secondPosList.push(platJungle); break;
               default:
             }
           },
@@ -216,11 +214,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = diamondTop; break;
-              case 'JUNGLE': secondPos = diamondJungle; break;
-              case 'MID': secondPos = diamondMid; break;
-              case 'BOT': secondPos = diamondBot; break;
-              case 'SUPPORT': secondPos = diamondSupport; break;
+              case 'TOP': secondPosList.push(diamondTop); break;
+              case 'JUNGLE': secondPosList.push(diamondJungle); break;
+              case 'MID': secondPosList.push(diamondMid); break;
+              case 'BOT': secondPosList.push(diamondBot); break;
+              case 'SUPPORT': secondPosList.push(diamondSupport); break;
               default:
             }
           },
@@ -243,11 +241,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = masterTop; break;
-              case 'JUNGLE': secondPos = masterJungle; break;
-              case 'MID': secondPos = masterMid; break;
-              case 'BOT': secondPos = masterBot; break;
-              case 'SUPPORT': secondPos = masterSupport; break;
+              case 'TOP': secondPosList.push(masterTop); break;
+              case 'JUNGLE': secondPosList.push(masterJungle); break;
+              case 'MID': secondPosList.push(masterMid); break;
+              case 'BOT': secondPosList.push(masterBot); break;
+              case 'SUPPORT': secondPosList.push(masterSupport); break;
               default:
             }
           },
@@ -270,11 +268,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = grandmasterTop; break;
-              case 'JUNGLE': secondPos = grandmasterJungle; break;
-              case 'MID': secondPos = grandmasterMid; break;
-              case 'BOT': secondPos = grandmasterBot; break;
-              case 'SUPPORT': secondPos = grandmasterSupport; break;
+              case 'TOP': secondPosList.push(grandmasterTop); break;
+              case 'JUNGLE': secondPosList.push(grandmasterJungle); break;
+              case 'MID': secondPosList.push(grandmasterMid); break;
+              case 'BOT': secondPosList.push(grandmasterBot); break;
+              case 'SUPPORT': secondPosList.push(grandmasterSupport); break;
               default:
             }
           },
@@ -297,11 +295,11 @@ const Player = memo((props) => {
         props.additional_roles.forEach(
           (e) => {
             switch (e) {
-              case 'TOP': secondPos = challengerTop; break;
-              case 'JUNGLE': secondPos = challengerJungle; break;
-              case 'MID': secondPos = challengerMid; break;
-              case 'BOT': secondPos = challengerBot; break;
-              case 'SUPPORT': secondPos = challengerSupport; break;
+              case 'TOP': secondPosList.push(challengerTop); break;
+              case 'JUNGLE': secondPosList.push(challengerJungle); break;
+              case 'MID': secondPosList.push(challengerMid); break;
+              case 'BOT': secondPosList.push(challengerBot); break;
+              case 'SUPPORT': secondPosList.push(challengerSupport); break;
               default:
             }
           },
@@ -311,23 +309,26 @@ const Player = memo((props) => {
     default:
       rankSrc = bgTrompley;
   }
-
   return (
     <div className="players">
       <div className="players__column">
-        <div className="players__column__item-first">{props.id}</div>
-        <div className="players__column__item-first">{props.nickname}</div>
+        <div className="players__column__item-first players__column__id">{props.id}</div>
+        <div className="players__column__item-first">{props.nickname ? props.nickname : props.email}</div>
       </div>
-      <div className="players__column">
+      <div className="players__column ">
         <div className="players__column__item-second">
           <img
-            className="players-img"
+            className="players__column__rank"
             src={rankSrc}
             alt=""
           />
         </div>
-        <div className="players__column__item-second"><img className="players-img" src={mainPos} alt="" /></div>
-        <div className="players__column__item-second"><img className="players-img" src={secondPos} alt="" /></div>
+        <div className="players__column__item-second"><img className="players__column__position" src={mainPos} alt="" /></div>
+        <div className="players__column__item-second">
+          {secondPosList.map(
+            (e) => <img className="players__column__position" src={e} alt="" />,
+          )}
+        </div>
       </div>
     </div>
   );
@@ -339,6 +340,7 @@ Player.propTypes = {
   rank: PropTypes.string,
   main_role: PropTypes.string,
   additional_roles: PropTypes.arrayOf(PropTypes.string),
+  email: PropTypes.string,
 };
 
 Player.defaultProps = {
@@ -347,6 +349,7 @@ Player.defaultProps = {
   rank: PropTypes.string,
   main_role: PropTypes.string,
   additional_roles: null,
+  email: PropTypes.string,
 };
 
 export default Player;

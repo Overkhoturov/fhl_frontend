@@ -16,10 +16,10 @@ const Players = memo(() => {
     dispatch(getPlayers());
   }, []);
   if (loading) {
-    return <div>Загружается...</div>;
+    return <div>Игроки загружаются</div>;
   }
   if (error) {
-    return <div>Ошибочка</div>;
+    return <div>Ошибка при загрузске игроков</div>;
   }
 
   function splitString(stringToSplit) {
@@ -37,6 +37,7 @@ const Players = memo(() => {
       rank={p.rank}
       main_role={p.main_role}
       additional_roles={p.additional_roles}
+      email={p.email}
     />
   ));
 
@@ -48,10 +49,10 @@ const Players = memo(() => {
           <h2 className="title-line">
             Игроки
           </h2>
-          <div className="players">
+          <div className="players players-header">
             <div className="players__column">
-              <div className="players__column__item-first">№</div>
-              <div className="players__column__item-first">Ник</div>
+              <div className="players__column__item-first players__column__id players__column__id-header">№</div>
+              <div className="players__column__item-first players__column__nickname-header">Ник</div>
             </div>
             <div className="players__column">
               <div className="players__column__item-second">Ранг</div>
