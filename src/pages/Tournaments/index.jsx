@@ -20,16 +20,20 @@ import './table.css';
 import constants from '../../constants';
 
 const Tournaments = memo((props) => {
-  const [currentTab, setCurrentTab] = useState('challonge_link');
   const { match } = props;
   const dispatch = useDispatch();
   const tournaments = useSelector((state) => state.tournaments);
   const { currentTournament } = tournaments;
+  const [currentTab, setCurrentTab] = useState('challonge_link');
 
   useEffect(() => {
+    if (!currentTournament?.challonge_link) {
+      setCurrentTab('teams');
+    }
     dispatch(getCurrentTournament(match.params.id));
     dispatch(tournamentsToggleMenu(false));
   }, [match.params.id]);
+
   return (
     <>
       <div className="main">
@@ -70,9 +74,7 @@ const Tournaments = memo((props) => {
               </header>
               <main className="main">
                 <div className="container">
-                  {currentTournament?.challonge_link
-                    ? currentTab === 'challonge_link'
-                    && <TabNet challongeLink={currentTournament?.challonge_link} /> : <TabCrews />}
+                  {currentTab === 'challonge_link' && <TabNet challongeLink={currentTournament?.challonge_link} />}
                   {currentTab === 'teams' && <TabCrews />}
                   {currentTab === 'regulations' && <TabRegular regulation={currentTournament?.regulations} />}
                   {currentTab === 'photos' && <TabPhotos />}

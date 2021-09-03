@@ -1,0 +1,97 @@
+.players-header {
+  display: none;
+}
+
+.players {
+  border-bottom: 1px solid #9b9ca9;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+  @media (min-width: 1400px) {
+  }
+  
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    color: #6b6e79;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.2;
+  
+    @media (min-width: 768px) {
+      flex-direction: row;
+      font-size: 24px;
+    }
+
+    &:first-child {
+      margin-right: 100px;
+    }
+    
+    &__item-first {
+      margin: 18px 10px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+
+      @media (min-width:768px) {
+        width: 90px;
+        height: 57px;
+        margin: 18px 30px;
+      }
+      @media (min-width:1200px) {width: 170px;}
+
+    }
+  
+    &__item-second {
+      margin: 18px 10px;
+      display: flex;
+      flex-direction: row;
+      @media (min-width:768px) {
+        width: 90px;
+        height: 57px;
+        margin: 18px 23px;
+      }
+      @media (min-width:1200px) {width: 170px;}
+    }
+    &__item-header {
+      height: 28px;
+    }
+    &__id {
+      display: none;
+      @media (min-width: 768px) {
+        display: inline-block;
+        width: 21px;
+      }
+    }
+
+    &__id-header {
+      color: #6b6e79;
+      font-weight: bold;
+    }
+
+    &__nickname-header {
+      color: #6b6e79;
+      font-weight: bold;
+    }
+
+    &__rank {
+      width: 50px;
+      height: 58px;
+    }
+
+    &__position {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+  
+  }
+}
