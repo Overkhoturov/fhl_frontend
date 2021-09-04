@@ -53,8 +53,22 @@ export default (state = initialState, action) => {
       return { ...state, currentStepRegistration: action.payload };
     case actionTypes.AUTH_GET_USER_SUCCESS:
       return { ...state, user: action.payload };
-    case actionTypes.AUTH_CHANGE_INFO_SUCCESS:
-      return { ...state, status: true, isShowAlert: true };
+    case actionTypes.AUTH_CHANGE_INFO_SUCCESS: {
+      const curUser = { ...state.user };
+      Object.keys(action.payload).forEach((key) => {
+        let item = action.payload[key];
+        if (key === 'additional_roles') {
+          item = item.join(' ');
+        }
+        curUser[key] = item;
+      });
+      return {
+        ...state,
+        status: true,
+        isShowAlert: true,
+        user: curUser,
+      };
+    }
     case actionTypes.AUTH_CHANGE_INFO_ERROR:
       return { ...state, status: false, isShowAlert: true };
     default:

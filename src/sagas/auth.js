@@ -141,11 +141,8 @@ async function changeMainUserInfoRequest(payload, uid, token) {
 export function* changeMainUserInfoSaga(action) {
   try {
     const { id, token } = yield select((state) => state.auth);
-    console.log('payload', action.payload);
-    const result = yield call(changeMainUserInfoRequest, action.payload, id, token);
-    const payload = result.data;
-    console.log('result', result);
-    yield put(changeMainUserInfoSuccess(payload));
+    yield call(changeMainUserInfoRequest, action.payload, id, token);
+    yield put(changeMainUserInfoSuccess(action.payload));
   } catch (error) {
     // const { message } = error.response.data;
     yield put(changeMainUserInfoError());

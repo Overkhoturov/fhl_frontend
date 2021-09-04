@@ -6,7 +6,6 @@ import EditModal from './EditModal';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-import './index.css';
 import constants from '../../constants';
 
 const Profile = () => {
@@ -46,6 +45,28 @@ const Profile = () => {
             <h2 className="main-date">
               {user?.rank}
             </h2>
+            <div>
+              main role:
+              {user?.main_role}
+            </div>
+            {user?.additional_roles && (
+            <div>
+              additional roles:
+              {user.additional_roles}
+            </div>
+            )}
+            <div>
+              nick:
+              {user?.nick_name}
+            </div>
+            <div>
+              email:
+              {user?.email}
+            </div>
+            <div>
+              city:
+              {user?.city}
+            </div>
           </div>
         </header>
         <div>

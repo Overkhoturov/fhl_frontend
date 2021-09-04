@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { changeMainUserInfoRequest } from '../../actions/auth';
 import constants from '../../constants';
 
-import './index.css';
+import './index.scss';
 
 const EditModal = ((props) => {
   const [lastname, setLastname] = useState('');
@@ -103,7 +103,7 @@ const EditModal = ((props) => {
         },
       }}
     >
-      <form className="registration-form" onSubmit={submitForm}>
+      <form className="edit-form" onSubmit={submitForm}>
         <input
           className="input registration-form__input form-control"
           placeholder="Фамилиия"
