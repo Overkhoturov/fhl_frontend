@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../../components/Header';
@@ -11,10 +11,23 @@ import Player from './player';
 const Players = memo(() => {
   const dispatch = useDispatch();
   const { players, error, loading } = useSelector((state) => state.players);
+  const [validPlayers, setValidPlayers] = useState([]);
 
   useEffect(() => {
     dispatch(getPlayers());
   }, []);
+
+  const isShowPlayer = (player) => {
+    if (!player.nick_name || !player.rank || !player.main_role) {
+      return false;
+    }
+    return true;
+  };
+
+  useEffect(() => {
+    setValidPlayers(players.filter((player) => isShowPlayer(player)));
+  }, [players]);
+
   if (loading) {
     return <div>Игроки загружаются</div>;
   }
@@ -22,24 +35,12 @@ const Players = memo(() => {
     return <div>Ошибка при загрузске игроков</div>;
   }
 
-  function splitString(stringToSplit) {
-    return stringToSplit.split(' ');
-  }
-
-  players.forEach(
-    (e) => { if (e.additional_roles) { e.additional_roles = splitString(e.additional_roles); } },
-  );
-
-  const wholePlayers = players.map((p) => (
-    <Player
-      id={p.id}
-      nickname={p.nick_name}
-      rank={p.rank}
-      main_role={p.main_role}
-      additional_roles={p.additional_roles}
-      email={p.email}
-    />
-  ));
+  const splitString = (stringToSplit) => {
+    if (typeof stringToSplit === 'string') {
+      return stringToSplit.split(' ');
+    }
+    return stringToSplit;
+  };
 
   return (
     <>
@@ -60,7 +61,17 @@ const Players = memo(() => {
               <div className="players__column__item-second players__column__item-header">Доп</div>
             </div>
           </div>
-          {wholePlayers}
+          {validPlayers.map((p, index) => (
+            <Player
+              id={index + 1}
+              nickname={p.nick_name}
+              rank={p.rank}
+              main_role={p.main_role}
+              additional_roles={splitString(p.additional_roles)}
+              email={p.email}
+              key={p.id}
+            />
+          ))}
         </div>
       </div>
       <Footer />

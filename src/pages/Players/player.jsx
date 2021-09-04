@@ -326,7 +326,7 @@ const Player = memo((props) => {
         <div className="players__column__item-second"><img className="players__column__position" src={mainPos} alt="" /></div>
         <div className="players__column__item-second">
           {secondPosList.map(
-            (e) => <img className="players__column__position" src={e} alt="" />,
+            (e) => <img key={e} className="players__column__position" src={e} alt="" />,
           )}
         </div>
       </div>
@@ -339,7 +339,7 @@ Player.propTypes = {
   nickname: PropTypes.string,
   rank: PropTypes.string,
   main_role: PropTypes.string,
-  additional_roles: PropTypes.arrayOf(PropTypes.string),
+  additional_roles: PropTypes.arrayOf(PropTypes.string) || PropTypes.string,
   email: PropTypes.string,
 };
 
