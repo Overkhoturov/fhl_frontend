@@ -51,7 +51,11 @@ const Tournaments = memo((props) => {
                   </h2>
                   <ul className="game-menu">
                     {constants.TOURNAMENTS_TABS.map((tab) => {
-                      if (!currentTournament[tab.name]) {
+                      const item = currentTournament[tab.name];
+                      if (!item) {
+                        return null;
+                      }
+                      if (Array.isArray(item) && !item.length) {
                         return null;
                       }
                       return (
