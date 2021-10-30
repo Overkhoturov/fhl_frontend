@@ -17,7 +17,7 @@ export default memo(({ teams }) => (
           <div className="table__col table__col table__col--3">{team.name}</div>
           <div className="table__col table__col table__col--6">
             {
-              team.crew.map((player) => (
+              team.crew && team.crew.map((player) => (
                 <div key={`${team.id}_${player}`} className="player">
                   {player}
                 </div>
