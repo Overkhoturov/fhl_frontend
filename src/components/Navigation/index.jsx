@@ -103,20 +103,18 @@ const Navigation = () => {
           <li className="menu__item">
             <Link className="menu__link" to={`${constants.DONATES}`}>Поддержать</Link>
           </li>
-          {user ? (
-            <li className="menu__item menu__item--registration">
+          <li className="menu__item menu__item--registration">
+            {user ? (
               <Link to={`${constants.PROFILE}/${user.id}`} className="menu__link">
                 {profileName}
               </Link>
-            </li>
-          )
-            : (
-              <li className="menu__item menu__item--registration">
+            )
+              : (
                 <Link to="/" className="button button--registration" onClick={onClickReg}>
                   Регистрация
                 </Link>
-              </li>
-            )}
+              )}
+          </li>
           <li className="menu__item menu__item--login">
             <Link to="/" className="button button--login" onClick={onClickLog}>
               {!isLogedIn ? ' Вход' : ' Выйти'}
