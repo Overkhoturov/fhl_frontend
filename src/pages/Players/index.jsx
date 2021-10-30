@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import getPlayerImage from '../../utils/getPlayerImage';
 
 import './index.scss';
 import { getPlayers } from '../../actions/players';
@@ -36,7 +37,7 @@ const Players = memo(() => {
   }
 
   const splitString = (stringToSplit) => {
-    if (typeof stringToSplit === 'string') {
+    if (stringToSplit && typeof stringToSplit === 'string') {
       return stringToSplit.split(' ');
     }
     return stringToSplit;
@@ -65,11 +66,13 @@ const Players = memo(() => {
             <Player
               id={index + 1}
               nickname={p.nick_name}
-              rank={p.rank}
-              main_role={p.main_role}
-              additional_roles={splitString(p.additional_roles)}
               email={p.email}
               key={p.id}
+              images={getPlayerImage({
+                rank: p.rank,
+                mainRole: p.main_role,
+                additionalRoles: splitString(p.additional_roles),
+              })}
             />
           ))}
         </div>
