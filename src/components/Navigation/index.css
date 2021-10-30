@@ -205,11 +205,6 @@
     border-bottom: 1px solid #fff;
   }
 
-  .menu__item--login {
-    margin-top: 60px;
-    border-top: 1px solid #fff;
-  }
-
   .menu__item--login:hover,
   .menu__item--registration:hover {
     border-color: #f05700;
@@ -295,12 +290,12 @@
   }
 
   .menu__item--login {
-    margin-left: auto;
-    margin-right: 20px;
+    margin-right: 0;
   }
 
   .menu__item--registration {
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: 20px;
   }
 
   .menu__link {
@@ -325,11 +320,11 @@
   }
 
   .menu__item--login {
-    margin-right: 20px;
+    margin-right: 0;
   }
 
   .menu__item--registration {
-    margin-right: 0;
+    margin-right: 20px;
   }
 }
 
